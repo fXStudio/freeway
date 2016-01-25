@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper
+	namespace="com.freeway.web.mappers.business.SometimesWhenFreeAndNotFreeMapper">
+	<!-- 时免时不免分页数据查询 -->
+	<select id="findByCondition" resultType="SometimesWhenFreeAndNotFree"
+		parameterType="ConditionFiled">
+        <![CDATA[  
+			SELECT * FROM (
+			    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
+			    FROM   free_time_view a
+			    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
+			           AND exitDate > #{beginDate} 
+			           AND exitDate < #{endDate}
+			)
+			WHERE rn > #{start} and rn <= #{limit}
+        ]]>
+	</select>
+	<!-- 时免时不免总数据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+        <![CDATA[  
+		    SELECT COUNT(recordNo)
+		    FROM   free_time_view
+		    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
+		           AND exitDate > #{beginDate} 
+		           AND exitDate < #{endDate}
+        ]]>
+	</select>
+</mapper>

@@ -1,0 +1,61 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
+    background-position: center center;
+}
+
+
+/** Banner Design */
+
+div.login {
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    margin-top: -150px;
+}
+
+div.banner {
+    width: 600px;
+    height: 100%;
+    position: relative;
+    margin: auto auto;
+    top: 12px
+}
+
+div.title {
+    float: left;
+    height: 125px;
+    width: 375px;
+    margin: auto auto;
+    margin-left: 35px;
+    background-image: url(../images/title.png);
+    background-repeat: no-repeat;
+    background-position: 5px 30px
+}
+
+div.logo {
+    float: left;
+    height: 125px;
+    width: 145px;
+    margin: auto auto;
+    margin-left: 5px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: -5px 2px
+}
+
+div.describe {
+    position: absolute;
+    height: 40px;
+    width: 500px;
+    background-image: url(../images/describe.png);
+    background-repeat: no-repeat;
+    background-position: center -28px;
+    top: 125px;
+    left: 45px
+}

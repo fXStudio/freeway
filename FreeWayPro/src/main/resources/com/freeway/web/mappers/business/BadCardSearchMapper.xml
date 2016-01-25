@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.business.BadCardSearchMapper">
+	<!-- 丢卡信息分页数据查询 -->
+	<select id="findByCondition" resultType="CarTrafficRecord"
+		parameterType="ConditionFiled">
+        <![CDATA[  
+			SELECT * FROM (
+			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
+			    FROM   badcard_view a
+			    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
+			           AND REGEXP_LIKE(RTRIM(enteName), #{enteName})
+			           AND enteDate > #{beginDate} 
+			           AND enteDate < #{endDate}
+			)
+			WHERE rn > #{start} and rn <= #{limit}
+        ]]>
+	</select>
+	<!-- 丢卡信息总数据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+        <![CDATA[  
+		    SELECT COUNT(recordNo)
+		    FROM   car_cards_view
+		    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
+		           AND REGEXP_LIKE(RTRIM(enteName), #{enteName})
+		           AND enteDate > #{beginDate} 
+		           AND enteDate < #{endDate}
+        ]]>
+	</select>
+</mapper>

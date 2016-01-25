@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.business.CarTrafficRecordMapper">
+	<!-- 车流量分页数据查询 -->
+	<select id="findByCondition" resultType="CarTrafficRecord"
+		parameterType="ConditionFiled">
+        <![CDATA[  
+			SELECT * FROM (
+			    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
+			    FROM   tracking_view a
+			    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
+			           AND REGEXP_LIKE(RTRIM(exitName), #{exitName})
+			           AND exitDate > #{beginDate} 
+			           AND exitDate < #{endDate}
+			)
+			WHERE rn > #{start} and rn <= #{limit}
+        ]]>
+	</select>
+	<!-- 车流量总数据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+        <![CDATA[  
+		    SELECT COUNT(recordNo)
+		    FROM   tracking_view
+		    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
+		           AND REGEXP_LIKE(RTRIM(exitName), #{exitName})
+		           AND exitDate > #{beginDate} 
+		           AND exitDate < #{endDate}
+        ]]>
+	</select>
+</mapper>

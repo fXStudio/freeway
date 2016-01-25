@@ -1,0 +1,96 @@
+#class .loading-indicator {
+    font-size: 12px;
+    height: 18px;
+}
+
+#header {
+    height: 34px;
+    background-image: url(../images/top.gif);
+    background-repeat: repeat-x;
+    background-position: left center;
+    color: white;
+}
+
+.loading-indicator {
+    font-size: 11px;
+    background-image: url(images/default/grid/loading.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding-left: 20px;
+    height: 18px;
+    text-align: left;
+}
+
+#loading-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    background-color: white;
+}
+
+#loading {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    padding: 2px;
+    z-index: 20001;
+    height: auto;
+}
+
+#loading img {
+    margin-bottom: 5px;
+}
+
+#loading .loading-indicator {
+    background: white;
+    color: #555;
+    font: bold 13px helvetica, arial, tahoma, sans-serif;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    height: auto;
+}
+
+.icon-expand-all {
+    background-image: url(expand-all.gif) !important;
+}
+
+.icon-collapse-all {
+    background-image: url(collapse-all.gif) !important;
+}
+
+a.logout {
+    color: white;
+    font-size: 10pt;
+    padding-left: 20px;
+    margin-top: 65px;
+    text-decoration: none;
+    background-image: url(../images/logout.png) !important;
+    background-repeat: no-repeat;
+}
+
+a.logout:hover {
+    color: #d44027;
+}
+
+.banner {
+    background-image: url(../images/h_logo.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 0px 0px 0px 50px;
+    height: 100%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.banner h3 {
+    margin-top: 8px;
+}
+
+.t_bar {
+    float: right;
+    margin: 8px 10px 0px 0px;
+}

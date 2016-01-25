@@ -1,0 +1,46 @@
+.x-grid3-row-alt {
+    background-color: #f3f9fb;
+}
+
+.fxstudio-window-innerComponent {
+    background: transparent;
+    padding: 10px;
+}
+
+.fxstudio-window-inner-margin3 {
+    margin-top: 3px
+}
+
+.add {
+    background-image: url(../images/add.png) !important;
+}
+
+.del {
+    background-image: url(../images/del.png) !important;
+}
+
+.update {
+    background-image: url(../images/update.png) !important;
+}
+
+.complete .x-tree-node-anchor span {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.tips {
+    color: red;
+    font-size: 8pt;
+    font-style: italic;
+}
+
+.upload-icon {
+    background: url(../images/upload.png) no-repeat 0 0 !important;
+}
+
+.icon-search {
+    background: url(../images/search-trigger.gif) no-repeat 0 0 !important;
+}
+.export-excel {
+    background: url(../images/excel.png) no-repeat 0 0 !important;
+}
