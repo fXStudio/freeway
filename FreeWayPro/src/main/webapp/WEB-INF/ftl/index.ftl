@@ -10,9 +10,9 @@
 	    <title>吉林省高速公路收费稽查管理系统</title>
 	    <!-- WebPage Style Desc -->
 	    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-	    <link rel="stylesheet" type="text/css" href="plugins/ext/resources/css/ext-all.css" />
-	    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-	    <link rel="stylesheet" type="text/css" href="css/login.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="javascript/plugins/ext/resources/css/ext-all.css" />
+	    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="styles/login.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -24,11 +24,11 @@
 	        </div>
 	    </div>
 	    <!-- Load Javascript lib -->
-	    <script src="plugins/ext/adapter/ext/ext-base.js"></script>
-	    <script src="plugins/ext/ext-all.js"></script>
-	    <script src="plugins/ext/fxstudio-form.js"></script>
-	    <script src="plugins/ext/local/ext-lang-zh_CN.js"></script>
-	    <script src="plugins/jquery-1.11.0.min.js"></script>
-	    <script src="modules/login/Login-core.js"></script>
+	    <script src="javascript/plugins/ext/adapter/ext/ext-base.js"></script>
+	    <script src="javascript/plugins/ext/ext-all.js"></script>
+	    <script src="javascript/plugins/ext/fxstudio-form.js"></script>
+	    <script src="javascript/plugins/ext/local/ext-lang-zh_CN.js"></script>
+	    <script src="javascript/plugins/jquery-1.11.0.min.js"></script>
+	    <script src="javascript/modules/login/Login-core.js"></script>
 	</body>
 </html>

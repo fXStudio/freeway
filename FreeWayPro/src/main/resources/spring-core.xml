@@ -16,6 +16,7 @@
     <context:annotation-config />
     <!-- 开启MVC的驱动 -->
     <mvc:annotation-driven />
+    
     <!-- 静态资源的访问路径 -->
     <mvc:resources mapping="/javascript/**" location="/resources/javascript/"/>    
     <mvc:resources mapping="/styles/**" location="/resources/css/"/>    
@@ -31,10 +32,12 @@
             </props>
         </property>
     </bean>
+    
     <!-- 实现rest服务 -->
     <bean id="jacksonMessageConverter"
         class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     </bean>
+    
     <!-- Rest Mapper -->
     <bean
         class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -44,6 +47,7 @@
             </list>
         </property>
     </bean>
+    
     <!-- Template Resolver. -->
     <bean id="viewResolver"
         class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
