@@ -47,9 +47,9 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-        <servlet-name>rest</servlet-name>
-        <url-pattern>/fx/*</url-pattern>
-        <url-pattern>/services/*</url-pattern>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>*.html</url-pattern>
+		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
