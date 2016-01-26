@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.freeway.web.helper.MD5Converter;
 import com.freeway.web.helper.StringHelper;
 import com.freeway.web.mappers.system.SystemGroupMapper;
 import com.freeway.web.mappers.system.SystemUserMapper;
@@ -15,7 +16,6 @@ import com.freeway.web.messages.FeedBackMessage;
 import com.freeway.web.models.SystemGroup;
 import com.freeway.web.models.SystemUser;
 import com.freeway.web.protocal.ConditionFiled;
-import com.freeway.web.security.MD5Util;
 import com.freeway.web.services.system.ISystemUserService;
 
 import tk.mybatis.mapper.entity.Example;
@@ -39,7 +39,7 @@ final class SystemUserService implements ISystemUserService {
 	public FeedBackMessage addOrUpdate(SystemUser user) {
 		if (StringHelper.isNullOrEmpty(user.getSysid())) {
 			user.setSysid(UUID.randomUUID().toString().replaceAll("-", ""));
-			user.setPassword(MD5Util.string2MD5(user.getPassword()));
+			user.setPassword(MD5Converter.string2MD5(user.getPassword()));
 			systemUserMapper.insertSelective(user);
 		} else {
 			// 判断用户是否修改了密码
@@ -50,7 +50,7 @@ final class SystemUserService implements ISystemUserService {
 
 			// 只有在密码被修改的情况下，才能执行密码加密操作
 			if (systemUserMapper.selectByExample(condition).size() == 0) {
-				user.setPassword(MD5Util.string2MD5(user.getPassword()));
+				user.setPassword(MD5Converter.string2MD5(user.getPassword()));
 			}
 			systemUserMapper.updateByPrimaryKey(user);
 		}
@@ -124,7 +124,7 @@ final class SystemUserService implements ISystemUserService {
 		}
 		// 查找特定的用户信息
 		criteria.andEqualTo("username", cf.getUsername());
-		criteria.andEqualTo("password", MD5Util.string2MD5(cf.getPassword()));
+		criteria.andEqualTo("password", MD5Converter.string2MD5(cf.getPassword()));
 
 		return systemUserMapper.selectByExample(condition);
 	}

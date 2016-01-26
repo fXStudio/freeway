@@ -1,4 +1,4 @@
-package com.freeway.web.security;
+package com.freeway.web.helper;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  * 
  * @author FXStudio.Ajaxfan
  */
-public abstract class MD5Util {
+public abstract class MD5Converter {
 	/** MD5加密的基准数 */
 	private static final int BASE_NUM = 16;
 	/** MD5加密比对的参照数 */
