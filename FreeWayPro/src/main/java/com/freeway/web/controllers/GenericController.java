@@ -30,11 +30,14 @@ public class GenericController {
 	 */
 	@RequestMapping(value = "{path}")
 	public String disp(HttpServletRequest request, @PathVariable(value = "path") String path) {
-		// 用户没有登录
-		if (request.getSession().getAttribute("freeWayUser") == null) {
-			return "redirect:/";
-		}
-		return path;
+		System.out.println(path);
+		
+		return "index";
+//		// 用户没有登录
+//		if (request.getSession().getAttribute("freeWayUser") == null) {
+//			return "redirect:/";
+//		}
+//		return path;
 	}
 
 	/**
