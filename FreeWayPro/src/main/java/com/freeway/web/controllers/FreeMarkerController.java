@@ -18,6 +18,7 @@ import com.freeway.web.freemarkers.components.inters.IFreeMarkerParser;
  * @author Ajaxfan
  */
 @Controller
+@RequestMapping(method = RequestMethod.GET)
 public class FreeMarkerController {
 	private @Autowired IFreeMarkerParser freeMarkerParser;
 
@@ -55,8 +56,8 @@ public class FreeMarkerController {
 	 *            模型对象
 	 * @return 要加载模板名称
 	 */
-	@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
-	public String index(@ModelAttribute("model") ModelMap model) {
+	@RequestMapping(value = { "/", "index" })
+	public String index() {
 		return "index";
 	}
 
@@ -67,8 +68,8 @@ public class FreeMarkerController {
 	 *            模型对象
 	 * @return 要加载模板名称
 	 */
-	@RequestMapping(value = "main", method = RequestMethod.GET)
-	public String main(@ModelAttribute("model") ModelMap model) {
+	@RequestMapping(value = "main")
+	public String main() {
 		return "main";
 	}
 
@@ -79,8 +80,8 @@ public class FreeMarkerController {
 	 *            模型对象
 	 * @return 要加载模板名称
 	 */
-	@RequestMapping(value = "describe", method = RequestMethod.GET)
-	public String describe(@ModelAttribute("model") ModelMap model) {
+	@RequestMapping(value = "describe")
+	public String describe() {
 		return "describe";
 	}
 }
