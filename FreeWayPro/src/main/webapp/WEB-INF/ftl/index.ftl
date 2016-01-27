@@ -14,10 +14,10 @@
 	    <title>吉林省高速公路收费稽查管理系统</title>
 
 	    <!-- WebPage Style Desc -->
-	    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-	    <link rel="stylesheet" type="text/css" href="javascript/plugins/ext/resources/css/ext-all.css" />
-	    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
-	    <link rel="stylesheet" type="text/css" href="styles/login.css" rel="stylesheet">
+	    <link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
+	    <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
+	    <link rel="stylesheet" href="styles/normalize.css">
+	    <link rel="stylesheet" href="styles/login.css" rel="stylesheet">
 	</head>
 	<body>
 	    <div class="login">

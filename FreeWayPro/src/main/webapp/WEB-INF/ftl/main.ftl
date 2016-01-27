@@ -16,9 +16,9 @@
         <title>吉林省高速公路收费稽查管理系统</title>
 
         <!-- WebPage Style Desc -->
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="javascript/plugins/ext/resources/css/ext-all.css" />
-        <link rel="stylesheet" type="text/css" href="styles/docs.css" />
+        <link rel="shortcut icon" type="styles/images/x-icon" href="images/favicon.ico" />
+        <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
+        <link rel="stylesheet" href="styles/docs.css" />
     </head>
     
     <body scroll="no" id="docs">

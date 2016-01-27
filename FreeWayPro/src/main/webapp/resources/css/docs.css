@@ -13,7 +13,7 @@
 
 .loading-indicator {
     font-size: 11px;
-    background-image: url(images/default/grid/loading.gif);
+    background-image: url(../images/default/grid/loading.gif);
     background-repeat: no-repeat;
     background-position: top left;
     padding-left: 20px;
@@ -55,11 +55,11 @@
 }
 
 .icon-expand-all {
-    background-image: url(expand-all.gif) !important;
+    background-image: url(../images/expand-all.gif) !important;
 }
 
 .icon-collapse-all {
-    background-image: url(collapse-all.gif) !important;
+    background-image: url(../images/collapse-all.gif) !important;
 }
 
 a.logout {

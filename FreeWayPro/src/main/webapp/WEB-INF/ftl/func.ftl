@@ -13,12 +13,12 @@
         <meta name="keywords" content="吉林省高速公路收费稽查管理系统,Management,FXStudio"/>
         <meta name="Copyright" content="Copyright fxstudio.com.cn All Rights Reserved."/>
 
-        <title>HotWater WebSite</title>
+        <title>FreeWay WebSite</title>
         
         <!-- WebPage Style Desc -->
         <link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="javascript/plugins/ext/resources/css/ext-all.css" />
-        <link rel="stylesheet" type="text/css" href="styles/hotwater.css" />
+        <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
+        <link rel="stylesheet" href="styles/freeway.css" />
     </head>
 
     <body>
