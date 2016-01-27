@@ -1,0 +1,6 @@
+{
+    "moduleName": "enterCar",
+    "components": [
+        "enterCar-grid"
+    ]
+}

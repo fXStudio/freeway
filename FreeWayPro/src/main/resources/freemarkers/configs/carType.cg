@@ -1,0 +1,6 @@
+{
+    "moduleName": "carType",
+    "components": [
+        "carType-grid"
+    ]
+}

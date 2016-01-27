@@ -1,0 +1,6 @@
+{
+    "moduleName": "changeCard",
+    "components": [
+        "changeCard-grid"
+    ]
+}

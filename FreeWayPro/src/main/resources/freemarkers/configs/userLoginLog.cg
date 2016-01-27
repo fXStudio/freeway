@@ -1,0 +1,6 @@
+{
+    "moduleName": "userLoginLog",
+    "components": [
+        "userLoginLog-grid"
+    ]
+}

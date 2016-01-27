@@ -1,0 +1,6 @@
+{
+    "moduleName": "mdBadCard",
+    "components": [
+        "mdBadCard-grid"
+    ]
+}

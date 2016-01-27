@@ -1,0 +1,6 @@
+{
+    "moduleName": "tollCollector",
+    "components": [
+        "tollCollector-grid"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "moduleName": "longDistance",
+    "components": [
+        "longDistance-grid"
+    ]
+}

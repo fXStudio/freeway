@@ -1,0 +1,6 @@
+{
+    "moduleName": "freeTime",
+    "components": [
+        "freeTime-grid"
+    ]
+}

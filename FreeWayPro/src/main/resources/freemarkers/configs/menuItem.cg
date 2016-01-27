@@ -1,0 +1,8 @@
+{
+    "moduleName": "menuItem",
+    "components": [
+        "MenuItem-grid",
+        "MenuItem-window",
+        "MenuItem-event-handler"
+    ]
+}

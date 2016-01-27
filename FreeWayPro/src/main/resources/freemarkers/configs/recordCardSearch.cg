@@ -1,0 +1,6 @@
+{
+    "moduleName": "recordCardSearch",
+    "components": [
+        "recordCardSearch-grid"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "moduleName": "badCardSearch",
+    "components": [
+        "badCardSearch-grid"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "moduleName": "menu",
+    "components": [
+        "Menu-grid",
+        "Menu-window",
+        "Menu-event-handler"
+    ]
+}

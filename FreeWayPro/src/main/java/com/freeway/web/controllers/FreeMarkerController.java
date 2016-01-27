@@ -56,11 +56,11 @@ public class FreeMarkerController {
 	 *            模型对象
 	 * @return 要加载模板名称
 	 */
-	@RequestMapping(value = {"/", "index"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
 	public String index(@ModelAttribute("model") ModelMap model) {
 		return "index";
 	}
-	
+
 	/**
 	 * 系统主页处理器
 	 * 

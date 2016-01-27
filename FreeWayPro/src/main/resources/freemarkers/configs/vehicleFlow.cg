@@ -1,0 +1,6 @@
+{
+    "moduleName": "vehicleFlow",
+    "components": [
+        "vehicleFlow-grid"
+    ]
+}

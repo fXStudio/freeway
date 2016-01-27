@@ -1,0 +1,6 @@
+{
+    "moduleName": "mdRecordCard",
+    "components": [
+        "mdRecordCard-grid"
+    ]
+}
