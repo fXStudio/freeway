@@ -22,7 +22,7 @@ FXTreePanel = function() {
         animate: false, // 不启用树的动画效果
         collapseMode: 'mini', // 收缩模式(最小收起)
         loader: new Ext.tree.TreeLoader({ // 从指定路径中加载tree信息
-            dataUrl: 'service/systemMenuList',
+            dataUrl: 'services/systemMenuList',
             listeners: {
                 load: function(f, node, response) {
                     // 展开所有节点，因为extjs的树在初始化时子节点并没有注册到dom中
@@ -228,7 +228,7 @@ Ext.extend(MainPanel, Ext.TabPanel, {
 
 Ext.onReady(function() {
     // 排除Mask文件无法正常显示的问题
-    Ext.BLANK_IMAGE_URL = "../plugins/ext/resources/images/default/s.gif";
+    Ext.BLANK_IMAGE_URL = "javascript/plugins/ext/resources/images/default/s.gif";
     // 使Tip提示可用
     Ext.QuickTips.init();
     // 在控件右边显示错误提示

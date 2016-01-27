@@ -1,8 +1,7 @@
 /*!
  * 异常原因汇总
  */
-Ext
-		.onReady(function() {
+Ext.onReady(function() {
 			// 排除Mask文件无法正常显示的问题
 			Ext.BLANK_IMAGE_URL = "javascript/plugins/ext/resources/images/default/s.gif";
 			// 使Tip提示可用
@@ -16,34 +15,36 @@ Ext
 				root : 'items', // 返回的json串中，用来存放菜单项信息的数据
 				idProperty : 'recordNo', // 行标识
 				autoDestroy : true, // 数据集自动销毁
-				url : 'services/heavyTruckList', // 数据服务
-				fields: [{ // 数据集字段
-		            name: 'enteName'
-		        }, { // 数据集字段
-		            name: 'exitName'
-		        }, {
-		            name: 'lane'
-		        }, {
-		            name: 'vEnte'
-		        }, {
-		            name: 'vExit'
-		        }, {
-		            name: 'exitDate'
-		        }, {
-		            name: 'enteDate'
-		        }, {
-		            name: 'axisnum'
-		        }, {
-		            name: 'totalweight'
-		        }, {
-		            name: 'ratingweight'
-		        }, {
-		            name: 'actdistance'
-		        }, {
-		            name: 'carIncodeRecognize'
-		        }, {
-		            name: 'carExitcodeRecognize'
-		        }],
+				url : 'services/trackingList', // 数据服务
+				fields : [ { // 数据集字段
+					name : 'enteName'
+				}, { // 数据集字段
+					name : 'exitName'
+				}, {
+					name : 'lane'
+				}, {
+					name : 'vType'
+				}, {
+					name : 'vExit'
+				}, {
+					name : 'exitDate'
+				}, {
+					name : 'enteDate'
+				}, {
+					name : 'axisnum'
+				}, {
+					name : 'totalweight'
+				}, {
+					name : 'ratingweight'
+				}, {
+					name : 'actdistance'
+				}, {
+					name : 'carExitcodeRecognize'
+				}, {
+					name : 'carIncodeRecognize'
+				}, {
+					name : 'icCode'
+				}  ],
 				listeners : {
 					load : function() { // 数据集合默认选中第一行
 						Ext.getCmp("searchField").focus();
@@ -90,12 +91,12 @@ Ext
 									editable : false,
 									value: new Date().add(Date.DAY, 1)
 								},
-								"<span style='margin:0 4px 0 10px;'>车牌号:</span> ",
+								"<span style='margin:0 4px 0 10px;'>卡号:</span> ",
 								new Ext.ux.form.SearchField(
 										{
 											store : store,
 											id : 'searchField',
-											paramName : 'carCode',
+											paramName : 'icCode',
 											onTrigger1Click : function() {
 												if (this.hasSearch) {
 													this.el.dom.value = '';
@@ -105,10 +106,9 @@ Ext
 															.setValue("");
 													var o = {
 														start : 0,
-														limit: 25
+														limit : 25
 													};
-													this.store.baseParams = this.store.baseParams
-															|| {};
+													this.store.baseParams = this.store.baseParams || {};
 													this.store.baseParams[this.paramName] = '';
 													this.store.baseParams["beginDate"] = '';
 													this.store.baseParams["endDate"] = '';
@@ -139,7 +139,7 @@ Ext
 												}
 												var o = {
 													start : 0,
-													limit: 25
+													limit : 25
 												};
 												this.store.baseParams = this.store.baseParams
 														|| {};
@@ -156,61 +156,66 @@ Ext
 						columns : [ new Ext.grid.RowNumberer({ // 行号
 							width : 30
 						}), {
-				            header: '出口口识别车牌',
-				            width: 120,
-				            sortable: true,
-				            dataIndex: 'carExitcodeRecognize'
-				        }, {
-				            header: '入口车型',
-				            width: 70,
-				            sortable: true,
-				            dataIndex: 'vEnte'
-				        }, {
-				            header: '入口站名称',
-				            width: 120,
-				            sortable: true,
-				            dataIndex: 'enteName'
-				        }, {
-				            header: '入口时间',
-				            width: 140,
-				            sortable: true,
-				            dataIndex: 'enteDate'
-				        }, {
-				            header: '出口站名称',
-				            width: 120,
-				            sortable: true,
-				            dataIndex: 'exitName'
-				        }, {
-				            header: '出口车型',
-				            width: 70,
-				            sortable: true,
-				            dataIndex: 'vExit'
-				        }, {
-				            header: '出口时间',
-				            width: 140,
-				            sortable: true,
-				            dataIndex: 'exitDate'
-				        }, {
-				            header: '轴数',
-				            width: 90,
-				            sortable: true,
-				            dataIndex: 'axisnum'
-				        }, {
-				            header: '轴总数',
-				            width: 90,
-				            sortable: true,
-				            dataIndex: 'totalweight'
-				        }, {
-				            header: '轴总重',
-				            width: 90,
-				            sortable: true,
-				            dataIndex: 'ratingweight'
-				        }, {
-				            header: '实际里程',
-				            width: 100,
-				            sortable: true,
-				            dataIndex: 'actdistance'
-				        }],
+							header : '出口识别车牌',
+							width : 120,
+							sortable : true,
+							dataIndex : 'carExitcodeRecognize'
+						}, {
+							header : '入口站名称',
+							width : 120,
+							sortable : true,
+							dataIndex : 'enteName'
+						}, {
+							header : '入口车型',
+							width : 70,
+							sortable : true,
+							dataIndex : 'vEnte'
+						}, {
+							header : '入口时间',
+							width : 140,
+							sortable : true,
+							dataIndex : 'enteDate'
+						}, {
+							header : '出口站名称',
+							width : 120,
+							sortable : true,
+							dataIndex : 'exitName'
+						}, {
+							header : '出口车型',
+							width : 70,
+							sortable : true,
+							dataIndex : 'vExit'
+						}, {
+							header : '出口时间',
+							width : 140,
+							sortable : true,
+							dataIndex : 'exitDate'
+						}, {
+							header : '轴数',
+							width : 90,
+							sortable : true,
+							dataIndex : 'axisnum'
+						}, {
+							header : '轴总重',
+							width : 90,
+							sortable : true,
+							dataIndex : 'totalweight'
+						}, {
+							header : '额重',
+							width : 90,
+							sortable : true,
+							dataIndex : 'ratingweight'
+						}, {
+							header : '实际里程',
+							width : 100,
+							sortable : true,
+							dataIndex : 'actdistance'
+						}, {
+							header : '卡号',
+							width : 100,
+							sortable : true,
+							dataIndex : 'icCode'
+						}],
 						bbar : new Ext.PagingToolbar(
 								{ // 表格底部工具条样式
 									pageSize : 25,

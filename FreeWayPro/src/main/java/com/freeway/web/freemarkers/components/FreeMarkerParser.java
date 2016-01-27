@@ -34,7 +34,7 @@ final class FreeMarkerParser implements IFreeMarkerParser {
 	@Cacheable("configs")
 	public Config getConfigs(String cg) {
 		try {
-			return mapper.readValue(ClassLoader.class.getResourceAsStream(MessageFormat.format(PATH_TEMPLATE, cg)),
+			return mapper.readValue(FreeMarkerParser.class.getResourceAsStream(MessageFormat.format(PATH_TEMPLATE, cg)),
 					Config.class);
 		} catch (JsonParseException e) {
 			e.printStackTrace();

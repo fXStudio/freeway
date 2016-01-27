@@ -20,7 +20,7 @@ import com.freeway.web.services.system.ISystemUserService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = { RequestMethod.POST })
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class SystemLoginController {
 	private @Autowired ISystemUserService systemUserService;
 

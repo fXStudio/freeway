@@ -17,7 +17,7 @@ import com.freeway.web.services.business.IWeightEquipmentMalfunctionService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class WeightEquipmentMalfunctionController {
 	private @Autowired IWeightEquipmentMalfunctionService weightEquipmentMalfunctionService;
 

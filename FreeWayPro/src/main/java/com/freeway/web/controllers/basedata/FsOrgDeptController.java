@@ -17,7 +17,7 @@ import com.freeway.web.services.basicdata.IFsOrgDeptService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
+@RequestMapping(value = "services", method = { RequestMethod.POST })
 public class FsOrgDeptController {
 	private @Autowired IFsOrgDeptService fsOrgDeptService;
 
@@ -33,8 +33,8 @@ public class FsOrgDeptController {
 	@RequestMapping(value = "fsOrgDeptList")
 	public Object fsOrgDeptList(HttpServletRequest request) {
 		// 当前登录的用户信息
-		String deptid = ((SystemUser)request.getSession().getAttribute("freeWayUser")).getDepid();
-		
+		String deptid = ((SystemUser) request.getSession().getAttribute("freeWayUser")).getDepid();
+
 		return fsOrgDeptService.findAll(deptid);
 	}
 

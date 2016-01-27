@@ -17,7 +17,7 @@ import com.freeway.web.services.business.ICarTrafficRecordService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class CarTrafficRecordController {
 	private @Autowired ICarTrafficRecordService carTrafficRecordService;
 

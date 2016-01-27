@@ -83,7 +83,7 @@ Ext.extend(SystemDataWindow, Ext.Window, {
             formObj.submit({
                 waitMsg: '数据正在处理请稍后', // 提示信息  
                 waitTitle: '提示', // 标题  
-                url: '../services/systemDataModify', // 请求的url地址  
+                url: 'services/systemDataModify', // 请求的url地址  
                 method: 'POST', // 请求方式  
                 success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
                     Ext.getCmp("grid_id").getStore().reload();

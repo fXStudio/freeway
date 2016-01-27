@@ -17,7 +17,7 @@ import com.freeway.web.services.business.ISometimesWhenFreeAndNotFreeService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class SometimesWhenFreeAndNotFreeController {
 	private @Autowired ISometimesWhenFreeAndNotFreeService sometimesWhenFreeAndNotFreeService;
 

@@ -32,15 +32,6 @@
 	    <script src="javascript/plugins/ext/adapter/ext/ext-base.js"></script>
 	    <script src="javascript/plugins/ext/ext-all.js"></script>
 	    <script src="javascript/plugins/ext/local/ext-lang-zh_CN.js"></script>
-	    <script src="javascript/plugins/ext/fxstudio-form.js"></script>
-    	<script src="javascript/plugins/ext/SearchField.js"></script>
-	    <script src="javascript/plugins/ext/Spotlight.js"></script>
-	    <script src="javascript/plugins/ext/MultiSelect.js"></script>
-	    <script src="javascript/plugins/ext/ItemSelector.js"></script>
-    	<script src="javascript/plugins/ext/Tree-Combobox.js"></script>
-	    <script src="javascript/plugins/ext/DateTimeField/Spinner.js"></script>
-	    <script src="javascript/plugins/ext/DateTimeField/SpinnerField.js"></script>
-	    <script src="javascript/plugins/ext/DateTimeField/DateTimeField.js"></script>
 	    <script src="javascript/plugins/jquery-1.11.0.min.js"></script>
 	    <script src="javascript/modules/login/Login-core.js"></script>
 	</body>

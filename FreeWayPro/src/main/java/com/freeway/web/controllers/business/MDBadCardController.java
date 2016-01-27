@@ -20,7 +20,7 @@ import com.freeway.web.services.business.IMDBadCardService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class MDBadCardController {
 	private @Autowired IMDBadCardService mdBadCardService;
 

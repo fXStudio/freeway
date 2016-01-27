@@ -17,7 +17,7 @@ import com.freeway.web.services.business.IBadCardSearchService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class BadCardSearchController {
 	private @Autowired IBadCardSearchService badCardSearchService;
 

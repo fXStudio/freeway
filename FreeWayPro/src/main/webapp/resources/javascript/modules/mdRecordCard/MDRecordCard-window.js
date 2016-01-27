@@ -5,8 +5,8 @@
  * http://www.sencha.com/license
  */
 Ext.onReady(function() {
-    // 排除Mask文件无法正常显示的问题
-    Ext.BLANK_IMAGE_URL = "../plugins/ext/resources/images/default/s.gif";
+	// 排除Mask文件无法正常显示的问题
+	Ext.BLANK_IMAGE_URL = "javascript/plugins/ext/resources/images/default/s.gif";
     // 使Tip提示可用
     Ext.QuickTips.init();
     // 在控件右边显示错误提示
@@ -64,7 +64,7 @@ Ext.onReady(function() {
                     renderName: 'enteCodeTree',
                     anchor: '90%',
                     tpl: "<tpl for='.'><div style='height:200px'><div id='enteCodeTree'></div></div></tpl>",
-                    treeUrl: "../services/fsOrgDeptList",
+                    treeUrl: "services/fsOrgDeptList",
                     editable: false,
                     allowBlank: true,
                     rootText: "所有收费站",
@@ -148,7 +148,7 @@ Ext.onReady(function() {
                     renderName: 'exitCodeTree',
                     anchor: '90%',
                     tpl: "<tpl for='.'><div style='height:200px'><div id='exitCodeTree'></div></div></tpl>",
-                    treeUrl: "../services/fsOrgDeptList",
+                    treeUrl: "services/fsOrgDeptList",
                     editable: false,
                     allowBlank: true,
                     rootText: "所有收费站",
@@ -206,7 +206,7 @@ Ext.onReady(function() {
                 formObj.submit({
                     waitMsg: '数据正在处理请稍后', // 提示信息  
                     waitTitle: '提示', // 标题  
-                    url: '../services/badCardInput', // 请求的url地址  
+                    url: 'services/badCardInput', // 请求的url地址  
                     method: 'POST', // 请求方式  
                     success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
                         window.location.reload();

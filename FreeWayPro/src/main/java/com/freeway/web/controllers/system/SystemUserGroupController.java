@@ -27,7 +27,7 @@ import com.github.pagehelper.PageInfo;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = { RequestMethod.POST })
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class SystemUserGroupController {
 	private @Autowired ISystemGroupService systemGroupService;
 	private @Autowired ISystemUserService systemUserService;

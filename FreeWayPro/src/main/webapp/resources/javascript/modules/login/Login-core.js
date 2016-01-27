@@ -72,7 +72,7 @@ Ext.onReady(function() {
                         //      timeout: 5000,//超时时间（单位：毫秒）   
                         //      success:function(data) {   
                         //             if (data.status === "success") {//验证成功      
-                        //                 window.location.href = "fx/main";  
+                        //                 window.location.href = "main";  
                         //             } else if (data.status === "fail") {   
                         //                 Ext.Msg.alert('提示', 'BI系统连接失败', function() {
                         //                     Ext.getCmp('uname').focus(true, 100);
@@ -85,7 +85,7 @@ Ext.onReady(function() {
                         //         });   
                         //      }   
                         // }); 
-                        window.location.href = "fx/main";
+                        window.location.href = "main";
                     },
                     failure: function(form, action) { // 添加失败后，提示用户添加异常
                         Ext.Msg.alert('提示', '系统错误，原因：' + action.result.failureReason, function() {

@@ -20,7 +20,7 @@ import com.github.pagehelper.PageInfo;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class SystemMenuItemController {
 	private @Autowired ISystemMenuItemService systemMenuItemService;
 

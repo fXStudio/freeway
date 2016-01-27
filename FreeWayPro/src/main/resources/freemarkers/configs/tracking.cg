@@ -1,0 +1,6 @@
+{
+    "moduleName": "tracking",
+    "components": [
+        "tracking-grid"
+    ]
+}

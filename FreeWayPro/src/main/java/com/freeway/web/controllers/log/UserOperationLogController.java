@@ -17,7 +17,7 @@ import com.freeway.web.services.log.IUseroprationLogService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class UserOperationLogController {
 	private @Autowired IUseroprationLogService useroprationLogService;
 

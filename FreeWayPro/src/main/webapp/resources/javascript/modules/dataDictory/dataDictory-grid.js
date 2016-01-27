@@ -2,9 +2,8 @@
  * 菜单项维护
  */
 Ext.onReady(function() {
-    // 排除Mask文件无法正常显示的问题
-    Ext.BLANK_IMAGE_URL = "../plugins/ext/resources/images/default/s.gif";
-    // 使Tip提示可用
+	// 排除Mask文件无法正常显示的问题
+	Ext.BLANK_IMAGE_URL = "javascript/plugins/ext/resources/images/default/s.gif";// 使Tip提示可用
     Ext.QuickTips.init();
     // 在控件右边显示错误提示
     Ext.form.Field.prototype.msgTarget = 'side';
@@ -15,7 +14,7 @@ Ext.onReady(function() {
         root: 'items', // 返回的json串中，用来存放菜单项信息的数据
         idProperty: 'sysid', // 行标识
         autoDestroy: true, // 数据集自动销毁
-        url: '../services/systemDataList', // 数据服务
+        url: 'services/systemDataList', // 数据服务
         fields: [{ // 数据集字段
             name: 'dataname'
         }, {

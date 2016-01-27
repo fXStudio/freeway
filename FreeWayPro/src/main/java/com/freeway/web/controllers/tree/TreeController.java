@@ -16,7 +16,7 @@ import com.freeway.web.services.system.ISystemMenuTreeService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = { RequestMethod.POST }, value = "service")
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class TreeController {
 	private @Autowired ISystemMenuTreeService systemMenuTreeService;
 

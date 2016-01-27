@@ -15,7 +15,7 @@ function deleteUserGroup() {
     Ext.MessageBox.confirm('确认删除', '你确定要删除选中记录吗?', function(res) {
         if (res === 'yes') { // 用户确认要执行删除操作
             Ext.Ajax.request({
-                url: '../services/delUserGroup',
+                url: 'services/delUserGroup',
                 params: {
                     sysid: rowId
                 },

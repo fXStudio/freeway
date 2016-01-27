@@ -2,20 +2,20 @@
 
 	<head>
 		<!-- Http Header Infomation -->
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="Content-Language" content="zh-cn" />
-		<meta http-equiv="X-UA-Compatible" content="IE=8" />
-		<meta http-equiv="Expires" content="0">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-control" content="no-cache">
-		<meta http-equiv="Cache" content="no-cache">
-		<meta name="author" content="fxstudio.com.cn" />
-		<meta name="description" content="吉林省高速公路收费稽查管理系统" />
-		<meta name="keywords" content="吉林省高速公路收费稽查管理系统,Management,FXStudio">
-		<meta name="Copyright" content="Copyright fxstudio.com.cn All Rights Reserved." />
-		<title>HotWater WebSite</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Language" content="zh-cn" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache" content="no-cache">
+        <meta name="author" content="fxstudio.com.cn" />
+        <meta name="description" content="吉林省高速公路收费稽查管理系统" />
+        <meta name="keywords" content="吉林省高速公路收费稽查管理系统,Management,FXStudio">
+        <meta name="Copyright" content="Copyright fxstudio.com.cn All Rights Reserved." />
+        <title>吉林省高速公路收费稽查管理系统</title>
+        
 		<!-- WebPage Style Desc -->
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
 		<style>
 		body {
 			background-color: white;

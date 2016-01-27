@@ -17,7 +17,7 @@ import com.freeway.web.services.business.ILoseCardService;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = RequestMethod.POST)
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class LoseCardController {
 	private @Autowired ILoseCardService loseCardService;
 

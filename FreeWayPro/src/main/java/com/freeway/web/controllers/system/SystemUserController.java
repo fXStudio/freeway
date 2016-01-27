@@ -22,7 +22,7 @@ import com.github.pagehelper.PageInfo;
  * @author Ajaxfan
  */
 @RestController
-@RequestMapping(method = { RequestMethod.POST })
+@RequestMapping(value = "services", method = RequestMethod.POST)
 public class SystemUserController {
 	private @Autowired ISystemUserService systemUserService;
 

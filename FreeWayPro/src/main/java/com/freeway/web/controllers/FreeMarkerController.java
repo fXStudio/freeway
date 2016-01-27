@@ -1,14 +1,16 @@
 package com.freeway.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.freeway.web.freemarkers.components.inters.IFreeMarkerParser;
 
 /**
  * 模板引擎拦截器
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class FreeMarkerController {
+	private @Autowired IFreeMarkerParser freeMarkerParser;
+
 	/**
 	 * 捕获系统页面的跳转操作
 	 *
@@ -25,15 +29,10 @@ public class FreeMarkerController {
 	 * @return
 	 */
 	@RequestMapping(value = "{path}")
-	public String disp(HttpServletRequest request, @PathVariable(value = "path") String path) {
-		System.out.println(path);
+	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path) {
+		model.addAttribute("configs", freeMarkerParser.getConfigs(path));
 
-		return "main";
-		// // 用户没有登录
-		// if (request.getSession().getAttribute("freeWayUser") == null) {
-		// return "redirect:/";
-		// }
-		// return path;
+		return "func";
 	}
 
 	/**
@@ -42,7 +41,7 @@ public class FreeMarkerController {
 	 * @return
 	 */
 	@RequestMapping(value = "systemLogout")
-	public String systemLogout(HttpServletRequest request, HttpServletResponse response) {
+	public String systemLogout(HttpServletRequest request) {
 		// 移除用户的登录状态
 		request.getSession().removeAttribute("freeWayUser");
 
@@ -71,5 +70,17 @@ public class FreeMarkerController {
 	@RequestMapping(value = "main", method = RequestMethod.GET)
 	public String main(@ModelAttribute("model") ModelMap model) {
 		return "main";
+	}
+
+	/**
+	 * 系统描述页
+	 * 
+	 * @param model
+	 *            模型对象
+	 * @return 要加载模板名称
+	 */
+	@RequestMapping(value = "describe", method = RequestMethod.GET)
+	public String describe(@ModelAttribute("model") ModelMap model) {
+		return "describe";
 	}
 }
