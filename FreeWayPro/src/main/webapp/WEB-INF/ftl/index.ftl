@@ -14,7 +14,7 @@
 	    <title>吉林省高速公路收费稽查管理系统</title>
 
 	    <!-- WebPage Style Desc -->
-	    <link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
+	    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 	    <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
 	    <link rel="stylesheet" href="styles/normalize.css" />
 	    <link rel="stylesheet" href="styles/login.css" />
@@ -31,5 +31,7 @@
 	    <!-- Load Javascript lib -->
 	    <script src="javascript/extjs/ext-all.js"></script>
 	    <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
+	    <script src="javascript/extra/jquery-1.11.0.min.js"></script>
+        <script src="javascript/modules/login/Login-core.js"></script>
 	</body>
 </html>
