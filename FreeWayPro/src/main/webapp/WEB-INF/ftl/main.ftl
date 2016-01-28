@@ -16,8 +16,8 @@
         <title>吉林省高速公路收费稽查管理系统</title>
 
         <!-- WebPage Style Desc -->
-        <link rel="shortcut icon" type="styles/images/x-icon" href="images/favicon.ico" />
-        <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
+        <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico" />
+        <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
         <link rel="stylesheet" href="styles/docs.css" />
     </head>
     
@@ -38,12 +38,10 @@
         </div>
 
         <!-- Load Javascript lib -->
-        <script type="text/javascript" src="javascript/plugins/ext/adapter/ext/ext-base.js"></script>
-        <script type="text/javascript" src="javascript/plugins/ext/ext-all.js"></script>
-        <script type="text/javascript" src="javascript/plugins/ext/TabCloseMenu.js"></script>
-        <script type="text/javascript" src="javascript/plugins/ext/fxstudio-form.js"></script>
-        <script type="text/javascript" src="javascript/plugins/ext/local/ext-lang-zh_CN.js"></script>
-        <script type="text/javascript" src="javascript/modules/container/Container-core.js"></script>
+        <script src="javascript/extjs/ext-all.js"></script>
+        <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
+        <script src="javascript/config/environment.js"></script>
+        <script src="javascript/modules/container/app.js"></script>
     </body>
 
 </html>

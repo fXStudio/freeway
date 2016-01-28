@@ -114,11 +114,9 @@ Ext.extend(FXTreePanel, Ext.tree.TreePanel, {
 
         var re = new RegExp('^' + text, 'i');
         this.filter.filterBy(function(n) {
-            // return !n.attributes.isClass || re.test(n.text);
             return !n.attributes.leaf || n.text.indexOf(text) > -1;
         });
 
-        // hide empty packages that weren't filtered
         this.hiddenPkgs = [];
         var me = this;
         this.root.cascade(function(n) {

@@ -94,3 +94,8 @@ a.logout:hover {
     float: right;
     margin: 8px 10px 0px 0px;
 }
+
+.tabs {
+    background-image:url(../images/tabs.gif ) !important;
+}
+
