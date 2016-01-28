@@ -15,9 +15,9 @@
 
 	    <!-- WebPage Style Desc -->
 	    <link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
-	    <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
-	    <link rel="stylesheet" href="styles/normalize.css">
-	    <link rel="stylesheet" href="styles/login.css" rel="stylesheet">
+	    <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
+	    <link rel="stylesheet" href="styles/normalize.css" />
+	    <link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body>
 	    <div class="login">
@@ -29,10 +29,7 @@
 	    </div>
 	    
 	    <!-- Load Javascript lib -->
-	    <script src="javascript/plugins/ext/adapter/ext/ext-base.js"></script>
-	    <script src="javascript/plugins/ext/ext-all.js"></script>
-	    <script src="javascript/plugins/ext/local/ext-lang-zh_CN.js"></script>
-	    <script src="javascript/plugins/jquery-1.11.0.min.js"></script>
-	    <script src="javascript/modules/login/Login-core.js"></script>
+	    <script src="javascript/extjs/ext-all.js"></script>
+	    <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
 	</body>
 </html>
