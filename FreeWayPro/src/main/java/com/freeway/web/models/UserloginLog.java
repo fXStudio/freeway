@@ -16,7 +16,7 @@ public class UserloginLog {
 	@GeneratedValue(generator = "UUID")
 	@Id
 	private String sysid;
-	private String username;
+	private String userid;
 	private Timestamp logintime;
 	private String ip;
 
@@ -45,11 +45,11 @@ public class UserloginLog {
 		this.ip = ip;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 }

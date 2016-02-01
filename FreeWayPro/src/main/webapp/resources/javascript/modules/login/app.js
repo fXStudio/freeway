@@ -25,7 +25,7 @@ Ext.application({
 	        bodyPadding: 2,
 	        width: 320,
 	        height: 180,
-	        y: Ext.getBody().getHeight() / 2 + 60,
+//	        y: Ext.getBody().getHeight() / 2 + 60,
 	        layout: 'fit',
 	        items: [new LoginModule.view.Form()]
 	    });
@@ -37,7 +37,7 @@ Ext.application({
    		// 设置登录窗体的居中状态
 	    Ext.EventManager.onWindowResize(function() {
 	    	win.center();// 窗体居中
-	    	win.setPosition(win.getPosition()[0], Ext.getBody().getHeight() / 2 + 60);
+//	    	win.setPosition(win.getPosition()[0], Ext.getBody().getHeight() / 2 + 60);
 	    });
     }
 });

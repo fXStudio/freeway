@@ -17,17 +17,8 @@
 	    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 	    <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
 	    <link rel="stylesheet" href="styles/normalize.css" />
-	    <link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body>
-	    <div class="login">
-	        <div class="banner">
-	            <div class="title"></div>
-	            <div class="logo"></div>
-	            <div class="describe"></div>
-	        </div>
-	    </div>
-	    
 	    <!-- Load Javascript lib -->
 	    <script src="javascript/extjs/ext-all.js"></script>
 	    <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>

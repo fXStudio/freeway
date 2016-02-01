@@ -28,7 +28,7 @@ import com.freeway.web.services.system.ISystemUserService;
 public class SystemLoginController {
 	/** 用户服务接口类 */
 	private @Autowired ISystemUserService systemUserService;
-
+	/** 用户登陆日志服务接口类 */
 	private @Autowired IUserLoginLogService userLoginLogService;
 
 	/**
@@ -38,15 +38,15 @@ public class SystemLoginController {
 	public Object systemLogin(HttpServletRequest request, ConditionFiled cf) {
 		// 检验用户登录信息
 		List<SystemUser> users = systemUserService.findRecords(cf);
+
 		// 如果用户信息不存在，则提示用户错误原因
 		if (users.size() == 0) {
 			return new FeedBackMessage(false, "用户名或密码不正确");
 		}
 		// 用户信息存在Session中
 		request.getSession().setAttribute("freeWayUser", users.get(0));
-
-		// 记录用户的登陆日志
-		writeLog(cf.getUsername(), request.getRemoteAddr());
+		// 记录系统登录日志
+		writeLog(users.get(0).getSysid(), request.getRemoteAddr());
 
 		return new FeedBackMessage(true);
 	}
@@ -60,7 +60,7 @@ public class SystemLoginController {
 	private void writeLog(String username, String ipAddress) {
 		UserloginLog log = new UserloginLog();
 		log.setSysid(UUIDGenerator.random());
-		log.setUsername(username);
+		log.setUserid(username);
 		log.setIp(ipAddress);
 		log.setLogintime(new Timestamp(System.currentTimeMillis()));
 
