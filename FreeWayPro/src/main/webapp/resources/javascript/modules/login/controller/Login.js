@@ -3,7 +3,6 @@
  */
 Ext.define('LoginModule.controller.Login', {
 	extend: 'Ext.app.Controller',
-    views: ['Form'],// 视图控件
     
     // 对于代操作对象的引用
     refs: [
