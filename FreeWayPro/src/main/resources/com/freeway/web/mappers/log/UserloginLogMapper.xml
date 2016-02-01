@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.log.UserloginLogMapper">
+	<!-- 用户登陆日志 -->
+	<select id="findByCondition" resultType="UserloginLog"
+		parameterType="ConditionFiled">
+        <![CDATA[  
+			SELECT * FROM (
+			    SELECT a.sysid, a.logintime, a.ip, b.username, 
+			           row_number() OVER (ORDER BY a.logintime DESC) rn
+                FROM   userlogin_log a inner join system_user b on a.userid = b.sysid
+			    WHERE  REGEXP_LIKE(b.username, #{loginUser})
+			           AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
+			           AND to_char(logintime, 'yyyy/mm/dd') <= #{endDate}
+			)
+			WHERE rn > #{start} and rn <= #{limit}
+        ]]>
+	</select>
+	<!-- 用户登陆日志 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+        <![CDATA[  
+		    SELECT COUNT(a.sysid)
+            FROM   userlogin_log a inner join system_user b on a.userid = b.sysid
+		    WHERE  REGEXP_LIKE(b.username, #{loginUser})
+                   AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
+                   AND to_char(logintime, 'yyyy/mm/dd') <= #{endDate}
+        ]]>
+	</select>
+</mapper>

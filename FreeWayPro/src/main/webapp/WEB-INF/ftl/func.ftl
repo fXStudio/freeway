@@ -16,29 +16,21 @@
         <title>FreeWay WebSite</title>
         
         <!-- WebPage Style Desc -->
-        <link rel="shortcut icon" href="styles/images/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="javascript/plugins/ext/resources/css/ext-all.css" />
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
+        <link rel="stylesheet" href="styles/normalize.css" />
         <link rel="stylesheet" href="styles/freeway.css" />
     </head>
 
     <body>
         <!-- Load Javascript lib -->
-        <script src="javascript/plugins/ext/adapter/ext/ext-base.js"></script>
-        <script src="javascript/plugins/ext/ext-all.js"></script>
-        <script src="javascript/plugins/ext/local/ext-lang-zh_CN.js"></script>
-        <script src="javascript/plugins/ext/fxstudio-form.js"></script>
-        <script src="javascript/plugins/ext/SearchField.js"></script>
-        <script src="javascript/plugins/ext/Spotlight.js"></script>
-        <script src="javascript/plugins/ext/MultiSelect.js"></script>
-        <script src="javascript/plugins/ext/ItemSelector.js"></script>
-        <script src="javascript/plugins/ext/Tree-Combobox.js"></script>
-        <script src="javascript/plugins/ext/DateTimeField/Spinner.js"></script>
-        <script src="javascript/plugins/ext/DateTimeField/SpinnerField.js"></script>
-        <script src="javascript/plugins/ext/DateTimeField/DateTimeField.js"></script>
-        <script src="javascript/plugins/jquery-1.11.0.min.js"></script>
+        <script src="javascript/extjs/ext-all.js"></script>
+        <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
+        <script src="javascript/extra/jquery-1.11.0.min.js"></script>
+        <script src="javascript/config/environment.js"></script>
         
-        <#list model["configs"].components as component>
-            <script src="javascript/modules/${model["configs"].moduleName}/${component}.js"></script>
-        </#list>
+        <#if model["configs"].components??>
+            <script src="javascript/modules/${model["configs"].moduleName}/app.js"></script>
+        </#if>
     </body>
 </html>

@@ -10,21 +10,28 @@ Ext.define('MainModule.controller.TreePanelController', {
 	    	'MainTreePanel': {
         		'itemclick': function (view, record, item, index, e, option) {
                     if (record.get('leaf')) {
-                        Ext.getCmp('doc-body').add({
-                            title: record.get('text'),
-                            id: record.get('id'),
-                            iconCls: 'tabs',
-                            html: '<iframe src=' + record.get('url') + ' width="100%" height="100%"></iframe>',
-                            closable: true,
-                            listeners: {
-                                beforedestroy: function(comp) { // 删除iframe防止浏览器内存泄露
-                                    var ifra = comp.body.dom.firstChild; // 从Dom树种获得iframe对象
-                                    ifra.src = "about:blank"; // Iframe内容置为空
-                                    comp.body.dom.removeChild(ifra); // 从dom树中移除Iframe对象
-                                    comp = ifra = null; // 引用置空以便垃圾回收器清理资源
-                                }
-                            }
-                        }).show();
+                    	var tabPanel = Ext.getCmp('doc-body');
+                        var tabToCheck = tabPanel.getChildByElement(record.get('sn'));
+                        
+                        if(tabToCheck){
+                        	tabPanel.setActiveTab(record.get('sn'));
+                        } else {
+                        	tabPanel.add({
+	                            title: record.get('text'),
+	                            id: record.get('sn'),
+	                            iconCls: 'tabs',
+	                            html: '<iframe src=' + record.get('url') + ' width="100%" height="100%"></iframe>',
+	                            closable: true,
+	                            listeners: {
+	                                beforedestroy: function(comp) { // 删除iframe防止浏览器内存泄露
+	                                    var ifra = comp.body.dom.firstChild; // 从Dom树种获得iframe对象
+	                                    ifra.src = "about:blank"; // Iframe内容置为空
+	                                    comp.body.dom.removeChild(ifra); // 从dom树中移除Iframe对象
+	                                    comp = ifra = null; // 引用置空以便垃圾回收器清理资源
+	                                }
+	                            }
+	                        }).show();
+                        }
                     } else {
                         var expand = record.get('expanded')
                         if (expand) {

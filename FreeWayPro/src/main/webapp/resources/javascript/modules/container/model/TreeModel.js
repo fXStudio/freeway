@@ -3,5 +3,5 @@
  */
 Ext.define('MainModule.model.TreeModel', {
 	extend: 'Ext.data.Model',
-	fields: ['id', 'text', 'leaf', 'url']
+	fields: ['sn', 'text', 'leaf', 'url']
 });

@@ -52,6 +52,7 @@ final class SystemMenuTreeService implements ISystemMenuTreeService {
 			for (SystemMenuMenuitem smmi : getSystemMenuItems(sm.getSysid())) {
 				SystemMenuItem smi = systemMenuItemMapper.selectByPrimaryKey(smmi.getItemid());
 				NormalNode node = new NormalNode();
+				node.setSn(smi.getSysid());
 				node.setText(smi.getItemname());
 				node.setUrl(smi.getItemlink());
 

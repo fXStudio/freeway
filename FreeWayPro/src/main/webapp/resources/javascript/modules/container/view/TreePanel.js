@@ -11,6 +11,5 @@ Ext.define('MainModule.view.TreePanel' ,{
     collapsible: true,
     split: true,
     autoScroll: true,
-    width: 200,
-    store : Ext.create('MainModule.store.TreeStore')
+    width: 200
 });

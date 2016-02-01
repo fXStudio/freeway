@@ -31,6 +31,8 @@ public class ConditionFiled {
 	private int start;
 	/** 显示数量 */
 	private int limit;
+	/** 登陆用户 */
+	private String loginUser = "";
 
 	public String getCarCode() {
 		return carCode + "$";
@@ -124,5 +126,13 @@ public class ConditionFiled {
 
 	public void setLimit(int limit) {
 		this.limit = limit;
+	}
+
+	public String getLoginUser() {
+		return StringHelper.isNullOrEmpty(loginUser) ? "*" : loginUser;
+	}
+
+	public void setLoginUser(String loginUser) {
+		this.loginUser = loginUser;
 	}
 }

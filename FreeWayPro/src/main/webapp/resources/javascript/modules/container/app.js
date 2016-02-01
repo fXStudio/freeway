@@ -12,6 +12,8 @@ Ext.application({
     
     // 应用程序执行器
     launch: function() {
+    	var store = Ext.create('MainModule.store.TreeStore');
+    	
         Ext.create('Ext.container.Viewport', {
             layout: 'border',
             renderTo: Ext.getBody(),
@@ -23,7 +25,10 @@ Ext.application({
                 el: 'header',
                 border: false,
                 margins: '0 0 3 0'
-            }, Ext.widget('MainTreePanel', {region: 'west'}), 
+            }, Ext.widget('MainTreePanel', {
+                   region: 'west', 
+            	   store: store
+    		   }), 
                Ext.widget('MainTabPanel', {region: 'center'})]
         });
     }

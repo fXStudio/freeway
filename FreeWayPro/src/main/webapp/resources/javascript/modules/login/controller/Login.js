@@ -33,6 +33,8 @@ Ext.define('LoginModule.controller.Login', {
                 click: function() {
                     // form表单对象 
                     var formObj = this.getLoginForm().getForm();
+                    // 焦点组件
+                    var usernameField = this.getUsernameField();
 
                     // 检查表单项的录入是否存在问题
                     if (formObj.isValid()) {
@@ -67,11 +69,12 @@ Ext.define('LoginModule.controller.Login', {
                                 window.location.href = "main";
                             },
                             failure: function(form, action) { // 添加失败后，提示用户添加异常
-                                Ext.Msg.alert('提示', '系统错误，原因：' + action.result.failureReason);
+                                Ext.Msg.alert('提示', '系统错误，原因：' + action.result.failureReason, function(){
+                                	usernameField.focus(true, 100);
+                                });
                             }
                         });
                     }
-                    this.getUsernameField().focus(false, 100);
                 }
             }
         })
