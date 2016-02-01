@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.log.UserSchedulerJobLogMapper">
+	<!-- 作业计划执行日志 -->
+	<select id="findByCondition" resultType="UserSchedulerJobLog"
+		parameterType="ConditionFiled">
+        <![CDATA[  
+            SELECT * FROM (
+                SELECT a.*, row_number() OVER (ORDER BY a.log_date DESC) rn 
+                FROM   user_scheduler_job_log a
+                WHERE  lower(job_name) = 'testjob'
+            )
+            WHERE rn > #{start} and rn <= #{limit}
+        ]]>
+	</select>
+	<!-- 作业计划执行日志 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+        <![CDATA[  
+		    SELECT COUNT(log_id) FROM user_scheduler_job_log WHERE lower(job_name) = 'testjob'
+        ]]>
+	</select>
+</mapper>
