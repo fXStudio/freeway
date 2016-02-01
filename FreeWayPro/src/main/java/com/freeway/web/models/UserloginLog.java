@@ -16,10 +16,9 @@ public class UserloginLog {
 	@GeneratedValue(generator = "UUID")
 	@Id
 	private String sysid;
-	private String userid;
+	private String username;
 	private Timestamp logintime;
 	private String ip;
-	private String machine;
 
 	public String getSysid() {
 		return sysid;
@@ -27,14 +26,6 @@ public class UserloginLog {
 
 	public void setSysid(String sysid) {
 		this.sysid = sysid;
-	}
-
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
 	}
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -54,11 +45,11 @@ public class UserloginLog {
 		this.ip = ip;
 	}
 
-	public String getMachine() {
-		return machine;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setMachine(String machine) {
-		this.machine = machine;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }
