@@ -17,5 +17,10 @@ Ext.define('HeavyTruckModule.store.HeavyTruck', {
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

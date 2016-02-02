@@ -17,5 +17,10 @@ Ext.define('CarTypeModule.store.CarType', {
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

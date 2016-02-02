@@ -17,5 +17,10 @@ Ext.define('RecordCardModule.store.RecordCard', {
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

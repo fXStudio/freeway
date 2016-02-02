@@ -17,5 +17,10 @@ Ext.define('AbnormalRecordModule.store.AbnormalRecord', {
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

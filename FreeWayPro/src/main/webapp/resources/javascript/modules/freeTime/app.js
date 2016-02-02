@@ -17,7 +17,8 @@ Ext.application({
         Ext.create('Ext.container.Viewport', {
         	layout: 'fit',
             items: [Ext.create('Ext.grid.Panel', {
-                loadMask: true, // 启用数据加载时的Mask
+                id: 'grid_id',
+            	loadMask: true, // 启用数据加载时的Mask
                 stripeRows: true, // 表格显示斑马线
                 store: store,
                 stateId: 'grid',

@@ -17,5 +17,10 @@ Ext.define('ProcedureLogModule.store.ProcedureLog', {
             idProperty: 'logId',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

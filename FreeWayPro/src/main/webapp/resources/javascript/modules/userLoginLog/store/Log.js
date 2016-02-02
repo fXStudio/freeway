@@ -17,5 +17,10 @@ Ext.define('LoginLogModule.store.Log', {
             idProperty: 'sysid',
             totalProperty: 'totalCount'
         }
+    },
+    listeners: {
+    	load: function() {
+        	Ext.getCmp("grid_id").getSelectionModel().select(0);
+        }
     }
 });

@@ -33,6 +33,10 @@ Ext.application({
     		   }), 
                Ext.widget('MainTabPanel', {region: 'center'})]
         });
+        
+
+        // 禁止整个页面的右键
+        Ext.getDoc().on("contextmenu", function(e) { e.stopEvent(); });
     }
 });
 
