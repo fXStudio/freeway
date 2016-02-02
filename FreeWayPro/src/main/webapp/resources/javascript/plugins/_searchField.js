@@ -11,6 +11,9 @@ Ext.define('Ext.plugins._searchField', {
             this.el.dom.value = '';
             Ext.getCmp("beginDate").setValue("");
             Ext.getCmp("endDate").setValue("");
+            
+            if(Ext.getCmp('dept')){ Ext.getCmp('dept').setValue(""); }
+			
             var o = {
 				start : 0,
                 limit : 25
@@ -19,6 +22,7 @@ Ext.define('Ext.plugins._searchField', {
             proxy.extraParams[this.paramName] = '';
             proxy.extraParams["beginDate"] = '';
             proxy.extraParams["endDate"] = '';
+			this.store.baseParams["exitName"] = '';
             this.store.reload({
                 params: o
             });
@@ -43,6 +47,8 @@ Ext.define('Ext.plugins._searchField', {
         proxy.extraParams[this.paramName] = v;
         proxy.extraParams["beginDate"] = beginDate;
         proxy.extraParams["endDate"] = endDate;
+        if(Ext.getCmp('dept')){ proxy.extraParams["exitName"] = Ext.getCmp('dept').getValue(); }
+        
         this.store.reload({
             params: o
         });

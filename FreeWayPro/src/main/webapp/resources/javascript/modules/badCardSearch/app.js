@@ -21,7 +21,7 @@ Ext.application({
                 stripeRows: true, // 表格显示斑马线
                 store: store,
                 stateId: 'grid',
-                tbar: Ext.create('Ext.plugins.BasicToolbar', {
+                tbar: Ext.create('Ext.plugins.AdvanceToolbar', {
                 	store: store, label: '卡号', paramName: 'icCode'
         		}),
         		columns : [ new Ext.grid.RowNumberer({ // 行号
