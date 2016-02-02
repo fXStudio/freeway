@@ -23,7 +23,7 @@
     background-image: url(../images/update.png) !important;
 }
 
-.complete .x-tree-node-anchor span {
+.complete span.x-tree-node-text  {
     text-decoration: line-through;
     color: #777;
 }

@@ -2,17 +2,16 @@ package com.freeway.web.controllers.system;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.messages.FeedBackMessage;
 import com.freeway.web.models.SystemMenu;
 import com.freeway.web.protocal.ConditionFiled;
@@ -67,7 +66,7 @@ public class SystemMenuController {
 	 */
 	@RequestMapping(value = "menuModify")
 	public FeedBackMessage menuModify(@RequestParam(value = "sysid", required = false, defaultValue = "") String sysid,
-			@RequestParam(value = "items", required = false, defaultValue = "[]") String[] items,
+			@RequestParam(value = "items", required = false, defaultValue = "") String[] items,
 			HttpServletRequest request) {
 		SystemMenu vo = new SystemMenu();
 		vo.setSysid(sysid);
@@ -75,7 +74,7 @@ public class SystemMenuController {
 		vo.setRemark(request.getParameter("remark"));
 
 		if ("".equals(sysid)) {
-			vo.setSysid(UUID.randomUUID().toString().replaceAll("-", ""));
+			vo.setSysid(UUIDGenerator.random());
 			return systemMenuService.add(vo, items);
 		}
 		return systemMenuService.update(vo, items);
@@ -90,8 +89,8 @@ public class SystemMenuController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "menuItemList/{id}")
-	public Object menuItemList(@PathVariable(value = "id") String id) {
+	@RequestMapping(value = "itemList")
+	public Object menuItemList(@RequestParam(value = "id", required = false, defaultValue = "") String id) {
 		return systemMenuService.extratMenus(id);
 	}
 }
