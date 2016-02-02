@@ -1,6 +1,0 @@
-{
-    "moduleName": "databaseProcedureLog",
-    "components": [
-        "abnormalRecord-grid"
-    ]
-}

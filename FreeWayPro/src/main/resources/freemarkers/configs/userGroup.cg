@@ -1,8 +1,0 @@
-{
-    "moduleName": "userGroup",
-    "components": [
-        "UserGroup-grid",
-        "UserGroup-window",
-        "UserGroup-event-handler"
-    ]
-}

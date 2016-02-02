@@ -1,8 +1,0 @@
-{
-    "moduleName": "systemUser",
-    "components": [
-        "SystemUser-grid",
-        "SystemUser-window",
-        "SystemUser-event-handler"
-    ]
-}

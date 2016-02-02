@@ -2,15 +2,12 @@ package com.freeway.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.freeway.web.freemarkers.components.inters.IFreeMarkerParser;
 
 /**
  * 模板引擎拦截器
@@ -20,8 +17,6 @@ import com.freeway.web.freemarkers.components.inters.IFreeMarkerParser;
 @Controller
 @RequestMapping(method = RequestMethod.GET)
 public class FreeMarkerController {
-	private @Autowired IFreeMarkerParser freeMarkerParser;
-
 	/**
 	 * 捕获系统页面的跳转操作
 	 *
@@ -31,7 +26,7 @@ public class FreeMarkerController {
 	 */
 	@RequestMapping(value = "{path}")
 	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path) {
-		model.addAttribute("configs", freeMarkerParser.getConfigs(path));
+		model.addAttribute("modelName", path);
 
 		return "func";
 	}

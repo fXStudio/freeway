@@ -28,8 +28,8 @@
         <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
         <script src="javascript/config/environment.js"></script>
         
-        <#if model["configs"].components??>
-            <script src="javascript/modules/${model["configs"].moduleName}/app.js"></script>
+        <#if model["modelName"]??>
+            <script src="javascript/modules/${model["modelName"]}/app.js"></script>
         </#if>
     </body>
 </html>

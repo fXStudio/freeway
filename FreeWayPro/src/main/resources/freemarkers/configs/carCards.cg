@@ -1,6 +1,0 @@
-{
-    "moduleName": "carCards",
-    "components": [
-        "carCards-grid"
-    ]
-}

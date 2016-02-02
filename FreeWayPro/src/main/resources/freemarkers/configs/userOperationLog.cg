@@ -1,6 +1,0 @@
-{
-    "moduleName": "userOperationLog",
-    "components": [
-        "userOperationLog-grid"
-    ]
-}

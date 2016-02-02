@@ -1,8 +1,0 @@
-{
-    "moduleName": "dataDictory",
-    "components": [
-        "dataDictory-grid",
-        "dataDictory-window",
-        "dataDictory-event-handler"
-    ]
-}

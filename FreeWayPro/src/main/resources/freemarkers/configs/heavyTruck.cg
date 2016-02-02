@@ -1,6 +1,0 @@
-{
-    "moduleName": "heavyTruck",
-    "components": [
-        "heavyTruck-grid"
-    ]
-}
