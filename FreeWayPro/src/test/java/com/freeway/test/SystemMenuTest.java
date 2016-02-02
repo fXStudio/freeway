@@ -14,8 +14,13 @@ public class SystemMenuTest {
 
 		ConditionFiled con = new ConditionFiled();
 		con.setStart(0);
-		con.setLimit(2);
+		con.setLimit(25);
+		con.setJobObjName("test");
+		
 		System.out.println(dao.findRecords(con));
+		
+		System.out.println(con.getJobObjName());
+		
 		context.close();
 	}
 }

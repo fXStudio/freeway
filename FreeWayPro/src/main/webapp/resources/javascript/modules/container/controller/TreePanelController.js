@@ -10,12 +10,13 @@ Ext.define('MainModule.controller.TreePanelController', {
 	    	'MainTreePanel': {
         		'itemclick': function (view, record, item, index, e, option) {
                     if (record.get('leaf')) {
-                    	var tabPanel = Ext.getCmp('doc-body');
-                        var tabToCheck = tabPanel.getChildByElement(record.get('sn'));
+                    	var tabPanel = Ext.getCmp('doc-body');// TabPanel对象
+                        var tabToCheck = tabPanel.getChildByElement(record.get('sn'));// 几点ID
                         
+                        // 如果节点已经打开，则只是激活标签，不在重复开启
                         if(tabToCheck){
                         	tabPanel.setActiveTab(record.get('sn'));
-                        } else {
+                        } else {// 打开一个新的节点标签
                         	tabPanel.add({
 	                            title: record.get('text'),
 	                            id: record.get('sn'),

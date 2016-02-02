@@ -15,22 +15,18 @@ public final class DateHelper {
 	private static DateFormat DATE_FMT = new SimpleDateFormat("yyyy/MM/dd");
 
 	/**
-	 * @return 当月的第一天
+	 * @return 当日
 	 */
 	public static String firstDayOfMonth() {
-		Calendar cal = GregorianCalendar.getInstance();
-		cal.set(Calendar.DATE, 1);
-
-		return DATE_FMT.format(cal.getTime());
+		return DATE_FMT.format(GregorianCalendar.getInstance().getTime());
 	}
 
 	/**
-	 * @return 次月的第一天
+	 * @return 下一天
 	 */
 	public static String firstDayOfNextMonth() {
 		Calendar cal = GregorianCalendar.getInstance();
-		cal.set(Calendar.MONTH, 1);
-		cal.set(Calendar.DATE, 1);
+		cal.add(Calendar.DATE, 1);
 
 		return DATE_FMT.format(cal.getTime());
 	}

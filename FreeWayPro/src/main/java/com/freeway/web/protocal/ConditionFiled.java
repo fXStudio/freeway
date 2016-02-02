@@ -33,6 +33,8 @@ public class ConditionFiled {
 	private int limit;
 	/** 登陆用户 */
 	private String loginUser = "";
+	/** 作业名称 */
+	private String jobObjName = "";
 
 	public String getCarCode() {
 		return carCode + "$";
@@ -135,4 +137,13 @@ public class ConditionFiled {
 	public void setLoginUser(String loginUser) {
 		this.loginUser = loginUser;
 	}
+
+	public String getJobObjName() {
+		return StringHelper.isNullOrEmpty(jobObjName) ? "*" : jobObjName;
+	}
+
+	public void setJobObjName(String jobObjName) {
+		this.jobObjName = jobObjName;
+	}
+
 }

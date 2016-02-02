@@ -1,31 +1,26 @@
 package com.freeway.web.models;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.sql.Timestamp;
 
-import com.sun.jmx.snmp.Timestamp;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 /**
  * 作业执行日志
  * 
  * @author FXStudio.Ajaxfan
  */
-@Table(name = "user_scheduler_job_log")
 public class UserSchedulerJobLog {
 	@Id
-	@Column(name = "log_id")
 	private String logId;
-	@Column(name = "log_date")
 	private Timestamp logDate;
 	private String owner;
-	@Column(name = "job_name")
 	private String jobName;
-	@Column(name = "job_class")
 	private String jobClass;
 	private String operation;
 	private String status;
-	@Column(name = "additional_info")
 	private String additionalInfo;
 
 	public String getLogId() {
@@ -36,6 +31,7 @@ public class UserSchedulerJobLog {
 		this.logId = logId;
 	}
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getLogDate() {
 		return logDate;
 	}

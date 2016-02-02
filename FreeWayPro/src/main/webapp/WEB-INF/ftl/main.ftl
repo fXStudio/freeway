@@ -31,7 +31,7 @@
         </div>
         <!-- 页面头样式-->
         <div id="header">
-            <span class="banner"><h3>吉林省高速公路收费稽查管理系统</h3></span>
+            <span class="banner"><h3>测试系统</h3></span>
             <div class="t_bar">
                 <a href="systemLogout" class="logout">系统登出</a>
             </div>

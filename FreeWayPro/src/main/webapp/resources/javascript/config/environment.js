@@ -3,7 +3,8 @@ Ext.Loader.setConfig({
     enabled: true,
     disableCaching: true,
     paths:{
-    	'Ext.ux': 'javascript/extjs/ux/'
+    	'Ext.ux': 'javascript/extjs/ux/',
+    	'Ext.plugins': 'javascript/plugins'
     }
 });
 

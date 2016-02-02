@@ -26,7 +26,6 @@
         <!-- Load Javascript lib -->
         <script src="javascript/extjs/ext-all.js"></script>
         <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>
-        <script src="javascript/extra/jquery-1.11.0.min.js"></script>
         <script src="javascript/config/environment.js"></script>
         
         <#if model["configs"].components??>

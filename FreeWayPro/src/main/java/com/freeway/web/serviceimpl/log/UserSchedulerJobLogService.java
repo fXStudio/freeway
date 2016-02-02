@@ -24,8 +24,8 @@ final class UserSchedulerJobLogService implements IUserSchedulerJobLogService {
 	 * @return
 	 */
 	@Override
-	public List<UserSchedulerJobLog> findRecords(ConditionFiled fields) {
-		return userSchedulerJobLogMapper.findByCondition(fields);
+	public List<UserSchedulerJobLog> findRecords(ConditionFiled cf) {
+		return userSchedulerJobLogMapper.findByCondition(cf);
 	}
 
 	/**
@@ -33,7 +33,7 @@ final class UserSchedulerJobLogService implements IUserSchedulerJobLogService {
 	 * @return
 	 */
 	@Override
-	public Integer getSize(ConditionFiled field) {
-		return userSchedulerJobLogMapper.selectCount(null);
+	public Integer getSize(ConditionFiled cf) {
+		return userSchedulerJobLogMapper.selectCount(cf);
 	}
 }
