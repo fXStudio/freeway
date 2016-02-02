@@ -43,18 +43,18 @@ Ext.application({
 		            sortable: true,
 		            dataIndex: 'exitName'
 		        }, {
-		            header: '出口车道编号',
+		            header: '出口车道',
 		            width: 90,
 		            sortable: true,
 		            dataIndex: 'lane'
 		        }, {
 		            header: '入口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vType'
 		        }, {
 		            header: '出口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vExit'
 		        }, {

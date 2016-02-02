@@ -4,9 +4,9 @@
 Ext.define('EnterCarModule.model.EnterCar', {
 	extend: 'Ext.data.Model',
 	fields: [
-	    'recordNo', 'enteName', 'lane', 'vEnte', 
+	    'recordNo', 'enteName', 'exitName', 'lane', 'vEnte', 
         'vExit', 'exitDate', 'enteDate',
         'axisnum', 'totalweight', 'ratingweight',
-        'carExitcodeRecognize', 'carIncodeRecognize'
+        'carExitcodeRecognize', 'carIncodeRecognize', 'carExitcode'
     ]
 });

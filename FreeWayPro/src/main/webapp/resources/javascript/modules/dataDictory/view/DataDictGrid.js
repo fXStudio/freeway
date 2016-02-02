@@ -32,11 +32,11 @@ Ext.define('DataDictModule.view.DataDictGrid', {
         dataIndex: 'dataname'
     }, {
         header: '字典项值',
-        width: 200,
+        width: 120,
         dataIndex: 'datavalue'
     }, {
         header: '字典项描述',
-        width: 200,
+        width: 360,
         dataIndex: 'datadesc'
     }]
 });

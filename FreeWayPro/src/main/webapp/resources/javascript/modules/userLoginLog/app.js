@@ -27,7 +27,7 @@ Ext.application({
         		}),
                 columns: [ Ext.create('Ext.grid.RowNumberer', {width: 50}), {
                     header: '用户名',
-                    width: 120,
+                    width: 200,
                     sortable: true,
                     dataIndex: 'username'
                 }, {

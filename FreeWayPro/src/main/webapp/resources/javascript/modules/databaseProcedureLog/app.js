@@ -29,27 +29,27 @@ Ext.application({
 					width : 30
 				}), {
 		            header: '日志编号',
-		            width: 120,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'logId'
 		        }, {
 		            header: '记录时间',
-		            width: 120,
+		            width: 160,
 		            sortable: true,
 		            dataIndex: 'logDate'
 		        }, {
 		            header: '作业名称',
-		            width: 90,
+		            width: 140,
 		            sortable: true,
 		            dataIndex: 'jobName'
 		        }, {
 		            header: '作业类',
-		            width: 140,
+		            width: 200,
 		            sortable: true,
 		            dataIndex: 'jobClass'
 		        }, {
 		            header: '操作',
-		            width: 120,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'operation'
 		        }, {

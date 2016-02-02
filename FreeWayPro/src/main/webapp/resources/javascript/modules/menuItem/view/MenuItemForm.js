@@ -19,7 +19,7 @@ Ext.define('MenuItemModule.view.MenuItemForm', {
         id: 'itemname',
         fieldLabel: '菜单名称',
         name: 'itemname',
-        width: 240,
+        width: 300,
         allowBlank: false,
         blankText: '菜单名称不能为空'
     }, {

@@ -15,6 +15,8 @@ public class VehiclePastTheCheckpoint {
 	private String enteName;
 	/** 出口站名称 */
 	private String exitName;
+	/** 出口车牌 */
+	private String carExitcode;
 	/** 车道编号 */
 	private String lane;
 	/** 入口类型 */
@@ -138,5 +140,13 @@ public class VehiclePastTheCheckpoint {
 
 	public void setCarIncodeRecognize(String carIncodeRecognize) {
 		this.carIncodeRecognize = carIncodeRecognize;
+	}
+
+	public String getCarExitcode() {
+		return carExitcode;
+	}
+
+	public void setCarExitcode(String carExitcode) {
+		this.carExitcode = carExitcode;
 	}
 }

@@ -79,7 +79,7 @@ Ext.application({
                     sortable: true,
                     dataIndex: 'username'
                 }, {
-                    header: '是否锁定',
+                    header: '锁定',
                     width: 75,
                     sortable: true,
                     renderer: function (value, p, r) {

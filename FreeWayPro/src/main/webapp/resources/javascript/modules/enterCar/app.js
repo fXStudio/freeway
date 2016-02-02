@@ -28,18 +28,18 @@ Ext.application({
         		columns : [ new Ext.grid.RowNumberer({ // 行号
 					width : 30
 				}), {
-		            header: '出口识别车牌',
-		            width: 120,
+		            header: '出口车牌',
+		            width: 100,
 		            sortable: true,
-		            dataIndex: 'carExitcodeRecognize'
+		            dataIndex: 'carExitcode'
 		        }, {
 		            header: '入口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vEnte'
 		        }, {
 		            header: '入口站名称',
-		            width: 120,
+		            width: 160,
 		            sortable: true,
 		            dataIndex: 'enteName'
 		        }, {
@@ -49,12 +49,12 @@ Ext.application({
 		            dataIndex: 'enteDate'
 		        }, {
 		            header: '出口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vExit'
 		        }, {
 		            header: '出口站名称',
-		            width: 120,
+		            width: 160,
 		            sortable: true,
 		            dataIndex: 'exitName'
 		        }, {
@@ -79,7 +79,7 @@ Ext.application({
 		            dataIndex: 'ratingweight'
 		        }, {
 		            header: '入口识别车牌',
-		            width: 100,
+		            width: 120,
 		            sortable: true,
 		            dataIndex: 'carIncodeRecognize'
 		        }],

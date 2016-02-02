@@ -39,7 +39,7 @@ Ext.application({
 		            dataIndex: 'carIncodeRecognize'
 		        }, {
 		            header: '出口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vExit'
 		        }, {
@@ -48,7 +48,7 @@ Ext.application({
 		            sortable: true,
 		            dataIndex: 'exitName'
 		        }, {
-		            header: '出口车道编号',
+		            header: '出口车道',
 		            width: 90,
 		            sortable: true,
 		            dataIndex: 'lane'
@@ -59,7 +59,7 @@ Ext.application({
 		            dataIndex: 'exitDate'
 		        }, {
 		            header: '入口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vEnte'
 		        }, {
@@ -89,7 +89,7 @@ Ext.application({
 		            dataIndex: 'ratingweight'
 		        }, {
 		            header: '入口识别车牌',
-		            width: 100,
+		            width: 120,
 		            sortable: true,
 		            dataIndex: 'carIncodeRecognize'
 		        }],

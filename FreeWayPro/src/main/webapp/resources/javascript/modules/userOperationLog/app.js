@@ -26,12 +26,12 @@ Ext.application({
                 	store: store, label: '用户名', paramName: 'loginUser'
         		}),
                 columns: [ Ext.create('Ext.grid.RowNumberer', {width: 50}),{
-                    header: '用户ID',
+                    header: '用户名',
                     width: 120,
                     sortable: true,
                     dataIndex: 'userid'
                 }, {
-                    header: '项目ID',
+                    header: '动作描述',
                     width: 120,
                     sortable: true,
                     dataIndex: 'itemid'

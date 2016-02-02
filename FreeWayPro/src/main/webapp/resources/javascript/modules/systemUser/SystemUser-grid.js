@@ -24,7 +24,7 @@ Ext.onReady(function() {
         }, {
             name: 'password'
         }, {
-            name: 'createTime'
+            name: 'createtime'
         }, {
             name: 'isLock'
         }, {
@@ -84,11 +84,6 @@ Ext.onReady(function() {
             sortable: true,
             dataIndex: 'username'
         }, {
-            id: 'itemLink',
-            header: '用户密码',
-            width: 240,
-            dataIndex: 'password'
-        }, {
             header: '部门编号',
             width: 120,
             dataIndex: 'depid'
@@ -96,7 +91,7 @@ Ext.onReady(function() {
             id: 'itemLink',
             header: '创建时间',
             width: 160,
-            dataIndex: 'createTime'
+            dataIndex: 'createtime'
         }, {
             header: '是否锁定',
             width: 75,

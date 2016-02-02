@@ -27,7 +27,7 @@ Ext.define('MenuModule.view.MenuGrid', {
         width: 30
     }), {
         header: '菜单名称',
-        width: 160,
+        width: 220,
         sortable: true,
         dataIndex: 'menuname'
     }, {
@@ -36,7 +36,7 @@ Ext.define('MenuModule.view.MenuGrid', {
         width: 300,
         dataIndex: 'remark'
     }, {
-        header: '是否锁定',
+        header: '锁定',
         width: 75,
         sortable: true,
         renderer: function (value, p, r) {

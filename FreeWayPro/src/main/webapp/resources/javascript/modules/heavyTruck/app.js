@@ -34,7 +34,7 @@ Ext.application({
 		            dataIndex: 'carExitcodeRecognize'
 		        }, {
 		            header: '入口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vEnte'
 		        }, {
@@ -54,7 +54,7 @@ Ext.application({
 		            dataIndex: 'exitName'
 		        }, {
 		            header: '出口车型',
-		            width: 70,
+		            width: 90,
 		            sortable: true,
 		            dataIndex: 'vExit'
 		        }, {

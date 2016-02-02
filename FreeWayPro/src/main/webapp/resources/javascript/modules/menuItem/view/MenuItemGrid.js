@@ -27,16 +27,16 @@ Ext.define('MenuItemModule.view.MenuItemGrid', {
         width: 30
     }), {
         header: '菜单项名称',
-        width: 160,
+        width: 240,
         sortable: true,
         dataIndex: 'itemname'
     }, {
         id: 'itemLink',
         header: '访问路径',
-        width: 200,
+        width: 300,
         dataIndex: 'itemlink'
     }, {
-        header: '是否锁定',
+        header: '锁定',
         width: 75,
         sortable: true,
         renderer: function (value, p, r) {
