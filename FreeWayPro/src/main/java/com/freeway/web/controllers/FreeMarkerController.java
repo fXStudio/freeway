@@ -55,6 +55,18 @@ public class FreeMarkerController {
 	public String index() {
 		return "index";
 	}
+	
+	/**
+	 * 用户管理
+	 * 
+	 * @param model
+	 *            模型对象
+	 * @return 要加载模板名称
+	 */
+	@RequestMapping(value = { "systemUser" })
+	public String systemUser() {
+		return "systemUser";
+	}
 
 	/**
 	 * 系统主页处理器

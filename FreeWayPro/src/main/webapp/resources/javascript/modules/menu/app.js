@@ -13,6 +13,8 @@ Ext.application({
     launch: function() {
     	// 存储器
     	var store = this.getMenuStore();
+    	// 创建窗体对象
+    	Ext.create('MenuModule.view.MenuWindow');
     	
     	// 初始化页面视图
         Ext.create('Ext.container.Viewport', {

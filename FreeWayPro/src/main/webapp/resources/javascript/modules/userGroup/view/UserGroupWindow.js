@@ -1,6 +1,6 @@
 Ext.define('UserGroupModule.view.UserGroupWindow', {
 	extend: 'Ext.window.Window',
-	title: '维护菜单',
+	title: '维护用户组',
     iconCls: 'feed-icon',
     id: 'systemDataWindow',
     autoHeight: true,

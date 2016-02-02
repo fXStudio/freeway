@@ -11,11 +11,7 @@ Ext.define('MenuModule.controller.MenuController', {
 	    		click: function(){
 	    			// 获得窗体对象的引用
 	            	var menuWindow = Ext.getCmp("systemDataWindow");
-	            	// 判断窗体对象是否存在
-	            	if(!menuWindow){
-	            		// 如果不存在，就创建一个新的窗体对象
-	            		menuWindow = Ext.create('MenuModule.view.MenuWindow');
-	            	}
+	            	
 	            	// 在执行新增业务的时候，要把窗体的内容清空
 	                Ext.getCmp("systemDataForm").getForm().reset();
 	                Ext.getCmp("treePanel").getStore().load();
@@ -33,9 +29,6 @@ Ext.define('MenuModule.controller.MenuController', {
 	                // 只有存在选中行的时候才显示修改窗口
 	                if (record) {
 	                	var menuWindow = Ext.getCmp("systemDataWindow");
-	                	if(!menuWindow){
-	                		menuWindow = Ext.create('MenuModule.view.MenuWindow');
-	                	}
 	                	// 窗体对象
 	                    Ext.getCmp("systemDataForm").getForm().loadRecord(record); // 加载要编辑的对象
 		                Ext.getCmp("treePanel").getStore().load({

@@ -1,9 +1,13 @@
 package com.freeway.web.models;
 
+import java.sql.Timestamp;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * 系统用户
@@ -24,6 +28,7 @@ public class SystemUser {
 	private char islock = '0';
 	@JsonIgnore
 	private char visible = '0';
+	private Timestamp createtime;
 
 	public char getVisible() {
 		return visible;
@@ -79,5 +84,14 @@ public class SystemUser {
 
 	public void setGroupid(String groupid) {
 		this.groupid = groupid;
+	}
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	public Timestamp getCreatetime() {
+		return createtime;
+	}
+
+	public void setCreatetime(Timestamp createtime) {
+		this.createtime = createtime;
 	}
 }

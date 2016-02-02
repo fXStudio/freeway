@@ -45,6 +45,6 @@ final class UseroprationLogService implements IUseroprationLogService {
 	 */
 	@Override
 	public Integer getSize(ConditionFiled field) {
-		return useroprationLogMapper.selectCount(null);
+		return useroprationLogMapper.selectCount(field);
 	}
 }
