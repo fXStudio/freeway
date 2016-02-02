@@ -7,7 +7,6 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -95,7 +94,7 @@ public class SystemUserGroupController {
 	 */
 	@RequestMapping(value = "userGroupModify")
 	public FeedBackMessage menuModify(@RequestParam(value = "sysid", required = false, defaultValue = "") String sysid,
-			@RequestParam(value = "menus", required = false, defaultValue = "[]") String[] menus,
+			@RequestParam(value = "menus", required = false, defaultValue = "") String[] menus,
 			HttpServletRequest request) {
 		SystemGroup vo = new SystemGroup();
 		vo.setSysid(sysid);
@@ -118,8 +117,8 @@ public class SystemUserGroupController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "userGroupMenu/{groupId}")
-	public Object menuItemList(@PathVariable(value = "groupId") String groupId) {
+	@RequestMapping(value = "userGroupMenu")
+	public Object menuItemList(@RequestParam(value = "groupId", required = false, defaultValue = "") String groupId) {
 		return systemGroupService.getSystemMenu(groupId);
 	}
 }
