@@ -13,7 +13,7 @@ Ext.application({
     launch: function() {
     	// 创建窗体对象
         var win = Ext.create('widget.window', {
-	        title: '登入系统',
+	        title: '用户登陆',
 	        header: {
 	            titlePosition: 2,
 	            titleAlign: 'left'
@@ -25,7 +25,8 @@ Ext.application({
 	        bodyPadding: 2,
 	        width: 320,
 	        height: 180,
-	        layout: 'fit',
+	        layout: 'fit',        
+	        y: Ext.getBody().getHeight() / 2,
 	        items: [new LoginModule.view.Form()]
 	    });
         // 显示窗体对象
@@ -35,7 +36,8 @@ Ext.application({
 
    		// 设置登录窗体的居中状态
 	    Ext.EventManager.onWindowResize(function() {
-	    	win.center();// 窗体居中
+	    	win.center();// 窗体居中        
+	    	win.setPosition(win.getPosition()[0], Ext.getBody().getHeight() / 2);
 	    });
     }
 });

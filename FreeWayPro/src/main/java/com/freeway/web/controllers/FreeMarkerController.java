@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.freeway.web.models.SystemUser;
+
 /**
  * 模板引擎拦截器
  *
@@ -25,7 +27,13 @@ public class FreeMarkerController {
 	 * @return
 	 */
 	@RequestMapping(value = "{path}")
-	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path) {
+	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path,
+			HttpServletRequest request) {
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		// 如果用户登录信息不存在，则强制用户重新登陆
+		if (user == null) {
+			return "index";
+		}
 		model.addAttribute("modelName", path);
 
 		return "func";
@@ -55,7 +63,7 @@ public class FreeMarkerController {
 	public String index() {
 		return "index";
 	}
-	
+
 	/**
 	 * 用户管理
 	 * 
@@ -76,7 +84,15 @@ public class FreeMarkerController {
 	 * @return 要加载模板名称
 	 */
 	@RequestMapping(value = "main")
-	public String main() {
+	public String main(@ModelAttribute("model") ModelMap model, HttpServletRequest request) {
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		// 如果用户登录信息不存在，则强制用户重新登陆
+		if (user == null) {
+			return "index";
+		}
+
+		model.put("username", user.getUsername());
+
 		return "main";
 	}
 

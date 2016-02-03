@@ -38,13 +38,13 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 xtype: 'textfield',
                 name: 'snCode',
                 anchor: '90%',
-                allowBlank: false
+                allowBlank: true
             }, {
                 fieldLabel: '入口车牌',
                 xtype: 'textfield',
                 name: 'carIncode',
                 anchor: '90%',
-                allowBlank: false
+                allowBlank: true
             }, {
                 fieldLabel: '出口车牌',
                 xtype: 'textfield',
@@ -57,6 +57,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 fieldLabel: '入口站',
 			   	id: 'enteName',
 	            renderName: 'enterDev',
+	            editable: false,
                 anchor: '90%',
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='enterDev'></div></div></tpl>",
 	            store: Ext.create('Ext.data.TreeStore', {
@@ -91,7 +92,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 xtype: 'textfield',
                 name: 'lane',
                 anchor: '90%',
-                allowBlank: false,
+                allowBlank: true,
                 maxLength: 2
             }, {
                 fieldLabel: '入口车型',
@@ -99,26 +100,26 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 name: 'vType',
                 anchor: '90%',
                 allowBlank: false,
-                maxLength: 1
+                regex: '[0-9]{1}'
             }, {
                 fieldLabel: '出口车型',
                 xtype: 'textfield',
                 name: 'vExit',
                 anchor: '90%',
                 allowBlank: false,
-                maxLength: 1
+                regex: '[0-9]{1}'
             }, {
                 fieldLabel: '收费员编号',
                 xtype: 'textfield',
                 name: 'tollId',
                 anchor: '90%',
-                allowBlank: false
+                allowBlank: true
             }, {
                 fieldLabel: '箱号',
                 xtype: 'textfield',
                 name: 'boxId',
                 anchor: '90%',
-                allowBlank: false
+                allowBlank: true
             }]
         }, {
             columnWidth: .5,
@@ -133,26 +134,29 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 xtype: 'textfield',
                 name: 'tollFare',
                 anchor: '90%',
-                allowBlank: false,
+                allowBlank: true,
                 regex: /^\d+$/
             }, {
                 fieldLabel: '收费类型',
                 xtype: 'textfield',
                 name: 'tollType',
-                allowBlank: false,
+                allowBlank: true,
                 anchor: '90%',
             }, {
                 fieldLabel: 'IC卡号',
                 xtype: 'textfield',
                 name : 'icCode',
                 allowBlank: false,
-                anchor: '90%'
+                anchor: '90%',
+                regex: '[0-9]{6,10}'
             }, Ext.create('Ext.ux.TreeCombo', {
                 labelAlign: 'right',
                 fieldLabel: '出口站',
 			   	id: 'exitName',
 	            renderName: 'exitDiv',
                 anchor: '90%',
+                editable: false,
+                allowBlank: false,
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='exitDiv'></div></div></tpl>",
 	            store: Ext.create('Ext.data.TreeStore', {
 	                root: { 
@@ -173,7 +177,8 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 name : 'exitDate',
                 format : 'Y/m/d',
                 anchor: '90%',
-                editable : false
+                editable : false,
+                value: new Date()
             },{
                 fieldLabel: '出口时间',
                 xtype: 'textfield',
@@ -181,8 +186,23 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 xtype: 'timefield',
                 anchor: '90%',
                 increment: 10,
-                format: 'H:m:s'
-            }]
+                format: 'H:m:s',
+                value: new Date()
+            }, Ext.create('Ext.form.ComboBox', {
+                fieldLabel: '卡类型',
+                labelAlign: 'right',
+                anchor: '90%',
+                store: Ext.create('Ext.data.Store', {
+                    fields: ['abbr', 'name'],
+                    data : [
+                        {"abbr":"1", "name":"坏卡"},
+                        {"abbr":"2", "name":"正常补卡"}
+                    ]
+                }),
+                queryMode: 'local',
+                displayField: 'name',
+                valueField: 'name'
+            })]
         }]
     }],
     buttons: [{

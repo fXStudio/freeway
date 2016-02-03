@@ -31,8 +31,9 @@
         </div>
         <!-- 页面头样式-->
         <div id="header">
-            <span class="banner"><h3>测试系统</h3></span>
+            <span class="banner"></span>
             <div class="t_bar">
+                <span class="banner_text">当前登陆用户: <#if model["username"]??>${model["username"]}</#if></span>
                 <a href="systemLogout" class="logout">系统登出</a>
             </div>
         </div>

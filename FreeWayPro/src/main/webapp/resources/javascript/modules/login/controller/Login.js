@@ -35,6 +35,8 @@ Ext.define('LoginModule.controller.Login', {
                     var formObj = this.getLoginForm().getForm();
                     // 焦点组件
                     var usernameField = this.getUsernameField();
+                    // 密码组件
+                    var passwordField = this.getPasswordField();
 
                     // 检查表单项的录入是否存在问题
                     if (formObj.isValid()) {
@@ -45,27 +47,27 @@ Ext.define('LoginModule.controller.Login', {
                             url: 'services/systemLogin', // 请求的url地址  
                             method: 'POST', // 请求方式  
                             success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
-                                // $.ajax({   
-                                //      url: "http://128.127.10.191:37799/WebReport/ReportServer?op=fs_load&cmd=sso",//FineBI平台登录验证地址   
-                                //      dataType: "jsonp",//跨域采用jsonp方式   
-                                //      data: {"username": 'admin', "password": '123'},//将用户名密码值发送过去   
-                                //      jsonp: "callback",   
-                                //      timeout: 5000,//超时时间（单位：毫秒）   
-                                //      success:function(data) {   
-                                //             if (data.status === "success") {//验证成功      
-                                //                 window.location.href = "main";  
-                                //             } else if (data.status === "fail") {   
-                                //                 Ext.Msg.alert('提示', 'BI系统连接失败', function() {
-                                //                     Ext.getCmp('username').focus(true, 100);
-                                //                 });  
-                                //             }   
-                                //      },   
-                                //      error: function() {
-                                //         Ext.Msg.alert('提示', 'BI系统连接失败', function() {
-                                //             Ext.getCmp('username').focus(true, 100);
-                                //         });   
-                                //      }   
-                                // }); 
+                                 $.ajax({   
+                                      url: "http://128.127.10.191:37799/WebReport/ReportServer?op=fs_load&cmd=sso",//FineBI平台登录验证地址   
+                                      dataType: "jsonp",//跨域采用jsonp方式   
+                                      data: {"username": usernameField.getValue(), "password": passwordField.getValue()},//将用户名密码值发送过去   
+                                      jsonp: "callback",   
+                                      timeout: 5000,//超时时间（单位：毫秒）   
+                                      success:function(data) {   
+                                             if (data.status === "success") {//验证成功      
+//                                                 window.location.href = "main";  
+                                             } else if (data.status === "fail") {   
+                                                 Ext.Msg.alert('提示', 'BI系统连接失败', function() {
+                                                     Ext.getCmp('username').focus(true, 100);
+                                                 });  
+                                             }   
+                                      },   
+                                      error: function() {
+                                         Ext.Msg.alert('提示', 'BI系统连接失败', function() {
+                                             Ext.getCmp('username').focus(true, 100);
+                                         });   
+                                      }   
+                                 });
                                 window.location.href = "main";
                             },
                             failure: function(form, action) { // 添加失败后，提示用户添加异常

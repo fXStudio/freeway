@@ -19,6 +19,7 @@ Ext.application({
         Ext.create('Ext.container.Viewport', {
             layout: 'border',
             renderTo: Ext.getBody(),
+            frame: false,
             items: [{
                 cls: 'docs-header',
                 height: 34,

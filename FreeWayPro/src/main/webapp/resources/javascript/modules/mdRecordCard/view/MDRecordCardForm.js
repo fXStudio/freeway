@@ -173,7 +173,8 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                 name : 'exitDate',
                 format : 'Y/m/d',
                 anchor: '90%',
-                editable : false
+                editable : false,
+                value: new Date()
             },{
                 fieldLabel: '出口时间',
                 xtype: 'textfield',
@@ -181,8 +182,23 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                 xtype: 'timefield',
                 anchor: '90%',
                 increment: 10,
-                format: 'H:m:s'
-            }]
+                format: 'H:m:s',
+                value: new Date()
+            }, Ext.create('Ext.form.ComboBox', {
+                fieldLabel: '卡类型',
+                labelAlign: 'right',
+                anchor: '90%',
+                store: Ext.create('Ext.data.Store', {
+                    fields: ['abbr', 'name'],
+                    data : [
+                        {"abbr":"1", "name":"坏卡"},
+                        {"abbr":"2", "name":"正常补卡"}
+                    ]
+                }),
+                queryMode: 'local',
+                displayField: 'name',
+                valueField: 'name'
+            })]
         }]
     }],
     buttons: [{

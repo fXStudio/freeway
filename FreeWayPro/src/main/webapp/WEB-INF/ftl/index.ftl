@@ -17,6 +17,7 @@
 	    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 	    <link rel="stylesheet" href="javascript/extjs/resources/css/ext-all-neptune.css" />
 	    <link rel="stylesheet" href="styles/normalize.css" />
+	    <link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body>
 	    <!-- Load Javascript lib -->

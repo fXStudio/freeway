@@ -3,14 +3,6 @@
     height: 18px;
 }
 
-#header {
-    height: 34px;
-    background-image: url(../images/top.gif);
-    background-repeat: repeat-x;
-    background-position: left center;
-    color: white;
-}
-
 .loading-indicator {
     font-size: 11px;
     background-image: url(../images/default/grid/loading.gif);
@@ -77,18 +69,16 @@ a.logout:hover {
 }
 
 .banner {
-    background-image: url(../images/h_logo.png);
+    background-image: url(../images/banner.png);
     background-repeat: no-repeat;
     background-position: left center;
     padding: 0px 0px 0px 50px;
     height: 100%;
     display: inline-block;
     margin-left: 20px;
+    width: 500px;
 }
 
-.banner h3 {
-    margin-top: 8px;
-}
 
 .t_bar {
     float: right;
@@ -97,5 +87,14 @@ a.logout:hover {
 
 .tabs {
     background-image:url(../images/tabs.gif ) !important;
+}
+
+.banner_text{
+	margin-right: 5px;
+	border-right: solid lightGray 1px;
+	padding-right: 7px;
+	text-decoration:underline;
+	color: white;
+	font-weight:bolder;
 }
 
