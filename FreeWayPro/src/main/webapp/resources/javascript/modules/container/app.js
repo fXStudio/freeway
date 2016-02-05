@@ -22,7 +22,7 @@ Ext.application({
             frame: false,
             items: [{
                 cls: 'docs-header',
-                height: 34,
+                height: 64,
                 region: 'north',
                 xtype: 'box',
                 el: 'header',

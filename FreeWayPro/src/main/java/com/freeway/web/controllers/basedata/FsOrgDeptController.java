@@ -3,9 +3,9 @@ package com.freeway.web.controllers.basedata;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freeway.web.models.SystemUser;
@@ -47,8 +47,8 @@ public class FsOrgDeptController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "departmentList/{userId}")
-	public Object departmentList(@PathVariable(value = "userId") String userId) {
+	@RequestMapping(value = "departmentList")
+	public Object departmentList(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
 		return fsOrgDeptService.deptTree(userId);
 	}
 }

@@ -29,11 +29,6 @@ public class FreeMarkerController {
 	@RequestMapping(value = "{path}")
 	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path,
 			HttpServletRequest request) {
-		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
-		// 如果用户登录信息不存在，则强制用户重新登陆
-		if (user == null) {
-			return "index";
-		}
 		model.addAttribute("modelName", path);
 
 		return "func";
@@ -62,18 +57,6 @@ public class FreeMarkerController {
 	@RequestMapping(value = { "/", "index" })
 	public String index() {
 		return "index";
-	}
-
-	/**
-	 * 用户管理
-	 * 
-	 * @param model
-	 *            模型对象
-	 * @return 要加载模板名称
-	 */
-	@RequestMapping(value = { "systemUser" })
-	public String systemUser() {
-		return "systemUser";
 	}
 
 	/**

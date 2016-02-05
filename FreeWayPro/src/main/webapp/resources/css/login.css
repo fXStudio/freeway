@@ -3,10 +3,10 @@ html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: url(../images/login-back.png);
+    /*background-image: url(../images/login-back.png);*/
     background-repeat: no-repeat;
     background-position: center top;
-    backgorund-color: #1e65bd;
+    background-color: #1e65bd;
 }
 
 

@@ -128,6 +128,6 @@ final class FsOrgDeptService implements IFsOrgDeptService {
 		if (user == null) {
 			return null;
 		}
-		return systemUserMapper.selectByPrimaryKey(userId).getDepid();
+		return user.getDepid();
 	}
 }

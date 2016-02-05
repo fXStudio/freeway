@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,9 +78,12 @@ public class SystemUserController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "userGroupFromArray/{userId}")
-	public Object userGroupFromArray(@PathVariable(value = "userId") String userId) {
-		return systemUserService.getUserFromGroups(userId);
+	@RequestMapping(value = "userGroupFromArray", method={RequestMethod.GET, RequestMethod.POST})
+	public Object userGroupFromArray(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("items", systemUserService.getUserFromGroups(userId));// 记录行对象
+		
+		return map;
 	}
 
 	/**
@@ -93,8 +95,8 @@ public class SystemUserController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "userGroupToArray/{userId}")
-	public Object userGroupToArray(@PathVariable(value = "userId") String userId) {
+	@RequestMapping(value = "userGroupToArray")
+	public Object userGroupToArray(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
 		return systemUserService.getUserToGroups(userId);
 	}
 }
