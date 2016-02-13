@@ -15,6 +15,7 @@ Ext.define('SystemUserModule.controller.SystemUserController', {
 	            	// 在执行新增业务的时候，要把窗体的内容清空
 	                Ext.getCmp("systemDataForm").getForm().reset();
 	                Ext.getCmp("deptTree").getStore().load();
+	                Ext.getCmp("itemselector-field").getStore().load();
 	                systemUserWindow.show(); // 显示窗体
 	                systemUserWindow.center();// 窗体居中显示
 	            }
@@ -31,9 +32,8 @@ Ext.define('SystemUserModule.controller.SystemUserController', {
 	                	var systemUserWindow = Ext.getCmp("systemDataWindow");
 	                	// 窗体对象
 	                    Ext.getCmp("systemDataForm").getForm().loadRecord(record); // 加载要编辑的对象
-		                Ext.getCmp("deptTree").getStore().load({
-		                	params: {userId: record.get('sysid')}
-		                });
+		                Ext.getCmp("deptTree").getStore().load({params: {userId: record.get('sysid')}});
+		                Ext.getCmp("itemselector-field").getStore().load({params: {userId: record.get('sysid')}});
 		                systemUserWindow.show(); // 显示窗体
 	                    systemUserWindow.center();
 	                }

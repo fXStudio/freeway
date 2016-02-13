@@ -31,17 +31,13 @@ Ext.define('SystemUserModule.view.SystemUserGrid', {
         sortable: true,
         dataIndex: 'username'
     }, {
-        header: '部门编号',
-        width: 120,
-        dataIndex: 'depid'
-    }, {
         id: 'itemLink',
         header: '创建时间',
         width: 160,
         dataIndex: 'createtime'
     }, {
         header: '是否锁定',
-        width: 75,
+        width: 95,
         sortable: true,
         renderer: function (value, p, r) {
             return value === 'on' ? '是' : '--';

@@ -24,13 +24,13 @@ Ext.define('SystemUserModule.view.SystemUserForm', {
         hidden: true,
         hideLabel: true
     }, {
-        fieldLabel: '主键',
         id: 'groupid',
+        fieldLabel: '用户组',
         name: 'groupid',
         width: 60,
         hidden: true,
         hideLabel: true
-    }, {
+    },{
         id: 'username',
         fieldLabel: '用户名称',
         name: 'username',

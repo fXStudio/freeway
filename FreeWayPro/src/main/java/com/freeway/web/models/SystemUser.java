@@ -28,7 +28,7 @@ public class SystemUser {
 	private char islock = '0';
 	@JsonIgnore
 	private char visible = '0';
-	private Timestamp createtime;
+	private Timestamp createtime = new Timestamp(System.currentTimeMillis());
 
 	public char getVisible() {
 		return visible;

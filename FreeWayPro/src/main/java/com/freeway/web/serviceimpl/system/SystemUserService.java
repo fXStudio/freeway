@@ -1,7 +1,6 @@
 package com.freeway.web.serviceimpl.system;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.freeway.web.helper.MD5Converter;
 import com.freeway.web.helper.StringHelper;
+import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.mappers.system.SystemGroupMapper;
 import com.freeway.web.mappers.system.SystemUserMapper;
 import com.freeway.web.messages.FeedBackMessage;
@@ -38,7 +38,7 @@ final class SystemUserService implements ISystemUserService {
 	@Override
 	public FeedBackMessage addOrUpdate(SystemUser user) {
 		if (StringHelper.isNullOrEmpty(user.getSysid())) {
-			user.setSysid(UUID.randomUUID().toString().replaceAll("-", ""));
+			user.setSysid(UUIDGenerator.random());
 			user.setPassword(MD5Converter.string2MD5(user.getPassword()));
 			systemUserMapper.insertSelective(user);
 		} else {
@@ -77,27 +77,22 @@ final class SystemUserService implements ISystemUserService {
 	 * @return
 	 */
 	@Override
-	public List<SystemGroup> getUserFromGroups(String userId) {
+	public List<SystemGroup> getUserGroups(String userId) {
+		// 用户信息
 		SystemUser user = systemUserMapper.selectByPrimaryKey(userId);
-		Example condition = new Example(SystemGroup.class);
-		condition.createCriteria().andNotEqualTo("sysid", user != null ? user.getGroupid() : "0");
 
-		return systemGroupMapper.selectByExample(condition);
-	}
+		// 获得全部的用户组信息
+		List<SystemGroup> list = systemGroupMapper.selectAll();
 
-	/**
-	 * 已选用户组
-	 *
-	 * @param userId
-	 * @return
-	 */
-	@Override
-	public List<SystemGroup> getUserToGroups(String userId) {
-		SystemUser user = systemUserMapper.selectByPrimaryKey(userId);
-		Example condition = new Example(SystemGroup.class);
-		condition.createCriteria().andEqualTo("sysid", user != null ? user.getGroupid() : "0");
-
-		return systemGroupMapper.selectByExample(condition);
+		// 判断用户组是否被选中
+		if (user != null) {
+			for (SystemGroup group : list) {
+				if (group.getSysid().equals(user.getGroupid())) {
+					group.setRemark("true");
+				}
+			}
+		}
+		return list;
 	}
 
 	/**

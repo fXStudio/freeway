@@ -26,13 +26,5 @@ public interface ISystemUserService extends IQuery<SystemUser>, IDelete<String> 
 	 * @param userID
 	 * @return
 	 */
-	public List<SystemGroup> getUserFromGroups(String userId);
-
-	/**
-	 * 已选用户组
-	 * 
-	 * @param userId
-	 * @return
-	 */
-	public List<SystemGroup> getUserToGroups(String userId);
+	public List<SystemGroup> getUserGroups(String userId);
 }

@@ -1,7 +1,8 @@
 Ext.define('SystemUserModule.store.DeptTree', {
 	extend: 'Ext.data.TreeStore',
-	autoLoad: true,
+	autoLoad: false,
 	autoDestroy: true,
+	fields: ["sn", "text"],
     root: { 
     	expanded: true,
     	text: "所有收费站",

@@ -19,6 +19,14 @@ Ext.define('SystemUserModule.view.SystemUserWindow', {
             var formObj = Ext.getCmp('systemDataForm').getForm();
             // 检查表单项的录入是否存在问题
             if (formObj.isValid()) {
+            	// 用户组ID
+            	Ext.getCmp("groupid").setValue(Ext.getCmp("itemselector-field").getValue());
+            	
+                // 获得用户选中的可访问菜单ID
+                var depid = Ext.getCmp('depid');
+                var nodes = Ext.getCmp('deptTree').getChecked();
+                depid.setValue(nodes.length > 0 ? nodes[0].get('sn') : depid.getValue());
+            	
                 // 提交表单
                 formObj.submit({
                     waitMsg: '数据正在处理请稍后', // 提示信息  

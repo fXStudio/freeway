@@ -78,25 +78,11 @@ public class SystemUserController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "userGroupFromArray", method={RequestMethod.GET, RequestMethod.POST})
-	public Object userGroupFromArray(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
+	@RequestMapping(value = "userGroupArray", method={RequestMethod.GET, RequestMethod.POST})
+	public Object userGroupArray(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("items", systemUserService.getUserFromGroups(userId));// 记录行对象
+		map.put("items", systemUserService.getUserGroups(userId));// 记录行对象
 		
 		return map;
-	}
-
-	/**
-	 * 用户组列表
-	 *
-	 * @param limit
-	 *            开始索引
-	 * @param start
-	 *            结束索引
-	 * @return
-	 */
-	@RequestMapping(value = "userGroupToArray")
-	public Object userGroupToArray(@RequestParam(value = "userId", required = false, defaultValue = "") String userId) {
-		return systemUserService.getUserToGroups(userId);
 	}
 }

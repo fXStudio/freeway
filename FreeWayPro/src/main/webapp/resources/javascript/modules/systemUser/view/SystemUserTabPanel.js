@@ -7,34 +7,32 @@ Ext.define('SystemUserModule.view.SystemUserTabPanel', {
 	    	title: '所属用户组',
 	    	layout: 'fit',
 	    	items: Ext.create('Ext.ux.form.ItemSelector', {
-	            	name: 'itemselector',
-	                id: 'itemselector-field',
-	                imagePath: 'javascript/extjs/ux/css/images/',
-	                store: Ext.create('Ext.data.Store', {
-	                	model: 'SystemUserModule.model.SystemUserModel',
-	                    autoLoad: true,
-	                    autoDestroy: true,
-	                    autoSync: true,
-	                    root: { expanded: true },
-	                    proxy: {
-	                        type : 'ajax',
-	                        actionMethods: { read: 'POST' },
-	                        url : 'services/systemUserList',//请求
-	                        reader: {
-	                            type: 'json',
-	                            root: 'items',
-	                            idProperty: 'sysid',
-	                            totalProperty: 'totalCount'
-	                        }
-	                    }
-	                }),
-	                displayField: 'username',
-	                valueField: 'sysid',
-	                allowBlank: true,
-	                msgTarget: 'side',
-	                fromTitle: '可选用户组',
-	                toTitle: '已选用户组'
-	            })
+                id: 'itemselector-field',
+                imagePath: 'javascript/extjs/ux/css/images/',
+                store: Ext.create('Ext.data.Store', {
+                	fields: ["groupname", "sysid", "remark"],
+                	autoLoad: false,
+                	autoDestroy: true,
+                    autoSync: false,
+                    root: { expanded: true },
+                    proxy: {
+                        type : 'ajax',
+                        actionMethods: { read: 'POST' },
+                        url : 'services/userGroupArray',//请求
+                        reader: {
+                            type: 'json',
+                            root: 'items',
+                            idProperty: 'sysid'
+                        }
+                    }
+                }),
+                displayField: 'groupname',
+                valueField: 'sysid',
+                allowBlank: true,
+                msgTarget: 'side',
+                fromTitle: '可分配用户组',
+                toTitle: '已分配用户组'
+            })
 	    }, 
 	    // 用户所属部门的树菜单
 	    Ext.create('Ext.tree.TreePanel', {
