@@ -85,7 +85,7 @@ Ext.define('Ext.ux.TreeCombo', {
 			alias: 'widget.assetstree',
 			hidden: true,
 			height: 300,
-			rootVisible: (typeof me.rootVisible != 'undefined') ? me.rootVisible : true,
+			rootVisible: false,
 			floating: true,
 			useArrows: true,
 			store: me.store,

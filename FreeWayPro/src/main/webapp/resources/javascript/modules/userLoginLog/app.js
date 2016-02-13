@@ -46,7 +46,7 @@ Ext.application({
         });
         // 装载数据
         store.load({params: { start: 0, limit: 25 }});
-        
+
         // 禁止整个页面的右键
         Ext.getDoc().on("contextmenu", function(e) { e.stopEvent(); });
     }

@@ -14,7 +14,7 @@ Ext.define('Ext.plugins.AdvanceToolbar', {
         
         // 创建工具条
         Ext.apply(this, {
-           items: ["<span style='margin:0 4px 0 10px;'>登录时间:</span>", 
+           items: ["<span style='margin:0 4px 0 10px;'>时间:</span>", 
            {
 	           	id: 'beginDate',
 	   	        xtype: 'datefield',
@@ -41,12 +41,13 @@ Ext.define('Ext.plugins.AdvanceToolbar', {
 				width: 220,
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='buildingTree'></div></div></tpl>",
 	            store: Ext.create('Ext.data.TreeStore', {
+	            	autoLoad: true,
+	            	autoDestroy: true,
 	                root: { 
 	                	expanded: true,
 	                	text: "所有收费站",
 	                	rootVisible: false
                 	},
-	                autoLoad: true,
 	                proxy: {
 	                    type : 'ajax',
 	                    actionMethods: { read: 'POST' },
@@ -57,6 +58,13 @@ Ext.define('Ext.plugins.AdvanceToolbar', {
 	   	   "<span style='margin:0 1px 0 2px;'>" + this.label + ":</span> ", _searchField]
         });
 
-       return this.callParent(arguments);
+        
+
+        // 创建数据源的监听
+        this.store.on('load', function(records, successful, options) {
+        	_searchField.focus(true, 100);
+        });
+
+        return this.callParent(arguments);
     }
 })

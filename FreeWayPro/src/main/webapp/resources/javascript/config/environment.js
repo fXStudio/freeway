@@ -16,3 +16,21 @@ Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
 // 初始化提示功能，设定提示位置为字段边缘
 Ext.tip.QuickTipManager.init();
 Ext.form.Field.prototype.msgTarget = 'side';
+
+// 禁止backspace键引起的浏览器回退
+new Ext.util.KeyMap({
+    target: window.document,
+    key: 8,
+    fn: function(obj,e){
+    	// 组件类型
+    	var type = e.target.type;
+    	// 组件只读属性
+    	var readonly = e.target.readOnly;
+    	
+    	// 在非编辑区或只读对象上禁用回退键
+    	if((type != 'text' && type != 'textarea' && type != 'password') || readonly){
+    		e.stopEvent();
+    	} 
+    },
+    scope: this
+});

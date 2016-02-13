@@ -14,7 +14,7 @@ Ext.define('Ext.plugins.BasicToolbar', {
         
         // 创建工具条
         Ext.apply(this, {
-           items: ["<span style='margin:0 4px 0 10px;'>登录时间:</span>", 
+           items: ["<span style='margin:0 4px 0 10px;'>时间:</span>", 
            {
 	           	id: 'beginDate',
 	   	        xtype: 'datefield',
@@ -22,7 +22,12 @@ Ext.define('Ext.plugins.BasicToolbar', {
 	   	        format: 'Y/m/d',
 	   	        width: 137,
 	   	        editable: false,
-	   	        value: new Date()
+	   	        value: new Date(),
+	   	        listeners: {
+	   	        	select: function(){
+	   	        		_searchField.focus(true, 100);
+	   	        	}
+	   	        }
 	   	   },
 	   	   "<span style='margin:0 4px;'>起--止</span>", 
 	   	   {
@@ -36,7 +41,14 @@ Ext.define('Ext.plugins.BasicToolbar', {
 	   	   },
 	   	   "<span style='margin:0 4px 0 10px;'>" + this.label + ":</span> ", _searchField]
         });
+        
 
-       return this.callParent(arguments);
+        // 创建数据源的监听
+        this.store.on('load', function(records, successful, options) {
+        	_searchField.focus(true, 100);
+        });
+        
+
+        return this.callParent(arguments);
     }
 })

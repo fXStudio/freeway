@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.freeway.web</groupId>
     <artifactId>FreeWayPro</artifactId>
-    <version>1.0.1</version>
+    <version>1.2.1</version>
     <packaging>war</packaging>
     <name>FreeWayPro</name>
     <description>高速公路稽查收费系统</description>
