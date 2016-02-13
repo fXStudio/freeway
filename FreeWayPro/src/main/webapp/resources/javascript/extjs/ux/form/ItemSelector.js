@@ -280,13 +280,15 @@ Ext.define('Ext.ux.form.ItemSelector', {
      */
     populateFromStore: function(store) {
     	var me = this,
-            fromStore = me.fromField.store;
+            fromStore = me.fromField.store,
+            toStore = me.toField.store;
         
         // Flag set when the fromStore has been loaded
         me.fromStorePopulated = true;
         
         // Remove All Records Pre Loaded
         fromStore.removeAll();
+        toStore.removeAll();
         
         // Add All To From Filed
         fromStore.add(store.getRange());
