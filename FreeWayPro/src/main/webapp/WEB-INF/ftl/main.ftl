@@ -26,7 +26,7 @@
         <div id="loading-mask"></div>
         <div id="loading">
             <div class="loading-indicator">
-                <img src="images/extanim32.gif" width="32" height="32" style="margin-right:8px;" align="absmiddle" /> 页面加载中，请稍后&hellip;
+                <img src="images/extanim.gif" width="56" height="56" style="margin-right:8px;" align="absmiddle" /> 页面加载中，请稍后&hellip;
             </div>
         </div>
         <!-- 页面头样式-->

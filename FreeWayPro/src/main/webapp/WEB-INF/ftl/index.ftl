@@ -20,6 +20,10 @@
 	    <link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body>
+	    <div class='login-banner'>
+	       <b>吉林省高速公路</b>收费稽查管理系统
+	    </div>
+	
 	    <!-- Load Javascript lib -->
 	    <script src="javascript/extjs/ext-all.js"></script>
 	    <script src="javascript/extjs/locale/ext-lang-zh_CN.js"></script>

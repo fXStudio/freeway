@@ -4,11 +4,9 @@
 Ext.define('LoginModule.view.Form' ,{
     extend: 'Ext.form.Panel',
     alias: 'widget.loginform',
-    frame: false,
-    defaultType: 'textfield',
-    bodyStyle: 'padding:20px 0px 0px 2px',
     defaults: {
-        labelWidth: 55,
+    	xtype: 'textfield',
+        labelWidth: 60,
         labelAlign: 'right',
         anchor: '98%',
         allowBlank: false,
