@@ -1,7 +1,9 @@
 /**
- * 登录控制器
+ * Login Controller
+ * 
+ * @Author Ajaxfan
  */
-Ext.define('LoginModule.controller.Login', {
+Ext.define('LoginModule.controller.LoginController', {
 	extend: 'Ext.app.Controller',
     
     // 对于代操作对象的引用
@@ -31,12 +33,9 @@ Ext.define('LoginModule.controller.Login', {
             },
             'loginform button[action=login]': {// 登录事件
                 click: function() {
-                    // form表单对象 
-                    var formObj = this.getLoginForm().getForm();
-                    // 焦点组件
-                    var usernameField = this.getUsernameField();
-                    // 密码组件
-                    var passwordField = this.getPasswordField();
+                    var formObj = this.getLoginForm().getForm();// form表单对象 
+                    var usernameField = this.getUsernameField();// 焦点组件
+                    var passwordField = this.getPasswordField();// 密码组件
 
                     // 检查表单项的录入是否存在问题
                     if (formObj.isValid()) {
@@ -79,6 +78,6 @@ Ext.define('LoginModule.controller.Login', {
                     }
                 }
             }
-        })
+        });
     }
 });

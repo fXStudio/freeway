@@ -1,9 +1,12 @@
 /**
- * 登录窗口布局
+ * Login Form
+ * 
+ * @Author Ajaxfan
  */
 Ext.define('LoginModule.view.Form' ,{
     extend: 'Ext.form.Panel',
     alias: 'widget.loginform',
+    
     defaults: {
     	xtype: 'textfield',
         labelWidth: 60,
