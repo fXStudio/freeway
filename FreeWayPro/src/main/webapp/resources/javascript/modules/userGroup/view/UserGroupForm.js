@@ -1,25 +1,23 @@
 Ext.define('UserGroupModule.view.UserGroupForm', {
 	extend: 'Ext.form.Panel',
-	id: "systemDataForm",
+	alias: 'widget.usergroupform',
+	
     border: false, // 不显示边线
-    defaultType: 'textfield', // 默认的组件类型
     defaults: { // 组件的默认样式配置
+    	xtype: 'textfield',
         labelWidth: 75, // label的默认宽度
         labelAlign: 'right',
         cls: 'fxstudio-window-inner-margin3',
-        labelStyle: 'margin-top:3px;'
+        labelStyle: 'margin-top:3px;',
+        anchor: '95%'
     },
     items: [{
-        fieldLabel: '主键',
         name: 'sysid',
-        width: 60,
         hidden: true,
         hideLabel: true
     }, {
         id: 'menus',
-        fieldLabel: '可访问菜单',
         name: 'menus',
-        width: 60,
         hidden: true,
         hideLabel: true
     }, {

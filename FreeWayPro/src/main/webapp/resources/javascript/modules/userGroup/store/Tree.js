@@ -1,6 +1,7 @@
 Ext.define('UserGroupModule.store.Tree', {
 	extend: 'Ext.data.TreeStore',
     model: 'UserGroupModule.model.TreeModel',
+    
     root: { expanded: true },
     autoLoad: false,
     clearOnLoad: true,
