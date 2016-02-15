@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('HeavyTruckModule.store.HeavyTruck', {
     extend: 'Ext.data.Store',
     model: 'HeavyTruckModule.model.HeavyTruckModel',

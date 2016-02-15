@@ -1,6 +1,3 @@
-/**
- * Login Log Store
- */
 Ext.define('LoginLogModule.store.LoginLog', {
     extend: 'Ext.data.Store',
     model: 'LoginLogModule.model.LoginLogModel',

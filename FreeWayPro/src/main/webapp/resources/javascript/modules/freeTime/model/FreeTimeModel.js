@@ -1,6 +1,3 @@
-/**
- * 树节点模型对象
- */
 Ext.define('FreeTimeModule.model.FreeTimeModel', {
 	extend: 'Ext.data.Model',
 	

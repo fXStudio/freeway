@@ -1,5 +1,5 @@
 /**
- * Login Log
+ * 用户登陆日志查询
  * 
  * @Author Renjian
  */

@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('LoseCardModule.controller.LoseCardController', {
     extend: 'Ext.app.Controller',
     

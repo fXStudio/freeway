@@ -1,8 +1,3 @@
-/**
- * Tab Panel
- * 
- * @Author Renj
- */
 Ext.define('MainModule.view.TabPanel' ,{
 	extend: 'Ext.tab.Panel',
 	alias: 'widget.maintabpanel',

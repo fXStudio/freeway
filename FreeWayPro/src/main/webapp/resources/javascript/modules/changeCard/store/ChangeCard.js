@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('ChangeCardModule.store.ChangeCard', {
     extend: 'Ext.data.Store',
     model: 'ChangeCardModule.model.ChangeCardModel',

@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('LoseCardModule.store.LoseCard', {
     extend: 'Ext.data.Store',
     model: 'LoseCardModule.model.LoseCardModel',

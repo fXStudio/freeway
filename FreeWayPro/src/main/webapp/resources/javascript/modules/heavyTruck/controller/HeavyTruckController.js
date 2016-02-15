@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('HeavyTruckModule.controller.HeavyTruckController', {
     extend: 'Ext.app.Controller',
     

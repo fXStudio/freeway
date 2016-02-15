@@ -1,8 +1,3 @@
-/**
- * Login Controller
- * 
- * @Author Ajaxfan
- */
 Ext.define('LoginModule.controller.LoginController', {
 	extend: 'Ext.app.Controller',
     

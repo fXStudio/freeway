@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('FreeTimeModule.store.FreeTime', {
     extend: 'Ext.data.Store',
     model: 'FreeTimeModule.model.FreeTimeModel',

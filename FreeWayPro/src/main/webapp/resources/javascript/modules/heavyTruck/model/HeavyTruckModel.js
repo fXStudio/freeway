@@ -1,6 +1,3 @@
-/**
- * 树节点模型对象
- */
 Ext.define('HeavyTruckModule.model.HeavyTruckModel', {
 	extend: 'Ext.data.Model',
 	

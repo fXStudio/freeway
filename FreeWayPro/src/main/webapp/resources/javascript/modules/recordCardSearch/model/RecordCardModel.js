@@ -1,6 +1,3 @@
-/**
- * 树节点模型对象
- */
 Ext.define('RecordCardModule.model.RecordCardModel', {
 	extend: 'Ext.data.Model',
 	

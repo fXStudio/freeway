@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('UserOperationLogModule.store.OperationLog', {
     extend: 'Ext.data.Store',
     model: 'UserOperationLogModule.model.OperationLogModel',

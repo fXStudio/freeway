@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('TrackingModule.store.Tracking', {
     extend: 'Ext.data.Store',
     model: 'TrackingModule.model.TrackingModel',

@@ -1,8 +1,3 @@
-/**
- * Login Window
- * 
- * @Author Ajaxfan
- */
 Ext.define('LoginModule.view.Window', {
 	extend: 'Ext.window.Window',
     alias: 'widget.loginWindow',

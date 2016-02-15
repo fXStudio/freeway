@@ -1,8 +1,3 @@
-/**
- * Car Type Grid Panel
- * 
- * @Author Renj
- */
 Ext.define('ProcedureLogModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
@@ -20,37 +15,30 @@ Ext.define('ProcedureLogModule.view.GridPanel', {
 	}, {
         header: '日志编号',
         width: 90,
-        sortable: true,
         dataIndex: 'logId'
     }, {
         header: '记录时间',
         width: 160,
-        sortable: true,
         dataIndex: 'logDate'
     }, {
         header: '作业名称',
         width: 140,
-        sortable: true,
         dataIndex: 'jobName'
     }, {
         header: '作业类',
         width: 200,
-        sortable: true,
         dataIndex: 'jobClass'
     }, {
         header: '操作',
         width: 90,
-        sortable: true,
         dataIndex: 'operation'
     }, {
         header: '状态',
         width: 140,
-        sortable: true,
         dataIndex: 'status'
     }, {
         header: '附属信息',
         width: 90,
-        sortable: true,
         dataIndex: 'additionalInfo'
     }],
     

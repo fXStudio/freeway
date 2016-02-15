@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('TollCollectorModule.controller.TollCollectorController', {
     extend: 'Ext.app.Controller',
     

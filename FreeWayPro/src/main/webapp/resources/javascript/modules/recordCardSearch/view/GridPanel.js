@@ -1,8 +1,3 @@
-/**
- * Car Type Grid Panel
- * 
- * @Author Renj
- */
 Ext.define('RecordCardModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
@@ -20,37 +15,30 @@ Ext.define('RecordCardModule.view.GridPanel', {
 	}, {
 		header : '车牌',
 		width : 120,
-		sortable : true,
 		dataIndex : 'carExitcode'
 	},{
 		header : '卡号',
 		width : 120,
-		sortable : true,
 		dataIndex : 'icCode'
 	},{
 		header : '入口站',
 		width : 120,
-		sortable : true,
 		dataIndex : 'enteName'
 	},{
 		header : '出口站',
 		width : 120,
-		sortable : true,
 		dataIndex : 'exitName'
 	}, {
 		header : '车道',
 		width : 120,
-		sortable : true,
 		dataIndex : 'lane'
 	}, {
 		header : '车型',
 		width : 120,
-		sortable : true,
 		dataIndex : 'vEnte'
 	}, {
 		header : '入站时间',
 		width : 140,
-		sortable : true,
 		dataIndex : 'enteDate'
 	}],
     

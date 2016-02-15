@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('RecordCardModule.store.RecordCard', {
     extend: 'Ext.data.Store',
     model: 'RecordCardModule.model.RecordCardModel',

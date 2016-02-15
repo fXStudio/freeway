@@ -1,8 +1,3 @@
-/**
- * Main Moudle View Layout
- * 
- * @Author Renj
- */
 Ext.define('MainModule.view.Viewport', {
     extend: 'Ext.container.Viewport',
 

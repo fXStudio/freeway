@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('TrackingModule.controller.TrackingController', {
     extend: 'Ext.app.Controller',
     

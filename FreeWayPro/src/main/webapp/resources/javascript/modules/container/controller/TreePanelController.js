@@ -1,6 +1,3 @@
-/**
- * 导航树菜单的监控器
- */
 Ext.define('MainModule.controller.TreePanelController', {
     extend: 'Ext.app.Controller',
 

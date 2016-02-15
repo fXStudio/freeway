@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('ProcedureLogModule.store.ProcedureLog', {
     extend: 'Ext.data.Store',
     model: 'ProcedureLogModule.model.ProcedureLogModel',

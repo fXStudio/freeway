@@ -1,8 +1,3 @@
-/**
- * Car Type Moudle View Layout
- * 
- * @Author Renj
- */
 Ext.define('HeavyTruckModule.view.Viewport', {
     extend: 'Ext.container.Viewport',
 

@@ -1,6 +1,3 @@
-/**
- * 树节点模型对象
- */
 Ext.define('ChangeCardModule.model.ChangeCardModel', {
 	extend: 'Ext.data.Model',
 	

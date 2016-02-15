@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('LongDistanceModule.controller.LongDistanceController', {
     extend: 'Ext.app.Controller',
     

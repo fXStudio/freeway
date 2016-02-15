@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('FreeTimeModule.controller.FreeTimeController', {
     extend: 'Ext.app.Controller',
     

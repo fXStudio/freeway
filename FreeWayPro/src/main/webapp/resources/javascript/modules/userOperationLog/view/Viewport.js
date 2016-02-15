@@ -1,8 +1,3 @@
-/**
- * Car Type Moudle View Layout
- * 
- * @Author Renj
- */
 Ext.define('UserOperationLogModule.view.Viewport', {
     extend: 'Ext.container.Viewport',
 

@@ -1,8 +1,3 @@
-/**
- * Car Type Grid Panel
- * 
- * @Author Renj
- */
 Ext.define('UserOperationLogModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
@@ -20,22 +15,18 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
 	}, {
         header: '动作描述',
         width: 120,
-        sortable: true,
         dataIndex: 'itemid'
     }, {
         header: '操作类型',
         width: 120,
-        sortable: true,
         dataIndex: 'opration'
     }, {
         header: '操作时间',
         width: 90,
-        sortable: true,
         dataIndex: 'createTime'
     }, {
         header: '执行操作参数',
         width: 120,
-        sortable: true,
         dataIndex: 'params'
     }],
     

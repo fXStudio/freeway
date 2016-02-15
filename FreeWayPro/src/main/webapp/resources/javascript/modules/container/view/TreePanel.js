@@ -1,8 +1,3 @@
-/**
- * Tree Panel
- * 
- * @Author Renj
- */
 Ext.define('MainModule.view.TreePanel' ,{
     extend: 'Ext.tree.Panel',
     alias: 'widget.maintreepanel',

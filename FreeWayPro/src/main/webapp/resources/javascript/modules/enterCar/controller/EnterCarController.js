@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('EnterCarModule.controller.EnterCarController', {
     extend: 'Ext.app.Controller',
     

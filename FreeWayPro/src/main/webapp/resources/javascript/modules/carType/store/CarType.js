@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('CarTypeModule.store.CarType', {
     extend: 'Ext.data.Store',
     model: 'CarTypeModule.model.CarTypeModel',

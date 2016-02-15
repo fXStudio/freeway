@@ -1,8 +1,3 @@
-/**
- * Grid Panel
- * 
- * @Author Renj
- */
 Ext.define('LoginLogModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',

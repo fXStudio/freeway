@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('RecordCardModule.controller.RecordCardController', {
     extend: 'Ext.app.Controller',
     

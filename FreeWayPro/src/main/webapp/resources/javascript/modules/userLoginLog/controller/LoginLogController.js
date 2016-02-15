@@ -1,6 +1,3 @@
-/**
- * Login Log Controller
- */
 Ext.define('LoginLogModule.controller.LoginLogController', {
     extend: 'Ext.app.Controller',
     

@@ -1,6 +1,3 @@
-/**
- * Car Cards Store
- */
 Ext.define('CarCardsModule.store.CarCards', {
     extend: 'Ext.data.Store',
     model: 'CarCardsModule.model.CarCardsModel',

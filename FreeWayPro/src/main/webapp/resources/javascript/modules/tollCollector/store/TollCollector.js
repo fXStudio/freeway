@@ -1,6 +1,3 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('TollCollectorModule.store.TollCollector', {
     extend: 'Ext.data.Store',
     model: 'TollCollectorModule.model.TollCollectorModel',

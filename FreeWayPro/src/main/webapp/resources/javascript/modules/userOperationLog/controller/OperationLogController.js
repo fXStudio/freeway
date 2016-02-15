@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('UserOperationLogModule.controller.OperationLogController', {
     extend: 'Ext.app.Controller',
     

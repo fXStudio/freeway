@@ -1,6 +1,3 @@
-/**
- * Bad Card Search Controller
- */
 Ext.define('ChangeCardModule.controller.ChangeCardController', {
     extend: 'Ext.app.Controller',
     
@@ -13,8 +10,7 @@ Ext.define('ChangeCardModule.controller.ChangeCardController', {
      */
 	onLaunch: function() {
 		// 获得数据源对象
-	    var gridPanel = this.getGridPanel(),
-	         store = gridPanel.getStore();
+	    var gridPanel = this.getGridPanel(), store = gridPanel.getStore();
 
         // 装载数据
         store.load({params: { start: 0, limit: 25 }});

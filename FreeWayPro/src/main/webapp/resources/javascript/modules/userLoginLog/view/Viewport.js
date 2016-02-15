@@ -1,8 +1,3 @@
-/**
- * Login Log Moudle View Layout
- * 
- * @Author Renj
- */
 Ext.define('LoginLogModule.view.Viewport', {
     extend: 'Ext.container.Viewport',
 

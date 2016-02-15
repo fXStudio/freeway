@@ -1,8 +1,3 @@
-/**
- * Car Type Grid Panel
- * 
- * @Author Renj
- */
 Ext.define('LoseCardModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
@@ -20,32 +15,26 @@ Ext.define('LoseCardModule.view.GridPanel', {
 	}, {
 		header : '车牌',
 		width : 120,
-		sortable : true,
 		dataIndex : 'carIncodeRecognize'
 	},{
 		header : '卡号',
 		width : 120,
-		sortable : true,
 		dataIndex : 'icCode'
 	},{
 		header : '入口站名称',
 		width : 120,
-		sortable : true,
 		dataIndex : 'enteName'
 	}, {
 		header : '车道',
 		width : 120,
-		sortable : true,
 		dataIndex : 'lane'
 	}, {
 		header : '车型',
 		width : 120,
-		sortable : true,
 		dataIndex : 'vType'
 	}, {
 		header : '入站时间',
 		width : 140,
-		sortable : true,
 		dataIndex : 'enteDate'
 	}],
     

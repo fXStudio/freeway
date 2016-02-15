@@ -1,6 +1,3 @@
-/**
- * 树节点模型对象
- */
 Ext.define('EnterCarModule.model.EnterCarModel', {
 	extend: 'Ext.data.Model',
 	
