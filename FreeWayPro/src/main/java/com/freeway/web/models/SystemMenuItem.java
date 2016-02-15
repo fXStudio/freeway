@@ -14,7 +14,7 @@ public class SystemMenuItem {
 	private String sysid;
 	private String itemname;
 	private String itemlink;
-	private char islock = '0';
+	private String islock = "0";
 
 	public String getItemlink() {
 		return itemlink;
@@ -40,12 +40,11 @@ public class SystemMenuItem {
 		this.itemname = itemname;
 	}
 
-	public char getIslock() {
+	public String getIslock() {
 		return islock;
 	}
 
-	public void setIslock(char islock) {
-		this.islock = islock;
+	public void setIslock(String islock) {
+		this.islock = "on".equals(islock) ? "1" : islock;
 	}
-
 }

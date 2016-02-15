@@ -18,6 +18,9 @@
 .update {
     background-image: url(../images/update.png) !important;
 }
+.feed-icon {
+    background-image: url(../images/feed-icon.png) !important;
+}
 
 .complete span.x-tree-node-text  {
     text-decoration: line-through;

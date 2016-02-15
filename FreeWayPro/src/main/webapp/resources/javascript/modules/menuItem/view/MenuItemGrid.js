@@ -1,34 +1,19 @@
 Ext.define('MenuItemModule.view.MenuItemGrid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.MenuItemGrid',
-	id: 'grid_id',
-    loadMask: true,
-    stripeRows: true,
-    stateId: 'grid',
-    width: 300,
-    height: 300,
+	alias: 'widget.menuitemgrid',
+	
+    requires: ["Ext.plugins.Paging"],
+	
     selModel: { checkOnly: true },
-    tbar: Ext.create('Ext.toolbar.Toolbar', {
-        items: [{
-        	id: 'add_btn',
-            text: '添加',
-            iconCls: 'add'
-        }, {
-        	id: 'modify_btn',
-            text: '修改',
-            iconCls: 'update'
-        }, '-', {
-        	id: 'del_btn',
-            text: '删除',
-            iconCls: 'del'
-        }]
-    }),
-    columns: [Ext.create('Ext.grid.RowNumberer', { // 行号
-        width: 30
-    }), {
+    defaults: { sortable: true },
+    columns: [{ 
+    	xtype: 'rownumberer',
+    	align: 'left',
+        header: '序号',
+    	width: 50
+	}, {
         header: '菜单项名称',
         width: 240,
-        sortable: true,
         dataIndex: 'itemname'
     }, {
         id: 'itemLink',
@@ -38,10 +23,41 @@ Ext.define('MenuItemModule.view.MenuItemGrid', {
     }, {
         header: '锁定',
         width: 75,
-        sortable: true,
-        renderer: function (value, p, r) {
-            return value === 'on' ? '是' : '--';
-        },
+        renderer: function (value) {return value === '1' ? '是' : '--';},
         dataIndex: 'islock'
-    }]
+    }],
+
+    /**
+     * Component Init
+     */
+    initComponent: function() {
+        // Create Store Object
+        var store = Ext.create('MenuItemModule.store.MenuItem');
+
+        // Copy properties to Origin Object
+        Ext.apply(this, {
+            store: store,
+            tbar: Ext.create('Ext.toolbar.Toolbar', {
+                items: [{
+                    text: '添加',
+                    iconCls: 'add',
+                    action: 'add'
+                }, {
+                    text: '修改',
+                    iconCls: 'update',
+                    action: 'modify'
+                }, '-', {
+                    text: '删除',
+                    iconCls: 'del',
+                    action: 'del'
+                }]
+            }),
+            bbar: { // Bottom bar
+                xtype: 'paging',
+                store: store
+            }
+        });
+        // Call Parent Constructor
+        this.callParent(arguments);
+    }
 });
