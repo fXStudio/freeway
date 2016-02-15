@@ -3,6 +3,7 @@
  */
 Ext.define('Ext.plugins.BasicToolbar', {
 	extend: 'Ext.toolbar.Toolbar',
+	alias: 'widget.basictoolbar',
 	
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
@@ -42,13 +43,11 @@ Ext.define('Ext.plugins.BasicToolbar', {
 	   	   "<span style='margin:0 4px 0 10px;'>" + this.label + ":</span> ", _searchField]
         });
         
-
         // 创建数据源的监听
         this.store.on('load', function(records, successful, options) {
         	_searchField.focus(true, 100);
         });
         
-
         return this.callParent(arguments);
     }
 })

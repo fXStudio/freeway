@@ -1,3 +1,7 @@
+/**
+ * System Config
+ */
+
 // 开启ADM功能，关闭脚本缓存
 Ext.Loader.setConfig({
     enabled: true,
@@ -22,10 +26,8 @@ new Ext.util.KeyMap({
     target: window.document,
     key: 8,
     fn: function(obj,e){
-    	// 组件类型
-    	var type = e.target.type;
-    	// 组件只读属性
-    	var readonly = e.target.readOnly;
+    	var type = e.target.type;// 组件类型
+    	var readonly = e.target.readOnly;// 组件只读属性
     	
     	// 在非编辑区或只读对象上禁用回退键
     	if((type != 'text' && type != 'textarea' && type != 'password') || readonly){
@@ -34,3 +36,6 @@ new Ext.util.KeyMap({
     },
     scope: this
 });
+
+// 禁止整个页面的右键
+Ext.getDoc().on("contextmenu", function(e) { e.stopEvent(); });

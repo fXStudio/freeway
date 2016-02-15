@@ -1,15 +1,18 @@
 /**
- * 主页的导航树
+ * Tree Panel
+ * 
+ * @Author Renj
  */
 Ext.define('MainModule.view.TreePanel' ,{
     extend: 'Ext.tree.Panel',
-    alias: 'widget.MainTreePanel',
+    alias: 'widget.maintreepanel',
+    
     title: '系统功能树',
     useArrows: false,// 展开按钮图标是箭头还是+-
     rootVisible: false,
-    padding: 5,
-    collapsible: true,
     split: true,
+    collapsible: true,
     autoScroll: true,
+    padding: 5,
     width: 200
 });

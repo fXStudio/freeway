@@ -1,12 +1,12 @@
 /**
- * 用户登陆日志数据源对象
+ * Login Log Store
  */
-Ext.define('LoginLogModule.store.Log', {
+Ext.define('LoginLogModule.store.LoginLog', {
     extend: 'Ext.data.Store',
-    model: 'LoginLogModule.model.Log',
+    model: 'LoginLogModule.model.LoginLogModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('LoginLogModule.store.Log', {
             root: 'items',
             idProperty: 'sysid',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

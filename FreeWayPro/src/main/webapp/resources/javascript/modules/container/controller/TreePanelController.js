@@ -3,23 +3,33 @@
  */
 Ext.define('MainModule.controller.TreePanelController', {
     extend: 'Ext.app.Controller',
+
+    stores: ['Tree'],
+    
+    refs: [
+        {ref: 'treePanel', selector: 'maintreepanel'},
+        {ref: 'tabPanel', selector: 'maintabpanel'}
+    ],
 	
-    // Cotroller的业务处理
+    /**
+     * Module Event Bind
+     */
     init: function() {
 	    this.control({
-	    	'MainTreePanel': {
+	    	'maintreepanel': {
         		'itemclick': function (view, record, item, index, e, option) {
                     if (record.get('leaf')) {
-                    	var tabPanel = Ext.getCmp('doc-body');// TabPanel对象
-                        var tabToCheck = tabPanel.getChildByElement(record.get('sn'));// 几点ID
+                    	var tabPanel = this.getTabPanel();// TabPanel对象
+                    	var sn = record.get('sn');// Node ID
+                        var tabToCheck = tabPanel.getChildByElement(sn);// 检查标签是否已经打开
                         
                         // 如果节点已经打开，则只是激活标签，不在重复开启
                         if(tabToCheck){
-                        	tabPanel.setActiveTab(record.get('sn'));
+                        	tabPanel.setActiveTab(sn);
                         } else {// 打开一个新的节点标签
                         	tabPanel.add({
 	                            title: record.get('text'),
-	                            id: record.get('sn'),
+	                            id: sn,
 	                            iconCls: 'tabs',
 	                            html: '<iframe src=' + record.get('url') + ' width="100%" height="100%"></iframe>',
 	                            closable: true,
@@ -34,28 +44,32 @@ Ext.define('MainModule.controller.TreePanelController', {
 	                        }).show();
                         }
                     } else {
-                        var expand = record.get('expanded')
-                        if (expand) {
-                            view.collapse(record);
-                        }
-                        else {
-                            view.expand(record);
-                        }
+                        if (record.get('expanded')) { view.collapse(record); } else { view.expand(record); }
                     }
                 }
         	}
         })
+    },
+    
+    /**
+     * Module Launch
+     */
+	onLaunch: function() {
+		// 获得数据源对象
+	    var store = this.getTreeStore();
+	    
+	    // 设置数据源对象
+	    this.getTreePanel().bindStore(store);
+	    
         // 创建数据源的监听
-        Ext.getStore('TreeStore').on('load', function(records, successful, options) {
+	    store.on('load', function(records, successful, options) {
         	// 页面加载完成后去除等待窗体
             if (Ext.get('loading')) {
                 setTimeout(function() {
                     Ext.get('loading').remove();
-                    Ext.get('loading-mask').fadeOut({
-                        remove: true
-                    });
+                    Ext.get('loading-mask').fadeOut({remove: true});
                 }, 1 * 1000);
             }
         });
-    }
+	}
 });

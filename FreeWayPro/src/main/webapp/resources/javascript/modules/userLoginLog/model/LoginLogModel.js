@@ -1,7 +1,8 @@
 /**
- * 树节点模型对象
+ * Login Log Model
  */
-Ext.define('LoginLogModule.model.Log', {
+Ext.define('LoginLogModule.model.LoginLogModel', {
 	extend: 'Ext.data.Model',
+	
 	fields: ['username', 'logintime', 'ip']
 });

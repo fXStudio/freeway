@@ -1,7 +1,3 @@
-.x-grid3-row-alt {
-    background-color: #f3f9fb;
-}
-
 .fxstudio-window-innerComponent {
     background: transparent;
     padding: 10px;
@@ -32,15 +28,4 @@
     color: red;
     font-size: 8pt;
     font-style: italic;
-}
-
-.upload-icon {
-    background: url(../images/upload.png) no-repeat 0 0 !important;
-}
-
-.icon-search {
-    background: url(../images/search-trigger.gif) no-repeat 0 0 !important;
-}
-.export-excel {
-    background: url(../images/excel.png) no-repeat 0 0 !important;
 }
