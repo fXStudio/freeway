@@ -1,6 +1,7 @@
 Ext.define('MenuModule.store.Tree', {
 	extend: 'Ext.data.TreeStore',
     model: 'MenuModule.model.TreeModel',
+    
     root: { expanded: true },
     autoLoad: true,
     proxy: {

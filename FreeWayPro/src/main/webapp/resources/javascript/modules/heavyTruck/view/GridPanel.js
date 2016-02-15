@@ -9,7 +9,7 @@ Ext.define('HeavyTruckModule.view.GridPanel', {
     defaults:{ sortable: true },
     columns: [{ 
     	xtype: 'rownumberer',
-    	align: 'left',
+    	align: 'center',
         header: '序号',
     	width: 50
 	}, {

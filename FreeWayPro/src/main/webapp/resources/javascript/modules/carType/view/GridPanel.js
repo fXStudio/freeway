@@ -8,7 +8,7 @@ Ext.define('CarTypeModule.view.GridPanel', {
     },
     columns: [{
         xtype: 'rownumberer',
-        align: 'left',
+        align: 'center',
         header: '序号',
         width: 50
     },
