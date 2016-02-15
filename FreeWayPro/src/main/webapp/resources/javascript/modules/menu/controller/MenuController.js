@@ -1,6 +1,5 @@
 Ext.define('MenuModule.controller.MenuController', {
     extend: 'Ext.app.Controller',
-    stores: ['Menu', 'Tree'],// 存储器
     refs: [
        {ref: 'gridPanel', selector: 'menugrid'},
        {ref: 'window', selector: 'menuwindow'},

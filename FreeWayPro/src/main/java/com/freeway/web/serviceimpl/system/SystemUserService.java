@@ -104,6 +104,7 @@ final class SystemUserService implements ISystemUserService {
 	@Override
 	public List<SystemUser> findRecords(ConditionFiled cf) {
 		Example condition = new Example(SystemUser.class);
+		condition.setOrderByClause("createtime");
 		Criteria criteria = condition.createCriteria();
 		// 按组搜索用户
 		if (!StringHelper.isNullOrEmpty(cf.getSysid())) {

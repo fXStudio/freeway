@@ -1,9 +1,10 @@
 Ext.define('SystemUserModule.view.SystemUserForm', {
 	extend: 'Ext.form.Panel',
-	id: "systemDataForm",
+	alias: 'widget.systemuserform',
+	
     border: false, // 不显示边线
-    defaultType: 'textfield', // 默认的组件类型
     defaults: { // 组件的默认样式配置
+    	xtype: 'textfield', // 默认的组件类型
         labelWidth: 75, // label的默认宽度
         labelAlign: 'right',
         cls: 'fxstudio-window-inner-margin3',
@@ -11,23 +12,17 @@ Ext.define('SystemUserModule.view.SystemUserForm', {
         anchor: '95%'
     },
     items: [{
-        fieldLabel: '主键',
         name: 'sysid',
-        width: 60,
         hidden: true,
         hideLabel: true
     }, {
         id: 'depid',
-        fieldLabel: '部门',
         name: 'depid',
-        width: 60,
         hidden: true,
         hideLabel: true
     }, {
         id: 'groupid',
-        fieldLabel: '用户组',
         name: 'groupid',
-        width: 60,
         hidden: true,
         hideLabel: true
     },{

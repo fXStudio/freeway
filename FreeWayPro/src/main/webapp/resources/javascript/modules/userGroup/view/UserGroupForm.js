@@ -24,14 +24,12 @@ Ext.define('UserGroupModule.view.UserGroupForm', {
         id: 'groupname',
         fieldLabel: '用户组名称',
         name: 'groupname',
-        width: 240,
         allowBlank: false,
         blankText: '用户组名称不能为空'
     }, {
         xtype: 'textarea',
         fieldLabel: '菜单描述',
-        name: 'remark',
-        width: 240
+        name: 'remark'
     }, {
         xtype: 'checkbox',
         fieldLabel: '是否锁定',

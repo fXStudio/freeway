@@ -1,9 +1,9 @@
 Ext.define('SystemUserModule.view.SystemUserTabPanel', {
 	extend: 'Ext.tab.Panel',
-	id: 'systemUserTabPanel',
+	alias: 'widget.systemusertabpanel',
+	
 	items: [
-	    // 用户所在组的维护功功能
-	    {
+	    {// 用户所在组的维护功功能
 	    	title: '所属用户组',
 	    	layout: 'fit',
 	    	items: Ext.create('Ext.ux.form.ItemSelector', {
@@ -34,6 +34,7 @@ Ext.define('SystemUserModule.view.SystemUserTabPanel', {
                 toTitle: '已分配用户组'
             })
 	    }, 
+	    
 	    // 用户所属部门的树菜单
 	    Ext.create('Ext.tree.TreePanel', {
 	        id: 'deptTree',
