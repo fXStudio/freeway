@@ -3,10 +3,10 @@
  */
 Ext.define('FreeTimeModule.store.FreeTime', {
     extend: 'Ext.data.Store',
-    model: 'FreeTimeModule.model.FreeTime',
+    model: 'FreeTimeModule.model.FreeTimeModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('FreeTimeModule.store.FreeTime', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

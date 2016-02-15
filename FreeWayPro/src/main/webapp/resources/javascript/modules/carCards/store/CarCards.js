@@ -1,12 +1,12 @@
 /**
- * 用户登陆日志数据源对象
+ * Car Cards Store
  */
 Ext.define('CarCardsModule.store.CarCards', {
     extend: 'Ext.data.Store',
-    model: 'CarCardsModule.model.CarCards',
+    model: 'CarCardsModule.model.CarCardsModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('CarCardsModule.store.CarCards', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

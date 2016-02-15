@@ -3,10 +3,10 @@
  */
 Ext.define('LoseCardModule.store.LoseCard', {
     extend: 'Ext.data.Store',
-    model: 'LoseCardModule.model.LoseCard',
+    model: 'LoseCardModule.model.LoseCardModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('LoseCardModule.store.LoseCard', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

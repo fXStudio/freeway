@@ -3,10 +3,10 @@
  */
 Ext.define('TrackingModule.store.Tracking', {
     extend: 'Ext.data.Store',
-    model: 'TrackingModule.model.Tracking',
+    model: 'TrackingModule.model.TrackingModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('TrackingModule.store.Tracking', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

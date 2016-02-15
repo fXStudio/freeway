@@ -3,10 +3,10 @@
  */
 Ext.define('EnterCarModule.store.EnterCar', {
     extend: 'Ext.data.Store',
-    model: 'EnterCarModule.model.EnterCar',
+    model: 'EnterCarModule.model.EnterCarModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('EnterCarModule.store.EnterCar', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

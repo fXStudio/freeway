@@ -3,10 +3,10 @@
  */
 Ext.define('LongDistanceModule.store.LongDistance', {
     extend: 'Ext.data.Store',
-    model: 'LongDistanceModule.model.LongDistance',
+    model: 'LongDistanceModule.model.LongDistanceModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('LongDistanceModule.store.LongDistance', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

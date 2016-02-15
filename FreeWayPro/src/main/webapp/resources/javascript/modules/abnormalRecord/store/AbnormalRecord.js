@@ -1,12 +1,9 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('AbnormalRecordModule.store.AbnormalRecord', {
     extend: 'Ext.data.Store',
-    model: 'AbnormalRecordModule.model.AbnormalRecord',
+    model: 'AbnormalRecordModule.model.AbnormalRecordModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +13,6 @@ Ext.define('AbnormalRecordModule.store.AbnormalRecord', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

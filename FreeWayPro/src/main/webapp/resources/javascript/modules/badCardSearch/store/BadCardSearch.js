@@ -1,12 +1,9 @@
-/**
- * 用户登陆日志数据源对象
- */
 Ext.define('BadCardSearchModule.store.BadCardSearch', {
     extend: 'Ext.data.Store',
-    model: 'BadCardSearchModule.model.BadCardSearch',
+    model: 'BadCardSearchModule.model.BadCardModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +13,6 @@ Ext.define('BadCardSearchModule.store.BadCardSearch', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

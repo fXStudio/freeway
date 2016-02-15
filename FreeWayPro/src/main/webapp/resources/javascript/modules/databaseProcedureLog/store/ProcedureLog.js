@@ -3,10 +3,10 @@
  */
 Ext.define('ProcedureLogModule.store.ProcedureLog', {
     extend: 'Ext.data.Store',
-    model: 'ProcedureLogModule.model.ProcedureLog',
+    model: 'ProcedureLogModule.model.ProcedureLogModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('ProcedureLogModule.store.ProcedureLog', {
             root: 'items',
             idProperty: 'logId',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

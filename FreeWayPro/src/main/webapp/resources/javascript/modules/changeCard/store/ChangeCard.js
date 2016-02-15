@@ -3,10 +3,10 @@
  */
 Ext.define('ChangeCardModule.store.ChangeCard', {
     extend: 'Ext.data.Store',
-    model: 'ChangeCardModule.model.ChangeCard',
+    model: 'ChangeCardModule.model.ChangeCardModel',
+    
     autoLoad: false,
     autoDestroy: true,
-    root: { expanded: true },
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
@@ -16,11 +16,6 @@ Ext.define('ChangeCardModule.store.ChangeCard', {
             root: 'items',
             idProperty: 'recordNo',
             totalProperty: 'totalCount'
-        }
-    },
-    listeners: {
-    	load: function() {
-        	Ext.getCmp("grid_id").getSelectionModel().select(0);
         }
     }
 });

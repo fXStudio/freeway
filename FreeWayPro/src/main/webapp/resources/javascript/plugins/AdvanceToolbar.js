@@ -3,6 +3,7 @@
  */
 Ext.define('Ext.plugins.AdvanceToolbar', {
 	extend: 'Ext.toolbar.Toolbar',
+	alias: 'widget.advancetoolbar',
 	
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
