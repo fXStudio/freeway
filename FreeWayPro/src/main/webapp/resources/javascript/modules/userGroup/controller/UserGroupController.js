@@ -123,6 +123,7 @@ Ext.define('UserGroupModule.controller.UserGroupController', {
 	                        url: 'services/userGroupModify', // 请求的url地址  
 	                        method: 'POST', // 请求方式  
 	                        success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
+	                        	groupGridPanel.getStore().loadRawData();
 	                        	groupGridPanel.getStore().load();
 	                        },
 	                        failure: function(form, action) { // 添加失败后，提示用户添加异常
