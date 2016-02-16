@@ -75,7 +75,7 @@ public class ConditionFiled {
 	}
 
 	public String getExitName() {
-		return exitName + "$";
+		return exitName;
 	}
 
 	public void setExitName(String exitName) {

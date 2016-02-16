@@ -13,6 +13,13 @@
 			    WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
 			           AND enteDate > #{beginDate} 
 			           AND enteDate < #{endDate}
+                       AND EXISTS (
+                           SELECT sysid
+                           FROM fs_org_dept
+                           WHERE enteName = dept_name
+                           START WITH sysid = #{enteName}
+                           CONNECT BY PRIOR sysid = dept_parant_rowid
+                       )
 			)
 			WHERE rn > #{start} and rn <= #{limit}
         ]]>
@@ -25,6 +32,13 @@
 		    WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
 		           AND enteDate > #{beginDate} 
 		           AND enteDate < #{endDate}
+                   AND EXISTS (
+                       SELECT sysid
+                       FROM fs_org_dept
+                       WHERE enteName = dept_name
+                       START WITH sysid = #{enteName}
+                       CONNECT BY PRIOR sysid = dept_parant_rowid
+                   )
         ]]>
 	</select>
 </mapper>

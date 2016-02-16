@@ -14,6 +14,13 @@
 			    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
 			           AND exitDate > #{beginDate} 
 			           AND exitDate < #{endDate}
+                       AND EXISTS (
+                           SELECT sysid
+                           FROM fs_org_dept
+                           WHERE exitName = dept_name
+                           START WITH sysid = #{exitName}
+                           CONNECT BY PRIOR sysid = dept_parant_rowid
+                       )
 			)
 			WHERE rn > #{start} and rn <= #{limit}
         ]]>
@@ -26,6 +33,13 @@
 		    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
 		           AND exitDate > #{beginDate} 
 		           AND exitDate < #{endDate}
+                   AND EXISTS (
+                       SELECT sysid
+                       FROM fs_org_dept
+                       WHERE exitName = dept_name
+                       START WITH sysid = #{exitName}
+                       CONNECT BY PRIOR sysid = dept_parant_rowid
+                   )
         ]]>
 	</select>
 </mapper>

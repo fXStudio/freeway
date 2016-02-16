@@ -44,11 +44,8 @@ Ext.define('Ext.plugins.AdvanceToolbar', {
 	            store: Ext.create('Ext.data.TreeStore', {
 	            	autoLoad: true,
 	            	autoDestroy: true,
-	                root: { 
-	                	expanded: true,
-	                	text: "所有收费站",
-	                	rootVisible: false
-                	},
+	            	fields: ["sn", "text"],
+	                root: { expanded: true },
 	                proxy: {
 	                    type : 'ajax',
 	                    actionMethods: { read: 'POST' },
@@ -58,8 +55,6 @@ Ext.define('Ext.plugins.AdvanceToolbar', {
 		   }),
 	   	   "<span style='margin:0 1px 0 2px;'>" + this.label + ":</span> ", _searchField]
         });
-
-        
 
         // 创建数据源的监听
         this.store.on('load', function(records, successful, options) {

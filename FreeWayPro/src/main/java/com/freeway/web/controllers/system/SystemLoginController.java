@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.StringHelper;
 import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.messages.FeedBackMessage;
 import com.freeway.web.models.SystemUser;
@@ -46,7 +47,7 @@ public class SystemLoginController {
 		// 用户信息存在Session中
 		request.getSession().setAttribute("freeWayUser", users.get(0));
 		// 记录系统登录日志
-		writeLog(users.get(0).getSysid(), request.getRemoteAddr());
+		writeLog(users.get(0).getSysid(), getIPAddress(request));
 
 		return new FeedBackMessage(true);
 	}
@@ -65,5 +66,29 @@ public class SystemLoginController {
 		log.setLogintime(new Timestamp(System.currentTimeMillis()));
 
 		userLoginLogService.add(log);
+	}
+
+	/**
+	 * 获得IP地址
+	 * 
+	 * @param request
+	 * @return
+	 */
+	private String getIPAddress(HttpServletRequest request) {
+		String ip = request.getHeader("X-Forwarded-For");
+		if (!StringHelper.isNullOrEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)) {
+			// 多次反向代理后会有多个ip值，第一个ip才是真实ip
+			int index = ip.indexOf(",");
+			if (index != -1) {
+				return ip.substring(0, index);
+			} else {
+				return ip;
+			}
+		}
+		ip = request.getHeader("X-Real-IP");
+		if (!StringHelper.isNullOrEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)) {
+			return ip;
+		}
+		return request.getRemoteAddr();
 	}
 }

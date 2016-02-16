@@ -11,9 +11,15 @@
 			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
 			    FROM   car_cards_view a
 			    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
-			           AND REGEXP_LIKE(RTRIM(enteName), #{enteName})
 			           AND enteDate > #{beginDate} 
 			           AND enteDate < #{endDate}
+                       AND EXISTS (
+                           SELECT sysid
+                           FROM fs_org_dept
+                           WHERE enteName = dept_name
+                           START WITH sysid = #{enteName}
+                           CONNECT BY PRIOR sysid = dept_parant_rowid
+                       )
 			)
 			WHERE rn > #{start} and rn <= #{limit}
         ]]>
@@ -24,9 +30,15 @@
 		    SELECT COUNT(recordNo)
 		    FROM   car_cards_view
 		    WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
-		           AND REGEXP_LIKE(RTRIM(enteName), #{enteName})
 		           AND enteDate > #{beginDate} 
 		           AND enteDate < #{endDate}
+                   AND EXISTS (
+                       SELECT sysid
+                       FROM fs_org_dept
+                       WHERE enteName = dept_name
+                       START WITH sysid = #{enteName}
+                       CONNECT BY PRIOR sysid = dept_parant_rowid
+                   )
         ]]>
 	</select>
 </mapper>
