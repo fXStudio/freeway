@@ -3,7 +3,8 @@ Ext.define('DataDictModule.controller.DataDictController', {
     refs: [
        {ref: 'gridPanel', selector: 'datadictgrid'},
        {ref: 'window',    selector: 'datadictwindow'},
-       {ref: 'formPanel', selector: 'datadictform'}
+       {ref: 'formPanel', selector: 'datadictform'},
+       {ref: 'submitBtn', selector: 'datadictwindow button[action=submit]'}
     ],
     
     // Cotroller的业务处理
@@ -83,6 +84,13 @@ Ext.define('DataDictModule.controller.DataDictController', {
 	                });
 	            }
 	        },
+            'datadictform textfield[name=datadesc]': {// 密码项目的事件处理
+                specialkey: function(field, e){
+                    if (e.getKey() == e.ENTER) {
+                        this.getSubmitBtn().getEl().dom.click();
+                    }
+                }
+            },
 	        'datadictwindow': {
 	        	show: function(){
 	        		Ext.getCmp("dataname").focus(100, true);

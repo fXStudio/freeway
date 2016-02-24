@@ -3,7 +3,7 @@ Ext.define('TollCollectorModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.AdvanceToolbar", 
+       "Ext.plugins.QueryCriteriaToolbar", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -77,10 +77,11 @@ Ext.define('TollCollectorModule.view.GridPanel', {
     	Ext.apply(this, {
     		store: store,
     		tbar: {// Top bar
-    			xtype: 'advancetoolbar',
+    			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '车牌号', 
-            	paramName: 'carCode'
+            	paramName: 'carCode',
+            	stationHidden: false
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

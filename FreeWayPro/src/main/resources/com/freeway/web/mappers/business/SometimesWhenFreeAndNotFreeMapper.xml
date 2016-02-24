@@ -18,7 +18,7 @@
                            SELECT sysid
                            FROM fs_org_dept
                            WHERE exitName = dept_name
-                           START WITH sysid = #{exitName}
+                           START WITH sysid = #{stationId}
                            CONNECT BY PRIOR sysid = dept_parant_rowid
                        )
 			)
@@ -37,7 +37,7 @@
                        SELECT sysid
                        FROM fs_org_dept
                        WHERE exitName = dept_name
-                       START WITH sysid = #{exitName}
+                       START WITH sysid = #{stationId}
                        CONNECT BY PRIOR sysid = dept_parant_rowid
                    )
         ]]>

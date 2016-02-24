@@ -24,7 +24,8 @@ Ext.define('MenuItemModule.view.MenuItemForm', {
     }, {
         fieldLabel: '访问路径',
         name: 'itemlink',
-        allowBlank: false
+        allowBlank: false,
+        enableKeyEvents: true
     }, {
         xtype: 'checkbox',
         fieldLabel: '是否锁定',

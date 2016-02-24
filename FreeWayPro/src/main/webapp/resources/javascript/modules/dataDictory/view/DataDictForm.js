@@ -27,6 +27,7 @@ Ext.define('DataDictModule.view.DataDictForm', {
     }, {
         fieldLabel: '字典项描述',
         name: 'datadesc',
-        allowBlank: false
+        allowBlank: false,
+        enableKeyEvents: true
     }]
 });

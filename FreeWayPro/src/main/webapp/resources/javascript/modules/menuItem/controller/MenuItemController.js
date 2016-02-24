@@ -4,7 +4,8 @@ Ext.define('MenuItemModule.controller.MenuItemController', {
     refs: [
        {ref: 'gridPanel', selector: 'menuitemgrid'},
        {ref: 'window', selector: 'menuitemwindow'},
-       {ref: 'formPanel', selector: 'menuitemform'}
+       {ref: 'formPanel', selector: 'menuitemform'},
+       {ref: 'submitBtn', selector: 'menuitemwindow button[action=submit]'}
     ],
     
     // Cotroller的业务处理
@@ -78,6 +79,13 @@ Ext.define('MenuItemModule.controller.MenuItemController', {
 	                });
 	            }
 	        },
+            'menuitemform textfield[name=itemlink]': {// 密码项目的事件处理
+                specialkey: function(field, e){
+                    if (e.getKey() == e.ENTER) {
+                        this.getSubmitBtn().getEl().dom.click();
+                    }
+                }
+            },
 	        'menuitemwindow button[action=submit]': {
 	        	click: function(){
 	        		// form表单对象 

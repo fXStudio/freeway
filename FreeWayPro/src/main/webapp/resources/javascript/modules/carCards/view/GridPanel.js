@@ -2,7 +2,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.gridpanel',
 
-    requires: ["Ext.plugins.BasicToolbar", "Ext.plugins.Paging"],
+    requires: ["Ext.plugins.QueryCriteriaToolbar", "Ext.plugins.Paging"],
     defaults: {
         sortable: true
     },
@@ -54,7 +54,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
         Ext.apply(this, {
             store: store,
             tbar: { // Top bar
-                xtype: 'basictoolbar',
+                xtype: 'querycriteriatoolbar',
                 store: store,
                 label: '车牌号',
                 paramName: 'carCode'

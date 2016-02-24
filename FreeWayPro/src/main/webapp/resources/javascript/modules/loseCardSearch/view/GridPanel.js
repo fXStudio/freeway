@@ -3,7 +3,7 @@ Ext.define('LoseCardModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.AdvanceToolbar", 
+       "Ext.plugins.QueryCriteriaToolbar", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -49,10 +49,11 @@ Ext.define('LoseCardModule.view.GridPanel', {
     	Ext.apply(this, {
     		store: store,
     		tbar: {// Top bar
-    			xtype: 'advancetoolbar',
+    			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '卡号', 
-            	paramName: 'icCode'
+            	paramName: 'icCode',
+            	stationHidden: false
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

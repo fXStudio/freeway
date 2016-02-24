@@ -3,7 +3,7 @@ Ext.define('ProcedureLogModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.BasicToolbar", 
+       "Ext.plugins.QueryCriteriaToolbar", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -53,7 +53,7 @@ Ext.define('ProcedureLogModule.view.GridPanel', {
     	Ext.apply(this, {
     		store: store,
     		tbar: {// Top bar
-    			xtype: 'basictoolbar',
+    			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '作业名称', 
             	paramName: 'jobObjName'

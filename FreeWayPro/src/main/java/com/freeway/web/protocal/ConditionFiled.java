@@ -1,6 +1,5 @@
 package com.freeway.web.protocal;
 
-import com.freeway.web.helper.DateHelper;
 import com.freeway.web.helper.StringHelper;
 
 /**
@@ -18,11 +17,9 @@ public class ConditionFiled {
 	/** IC卡号 */
 	private String icCode = "";
 	/** 出口收费站名称 */
-	private String exitName = "";
+	private String stationId = "";
 	/** 系统主键 */
 	private String sysid;
-	/** 入口站 */
-	private String enteName = "";
 	/** 用户名 */
 	private String username;
 	/** 密码 */
@@ -45,9 +42,6 @@ public class ConditionFiled {
 	}
 
 	public String getBeginDate() {
-		if (StringHelper.isNullOrEmpty(beginDate)) {
-			setBeginDate(DateHelper.firstDayOfMonth());
-		}
 		return beginDate;
 	}
 
@@ -56,9 +50,6 @@ public class ConditionFiled {
 	}
 
 	public String getEndDate() {
-		if (StringHelper.isNullOrEmpty(endDate)) {
-			setEndDate(DateHelper.firstDayOfNextMonth());
-		}
 		return endDate;
 	}
 
@@ -74,12 +65,12 @@ public class ConditionFiled {
 		this.icCode = icCode;
 	}
 
-	public String getExitName() {
-		return exitName;
+	public String getStationId() {
+		return stationId;
 	}
 
-	public void setExitName(String exitName) {
-		this.exitName = exitName;
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
 	}
 
 	public String getSysid() {
@@ -88,14 +79,6 @@ public class ConditionFiled {
 
 	public void setSysid(String sysid) {
 		this.sysid = sysid;
-	}
-
-	public String getEnteName() {
-		return enteName + "$";
-	}
-
-	public void setEnteName(String enteName) {
-		this.enteName = enteName;
 	}
 
 	public String getUsername() {

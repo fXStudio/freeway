@@ -9,16 +9,17 @@ Ext.define('LoginLogModule.controller.LoginLogController', {
      * Module Launch
      */
 	onLaunch: function() {
-		// 获得数据源对象
+        // 获得数据源对象
 	    var gridPanel = this.getGridPanel(),
 	         store = gridPanel.getStore();
 
-        // 装载数据
-        store.load({params: { start: 0, limit: 25 }});
-
-	    // 设置首行选中
+	    // 设置焦点
         store.on("load", function(){
         	gridPanel.getSelectionModel().select(0);
-        })
+        	var comp = Ext.getCmp('queryField');
+        	if(comp) {
+        		Ext.getCmp('queryField').focus(true, 100);
+    		}
+        });
 	}
 });
