@@ -4,22 +4,15 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.freeway.web.protocal.ConditionFiled;
+import com.freeway.web.services.log.IUserLoginLogService;
 import com.freeway.web.services.log.IUserSchedulerJobLogService;
 
 public class SystemMenuTest {
 	@Test
 	public void serviceTest() {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-*.xml");
-		IUserSchedulerJobLogService dao = (IUserSchedulerJobLogService) context.getBean("userSchedulerJobLogService");
-
-		ConditionFiled con = new ConditionFiled();
-		con.setStart(0);
-		con.setLimit(25);
-		con.setJobObjName("test");
+		IUserLoginLogService dao = (IUserLoginLogService) context.getBean("userLoginLogService");
 		
-		System.out.println(dao.findRecords(con));
-		
-		System.out.println(con.getJobObjName());
 		
 		context.close();
 	}

@@ -3,42 +3,35 @@
 
 <!-- Mapper的配置信息 -->
 <mapper namespace="com.freeway.web.mappers.business.VehiclePastTheCheckpointMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
+               AND exitDate >= #{beginDate} 
+               AND #{endDate} >= exitDate
+               AND EXISTS (
+                   SELECT sysid
+                   FROM fs_org_dept
+                   WHERE exitName = dept_name
+                   START WITH sysid = #{stationId}
+                   CONNECT BY PRIOR sysid = dept_parant_rowid
+               )
+    </sql>
+    
 	<!-- 闯关车分页数据查询 -->
 	<select id="findByCondition" resultType="VehiclePastTheCheckpoint"
 		parameterType="ConditionFiled">
-        <![CDATA[  
 			SELECT * FROM (
 			    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
 			    FROM   enter_car_view a
-			    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
-			           AND exitDate > #{beginDate} 
-			           AND exitDate < #{endDate}
-			           AND EXISTS (
-					       SELECT sysid
-						   FROM fs_org_dept
-						   WHERE exitName = dept_name
-						   START WITH sysid = #{stationId}
-						   CONNECT BY PRIOR sysid = dept_parant_rowid
-					   )
+                <include refid="where_clause"></include>
 			)
-			WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+            WHERE rn > #{start} and #{limit} >= rn
 	</select>
+	
 	<!-- 闯关车总数据量查询 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
-		    SELECT COUNT(recordNo)
-		    FROM   enter_car_view
-		    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
-                   AND exitDate > #{beginDate} 
-                   AND exitDate < #{endDate}
-                   AND EXISTS (
-                       SELECT sysid
-                       FROM fs_org_dept
-                       WHERE exitName = dept_name
-                       START WITH sysid = #{stationId}
-                       CONNECT BY PRIOR sysid = dept_parant_rowid
-                   )
-        ]]>
+	    SELECT COUNT(recordNo)
+	    FROM   enter_car_view
+        <include refid="where_clause"></include>
 	</select>
 </mapper>

@@ -3,42 +3,35 @@
 
 <!-- Mapper的配置信息 -->
 <mapper namespace="com.freeway.web.mappers.business.CarWithMultiCardsMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
+               AND enteDate >= #{beginDate} 
+               AND #{endDate} >= enteDate
+               AND EXISTS (
+                   SELECT sysid
+                   FROM fs_org_dept
+                   WHERE enteName = dept_name
+                   START WITH sysid = #{stationId}
+                   CONNECT BY PRIOR sysid = dept_parant_rowid
+               )
+    </sql>
+    
 	<!-- 一车多卡分页数据查询 -->
 	<select id="findByCondition" resultType="CarWithMultiCards"
 		parameterType="ConditionFiled">
-        <![CDATA[  
 			SELECT * FROM (
 			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
 			    FROM   car_cards_view a
-			    WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
-			           AND enteDate > #{beginDate} 
-			           AND enteDate < #{endDate}
-                       AND EXISTS (
-                           SELECT sysid
-                           FROM fs_org_dept
-                           WHERE enteName = dept_name
-                           START WITH sysid = #{stationId}
-                           CONNECT BY PRIOR sysid = dept_parant_rowid
-                       )
+                <include refid="where_clause"></include>
 			)
-			WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+            WHERE rn > #{start} and #{limit} >= rn
 	</select>
+	
 	<!-- 一车多卡总数据量查询 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
-		    SELECT COUNT(recordNo)
-		    FROM   car_cards_view
-		    WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
-		           AND enteDate > #{beginDate} 
-		           AND enteDate < #{endDate}
-                   AND EXISTS (
-                       SELECT sysid
-                       FROM fs_org_dept
-                       WHERE enteName = dept_name
-                       START WITH sysid = #{stationId}
-                       CONNECT BY PRIOR sysid = dept_parant_rowid
-                   )
-        ]]>
+	    SELECT COUNT(recordNo)
+	    FROM   car_cards_view
+        <include refid="where_clause"></include>
 	</select>
 </mapper>

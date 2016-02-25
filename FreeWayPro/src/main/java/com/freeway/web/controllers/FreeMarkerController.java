@@ -29,7 +29,9 @@ public class FreeMarkerController {
 	@RequestMapping(value = "{path}")
 	public String disp(@ModelAttribute("model") ModelMap model, @PathVariable("path") String path,
 			HttpServletRequest request) {
-		model.addAttribute("modelName", path);
+		// 用户信息如果不存在，则说明session已经失效。应该让用户重新登录系统
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		model.addAttribute("modelName", user == null ? "exitSystem" : path);
 
 		return "func";
 	}
@@ -73,7 +75,6 @@ public class FreeMarkerController {
 		if (user == null) {
 			return "index";
 		}
-
 		model.put("username", user.getUsername());
 
 		return "main";

@@ -3,42 +3,35 @@
 
 <!-- Mapper的配置信息 -->
 <mapper namespace="com.freeway.web.mappers.business.LighterCarLongDistanceRunningMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
+               AND exitDate >= #{beginDate} 
+               AND #{endDate} >= exitDate
+               AND EXISTS (
+                   SELECT sysid
+                   FROM fs_org_dept
+                   WHERE exitName = dept_name
+                   START WITH sysid = #{stationId}
+                   CONNECT BY PRIOR sysid = dept_parant_rowid
+               )
+    </sql>
+
 	<!-- 轻车长途分页数据查询 -->
 	<select id="findByCondition" resultType="LighterCarLongDistanceRunning"
 		parameterType="ConditionFiled">
-        <![CDATA[  
 			SELECT * FROM (
 			    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
 			    FROM   long_distance_view a
-			    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
-			           AND exitDate > #{beginDate} 
-			           AND exitDate < #{endDate}
-                       AND EXISTS (
-                           SELECT sysid
-                           FROM fs_org_dept
-                           WHERE exitName = dept_name
-                           START WITH sysid = #{stationId}
-                           CONNECT BY PRIOR sysid = dept_parant_rowid
-                       )
+                <include refid="where_clause"></include>
 			)
-			WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+            WHERE rn > #{start} and #{limit} >= rn
 	</select>
+	
 	<!-- 轻车长途总数据量查询 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
-		    SELECT COUNT(recordNo)
-		    FROM   long_distance_view
-		    WHERE  REGEXP_LIKE(RTRIM(carExitCode), #{carCode})
-		           AND exitDate > #{beginDate} 
-		           AND exitDate < #{endDate}
-                   AND EXISTS (
-                       SELECT sysid
-                       FROM fs_org_dept
-                       WHERE exitName = dept_name
-                       START WITH sysid = #{stationId}
-                       CONNECT BY PRIOR sysid = dept_parant_rowid
-                   )
-        ]]>
+	    SELECT COUNT(recordNo)
+	    FROM   long_distance_view
+        <include refid="where_clause"></include>
 	</select>
 </mapper>

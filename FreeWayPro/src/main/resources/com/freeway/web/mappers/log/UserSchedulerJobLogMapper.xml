@@ -13,29 +13,28 @@
         <result property="status" column="status" />
         <result property="additionalInfo" column="additional_info" />
     </resultMap>
+    
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(lower(a.job_name), #{jobObjName})
+               AND to_char(a.log_date, 'yyyy/mm/dd') >= #{beginDate} 
+               AND #{endDate} >= to_char(a.log_date, 'yyyy/mm/dd')
+    </sql>
 
     <!-- 作业计划执行日志 -->
     <select id="findByCondition" resultMap="userResultMap"
         parameterType="ConditionFiled">
-        <![CDATA[  
-            SELECT * FROM (
-                SELECT a.*, row_number() OVER (ORDER BY a.log_date DESC) rn 
-                FROM   user_scheduler_job_log a
-                WHERE  REGEXP_LIKE(lower(a.job_name), #{jobObjName})
-                       AND to_char(a.log_date, 'yyyy/mm/dd') >= #{beginDate} 
-                       AND to_char(a.log_date, 'yyyy/mm/dd') <= #{endDate}
-            )
-            WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+         SELECT * FROM (
+             SELECT a.*, row_number() OVER (ORDER BY a.log_date DESC) rn 
+             FROM   user_scheduler_job_log a
+             <include refid="where_clause"></include>
+         )
+         WHERE rn > #{start} and #{limit} >= rn
     </select>
     <!-- 作业计划执行日志 -->
     <select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
-            SELECT COUNT(log_id) 
-            FROM   user_scheduler_job_log 
-            WHERE  REGEXP_LIKE(lower(job_name), #{jobObjName})
-                   AND to_char(log_date, 'yyyy/mm/dd') >= #{beginDate} 
-                   AND to_char(log_date, 'yyyy/mm/dd') <= #{endDate}
-        ]]>
+         SELECT COUNT(log_id) 
+         FROM   user_scheduler_job_log 
+             <include refid="where_clause"></include>
     </select>
 </mapper>

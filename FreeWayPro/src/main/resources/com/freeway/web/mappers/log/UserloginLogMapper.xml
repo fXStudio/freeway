@@ -3,29 +3,30 @@
 
 <!-- Mapper的配置信息 -->
 <mapper namespace="com.freeway.web.mappers.log.UserloginLogMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(b.username, #{loginUser})
+               AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
+               AND #{endDate} >= to_char(logintime, 'yyyy/mm/dd') 
+	</sql>
+
 	<!-- 用户登陆日志 -->
 	<select id="findByCondition" resultType="UserloginLog"
 		parameterType="ConditionFiled">
-        <![CDATA[  
 			SELECT * FROM (
 			    SELECT a.sysid, a.logintime, a.ip, b.username, 
 			           row_number() OVER (ORDER BY a.logintime DESC) rn
                 FROM   userlogin_log a inner join system_user b on a.userid = b.sysid
-			    WHERE  REGEXP_LIKE(b.username, #{loginUser})
-			           AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
-			           AND to_char(logintime, 'yyyy/mm/dd') <= #{endDate}
+                
+				<include refid="where_clause"></include>
 			)
-			WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+			WHERE rn > #{start} and #{limit} >= rn
 	</select>
 	<!-- 用户登陆日志 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
 		    SELECT COUNT(a.sysid)
             FROM   userlogin_log a inner join system_user b on a.userid = b.sysid
-		    WHERE  REGEXP_LIKE(b.username, #{loginUser})
-                   AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
-                   AND to_char(logintime, 'yyyy/mm/dd') <= #{endDate}
-        ]]>
+            
+            <include refid="where_clause"></include>
 	</select>
 </mapper>

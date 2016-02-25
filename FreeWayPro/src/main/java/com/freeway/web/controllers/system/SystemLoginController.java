@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.MD5Converter;
 import com.freeway.web.helper.StringHelper;
 import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.messages.FeedBackMessage;
@@ -37,7 +38,18 @@ public class SystemLoginController {
 	 */
 	@RequestMapping("systemLogin")
 	public Object systemLogin(HttpServletRequest request, ConditionFiled cf) {
-		// 检验用户登录信息
+		// 从Session重获取用户信息
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+
+		// 先通过session信息来判断当前用户是否已经登录，如果已经登录则不需要记录日志和访问数据库
+		if (user != null) {
+			if (cf.getUsername().equals(user.getUsername())
+					&& MD5Converter.string2MD5(cf.getPassword()).equals(user.getPassword())) {
+				return new FeedBackMessage(true);
+			}
+		}
+
+		// 通过数据库的方式查看用户登陆信息是否正确
 		List<SystemUser> users = systemUserService.findRecords(cf);
 
 		// 如果用户信息不存在，则提示用户错误原因

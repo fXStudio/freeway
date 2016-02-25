@@ -3,29 +3,28 @@
 
 <!-- Mapper的配置信息 -->
 <mapper namespace="com.freeway.web.mappers.log.UseroprationLogMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE  REGEXP_LIKE(b.username, #{loginUser})
+               AND to_char(a.createtime, 'yyyy/mm/dd') >= #{beginDate} 
+               AND #{endDate} >= to_char(a.createtime, 'yyyy/mm/dd')
+    </sql>
+    
 	<!-- 用户登陆日志 -->
 	<select id="findByCondition" resultType="UseroprationLog"
 		parameterType="ConditionFiled">
-        <![CDATA[  
 			SELECT * FROM (
 			    SELECT a.*, b.username, 
 			           row_number() OVER (ORDER BY a.createtime DESC) rn
                 FROM   useropration_log a inner join system_user b on a.userid = b.sysid
-			    WHERE  REGEXP_LIKE(b.username, #{loginUser})
-			           AND to_char(a.createtime, 'yyyy/mm/dd') >= #{beginDate} 
-			           AND to_char(a.createtime, 'yyyy/mm/dd') <= #{endDate}
+                <include refid="where_clause"></include>
 			)
-			WHERE rn > #{start} and rn <= #{limit}
-        ]]>
+			WHERE rn > #{start} and #{limit} >= rn
 	</select>
 	<!-- 用户登陆日志 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-        <![CDATA[  
 		    SELECT COUNT(a.sysid)
             FROM   useropration_log a inner join system_user b on a.userid = b.sysid
-		    WHERE  REGEXP_LIKE(b.username, #{loginUser})
-                   AND to_char(a.createtime, 'yyyy/mm/dd') >= #{beginDate} 
-                   AND to_char(a.createtime, 'yyyy/mm/dd') <= #{endDate}
-        ]]>
+            <include refid="where_clause"></include>
 	</select>
 </mapper>
