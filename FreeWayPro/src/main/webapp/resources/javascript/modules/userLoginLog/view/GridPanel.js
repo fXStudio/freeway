@@ -40,7 +40,9 @@ Ext.define('LoginLogModule.view.GridPanel', {
     			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '用户名', 
-            	paramName: 'loginUser'
+            	paramName: 'loginUser',
+            	hideBlank: true,
+            	hideAxisum: true
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

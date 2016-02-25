@@ -5,9 +5,13 @@
 <mapper namespace="com.freeway.web.mappers.business.CarWithMultiCardsMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(RTRIM(carIncode), #{carCode})
-               AND enteDate >= #{beginDate} 
-               AND #{endDate} >= enteDate
+        WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carIncodeRecognize), #{carCode})
+               </if>
+               <if test="hiddenBlank == true">
+                   AND carIncodeRecognize IS NOT NULL
+               </if>
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept

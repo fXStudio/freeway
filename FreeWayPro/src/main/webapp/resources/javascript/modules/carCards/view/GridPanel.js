@@ -57,7 +57,8 @@ Ext.define('CarCardsModule.view.GridPanel', {
                 xtype: 'querycriteriatoolbar',
                 store: store,
                 label: '车牌号',
-                paramName: 'carCode'
+                paramName: 'carCode',
+                hideAxisum: true
             },
             bbar: { // Bottom bar
                 xtype: 'paging',

@@ -32,9 +32,13 @@ public class ConditionFiled {
 	private String loginUser = "";
 	/** 作业名称 */
 	private String jobObjName = "";
+	/** 车轴数 */
+	private String axisum;
+	/** 隐藏空车牌 */
+	private boolean hiddenBlank;
 
 	public String getCarCode() {
-		return carCode + "$";
+		return carCode;
 	}
 
 	public void setCarCode(String carCode) {
@@ -58,7 +62,7 @@ public class ConditionFiled {
 	}
 
 	public String getIcCode() {
-		return icCode + "$";
+		return icCode;
 	}
 
 	public void setIcCode(String icCode) {
@@ -129,4 +133,19 @@ public class ConditionFiled {
 		this.jobObjName = jobObjName;
 	}
 
+	public String getAxisum() {
+		return axisum;
+	}
+
+	public void setAxisum(String axisum) {
+		this.axisum = axisum;
+	}
+
+	public boolean isHiddenBlank() {
+		return hiddenBlank;
+	}
+
+	public void setHiddenBlank(boolean hiddenBlank) {
+		this.hiddenBlank = hiddenBlank;
+	}
 }

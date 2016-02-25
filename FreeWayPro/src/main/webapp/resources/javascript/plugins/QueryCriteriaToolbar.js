@@ -5,7 +5,10 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	extend: 'Ext.toolbar.Toolbar',
 	alias: 'widget.querycriteriatoolbar',
 	
+	autoScroll: true,
 	stationHidden: true,
+	hideBlank: false,
+	hideAxisum: false,
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
     	var store = this.store,
@@ -17,7 +20,6 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
            {
 	           	id: 'beginDate',
 	   	        xtype: 'datefield',
-	   	        name: 'heatStart',
 	   	        format: 'Y/m/d',
 	   	        width: 100,
 	   	        editable: false,
@@ -27,7 +29,6 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   	   {
 	   	        id: 'endDate',
 	   	        xtype: 'datefield',
-	   	        name: 'heatEnd',
 	   	        format: 'Y/m/d',
 	   	        width: 100,
 	   	        editable: false,
@@ -40,7 +41,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	            renderName: 'buildingTree',
 	            editable: false,
 	            labelWidth: 45,
-				width: 245,
+				width: 242,
 				hidden: this.stationHidden,
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='buildingTree'></div></div></tpl>",
 	            store: Ext.create('Ext.data.TreeStore', {
@@ -57,11 +58,50 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	                	load: function() {Ext.getDom('searchBtn').click();}
 	                }
 	            })
-		   }),
-	   	   "<span style='margin:0 1px 0 2px;'>" + this.label + ":</span> ", {
+		   }), {
+	   		    id: 'hiddenBlank',
+		        xtype: 'checkbox',
+		        fieldLabel: '过滤空牌',
+	            labelWidth: 60,
+	            labelAlign: 'right',
+		        checked: true,
+		        hidden: this.hideBlank
+		   },
+		   {
+	   		   id: 'axisum',
+			   xtype: 'combobox',
+			   fieldLabel: '轴数',
+	           labelWidth: 30,
+	           labelAlign: 'right',
+			   width: 98,
+			   editable: false,
+			   store: Ext.create('Ext.data.Store', {
+				   fields: ['axisum', 'desc'],
+				   data : [
+					   {"axisum":"", "desc":"全部"},
+				       {"axisum":"2", "desc":"2轴"},
+				       {"axisum":"6", "desc":"6轴"}
+				   ]
+			   }),
+			   queryMode: 'local',
+			   displayField: 'desc',
+			   valueField: 'axisum',
+			   allowBlank: true,
+			   hidden: this.hideAxisum,
+			   listeners: {
+				   afterRender: function() {
+					   this.setValue("");
+					   this.setRawValue("全部");
+				   }
+			   }
+		   },
+	   	   {
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
-	   		   width: 100,
+		       fieldLabel: this.label,
+	           labelWidth: 45,
+	           labelAlign: 'right',
+	   		   width: 145,
 	           enableKeyEvents: true,
 	           listeners: {
                    specialkey: function(field, e){
@@ -80,6 +120,8 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   				    var proxy = store.getProxy();
 	   				    var queryField = Ext.getCmp('queryField');
 	   				    var dept = Ext.getCmp('dept');
+	   				    var hiddenBlank = Ext.getCmp("hiddenBlank");
+	   				    var axisum = Ext.getCmp("axisum");
 		   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
 		   		        var endDate = Ext.util.Format.date(Ext.getCmp("endDate").getValue(), 'Y/m/d');
 		   		        
@@ -87,7 +129,9 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        proxy.extraParams[el.paramName] = queryField.getValue();
 		   		        proxy.extraParams["beginDate"] = beginDate;// 开始日期
 		   		        proxy.extraParams["endDate"] = endDate;// 结束日期
-		   		        proxy.extraParams["stationId"] = dept.getValue();// 手奋战
+		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
+		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤空号牌
+		   		        proxy.extraParams["axisum"] = axisum.getValue();// 轴数
 		   		        
 		   		        store.reload({
 		   		        	start : 0,

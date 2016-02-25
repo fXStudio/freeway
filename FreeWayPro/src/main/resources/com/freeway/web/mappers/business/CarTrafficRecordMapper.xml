@@ -5,9 +5,16 @@
 <mapper namespace="com.freeway.web.mappers.business.CarTrafficRecordMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
-               AND exitDate >= #{beginDate} 
-               AND #{endDate} >= exitDate
+        WHERE  exitDate >= #{beginDate} AND #{endDate} >= exitDate
+               <if test="icCode != null and icCode != ''">
+                   AND REGEXP_LIKE(RTRIM(icCode), #{icCode})
+               </if>
+               <if test="hiddenBlank == true">
+                   AND carExitcodeRecognize IS NOT NULL
+               </if>
+               <if test="axisum != null and axisum != ''">
+                   AND axisnum = #{axisum}
+               </if>
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
