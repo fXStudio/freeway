@@ -1,14 +1,19 @@
 package com.freeway.web.serviceimpl.business;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.freeway.web.helper.JSONConvertor;
+import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.mappers.business.CarWithMultiCardsMapper;
 import com.freeway.web.models.CarWithMultiCards;
+import com.freeway.web.models.UseroprationLog;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.ICarWithMultiCardsService;
+import com.freeway.web.services.log.IUseroprationLogService;
 
 /**
  * 一车多卡
@@ -18,6 +23,7 @@ import com.freeway.web.services.business.ICarWithMultiCardsService;
 @Service
 final class CarWithMultiCardsService implements ICarWithMultiCardsService {
 	private @Autowired CarWithMultiCardsMapper carWithMultiCardsMapper;
+	private @Autowired IUseroprationLogService useroprationLogService;
 
 	/**
 	 * @param fields
@@ -25,6 +31,16 @@ final class CarWithMultiCardsService implements ICarWithMultiCardsService {
 	 */
 	@Override
 	public List<CarWithMultiCards> findRecords(ConditionFiled fields) {
+		UseroprationLog oplog = new UseroprationLog();
+		oplog.setSysid(UUIDGenerator.random());
+		oplog.setItemid("一车多卡");
+		oplog.setOpration("查询");
+		oplog.setParams(JSONConvertor.object2Json(fields));
+		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		
+		// 记录系统的操作日志
+		useroprationLogService.add(oplog);
+		
 		return carWithMultiCardsMapper.findByCondition(fields);
 	}
 

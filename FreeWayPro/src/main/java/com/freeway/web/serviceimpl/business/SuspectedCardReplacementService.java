@@ -1,14 +1,19 @@
 package com.freeway.web.serviceimpl.business;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.freeway.web.helper.JSONConvertor;
+import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.mappers.business.SuspectedCardReplacementMapper;
 import com.freeway.web.models.SuspectedCardReplacement;
+import com.freeway.web.models.UseroprationLog;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.ISuspectedCardReplacementService;
+import com.freeway.web.services.log.IUseroprationLogService;
 
 /**
  * 疑似换卡车辆
@@ -18,6 +23,7 @@ import com.freeway.web.services.business.ISuspectedCardReplacementService;
 @Service
 final class SuspectedCardReplacementService implements ISuspectedCardReplacementService {
 	private @Autowired SuspectedCardReplacementMapper suspectedCardReplacementMapper;
+	private @Autowired IUseroprationLogService useroprationLogService;
 
 	/**
 	 * @param fields
@@ -25,6 +31,16 @@ final class SuspectedCardReplacementService implements ISuspectedCardReplacement
 	 */
 	@Override
 	public List<SuspectedCardReplacement> findRecords(ConditionFiled fields) {
+		UseroprationLog oplog = new UseroprationLog();
+		oplog.setSysid(UUIDGenerator.random());
+		oplog.setItemid("疑似换卡车辆查询");
+		oplog.setOpration("查询");
+		oplog.setParams(JSONConvertor.object2Json(fields));
+		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		
+		// 记录系统的操作日志
+		useroprationLogService.add(oplog);
+
 		return suspectedCardReplacementMapper.findByCondition(fields);
 	}
 

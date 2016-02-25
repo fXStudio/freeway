@@ -1,14 +1,19 @@
 package com.freeway.web.serviceimpl.business;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.freeway.web.helper.JSONConvertor;
+import com.freeway.web.helper.UUIDGenerator;
 import com.freeway.web.mappers.business.CarTrafficRecordMapper;
 import com.freeway.web.models.CarTrafficRecord;
+import com.freeway.web.models.UseroprationLog;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.ICarTrafficRecordService;
+import com.freeway.web.services.log.IUseroprationLogService;
 
 /**
  * 追踪信息管理
@@ -18,6 +23,7 @@ import com.freeway.web.services.business.ICarTrafficRecordService;
 @Service
 final class CarTrafficRecordService implements ICarTrafficRecordService {
 	private @Autowired CarTrafficRecordMapper carTrafficRecordMapper;
+	private @Autowired IUseroprationLogService useroprationLogService;
 
 	/**
 	 * @param fields
@@ -25,6 +31,16 @@ final class CarTrafficRecordService implements ICarTrafficRecordService {
 	 */
 	@Override
 	public List<CarTrafficRecord> findRecords(ConditionFiled fields) {
+		UseroprationLog oplog = new UseroprationLog();
+		oplog.setSysid(UUIDGenerator.random());
+		oplog.setItemid("追踪信息管理");
+		oplog.setOpration("查询");
+		oplog.setParams(JSONConvertor.object2Json(fields));
+		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		
+		// 记录系统的操作日志
+		useroprationLogService.add(oplog);
+		
 		return carTrafficRecordMapper.findByCondition(fields);
 	}
 
