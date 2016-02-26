@@ -2,10 +2,9 @@
  * 基本的查询工具条
  */
 Ext.define('Ext.plugins.QueryCriteriaToolbar', {
-	extend: 'Ext.toolbar.Toolbar',
+	extend: 'Ext.container.ButtonGroup',
 	alias: 'widget.querycriteriatoolbar',
-	
-	autoScroll: true,
+
 	stationHidden: true,
 	hideBlank: false,
 	hideAxisum: false,
@@ -16,31 +15,35 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
     	
         // 创建工具条
         Ext.apply(this, {
-           items: ["<span>时间: </span>", 
-           {
+        	xtype: 'buttongroup',
+        	bodyPadding: 5,
+    		items: [{
+        		fieldLabel: '时间',
+        		labelWidth: 35,
+        		labelAlign: 'right',
 	           	id: 'beginDate',
 	   	        xtype: 'datefield',
 	   	        format: 'Y/m/d',
-	   	        width: 100,
+	   	        width: 140,
 	   	        editable: false,
 	   	        value: new Date()
-	   	   },
-	   	   "<span>至</span>", 
-	   	   {
+        	}, {
+        		fieldLabel: '至 ',
+        		labelWidth: 30,
+        		labelAlign: 'right',
 	   	        id: 'endDate',
 	   	        xtype: 'datefield',
 	   	        format: 'Y/m/d',
-	   	        width: 100,
+	   	        width: 135,
 	   	        editable: false,
 	   			value: Ext.Date.add(new Date(), Ext.Date.DAY, 1)
-	   	   },
-		   Ext.create('Ext.ux.TreeCombo', {
+	   	   }, Ext.create('Ext.ux.TreeCombo', {
 			   	id: 'dept',
 			   	fieldLabel: '收费站',
 			   	labelAlign: 'right',
 	            renderName: 'buildingTree',
 	            editable: false,
-	            labelWidth: 45,
+	            labelWidth: 55,
 				width: 242,
 				hidden: this.stationHidden,
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='buildingTree'></div></div></tpl>",
@@ -59,28 +62,20 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	                }
 	            })
 		   }), {
-	   		    id: 'hiddenBlank',
-		        xtype: 'checkbox',
-		        fieldLabel: '过滤空牌',
-	            labelWidth: 60,
-	            labelAlign: 'right',
-		        checked: true,
-		        hidden: this.hideBlank
-		   },
-		   {
 	   		   id: 'axisum',
 			   xtype: 'combobox',
 			   fieldLabel: '轴数',
-	           labelWidth: 30,
+	           labelWidth: 45,
 	           labelAlign: 'right',
-			   width: 98,
+			   width: 130,
 			   editable: false,
 			   store: Ext.create('Ext.data.Store', {
 				   fields: ['axisum', 'desc'],
 				   data : [
 					   {"axisum":"", "desc":"全部"},
 				       {"axisum":"2", "desc":"2轴"},
-				       {"axisum":"6", "desc":"6轴"}
+				       {"axisum":"6", "desc":"6轴"},
+				       {"axisum":"6", "desc":"6轴以上"}
 				   ]
 			   }),
 			   queryMode: 'local',
@@ -94,12 +89,20 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 					   this.setRawValue("全部");
 				   }
 			   }
-		   },
-	   	   {
+		   }, {
+	   		    id: 'hiddenBlank',
+		        xtype: 'checkbox',
+		        fieldLabel: '过滤空牌',
+	            labelWidth: 70,
+	            labelAlign: 'right',
+		        checked: true,
+		        hidden: this.hideBlank
+		   }],
+		   buttons: [{
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
 		       fieldLabel: this.label,
-	           labelWidth: 45,
+	           labelWidth: 55,
 	           labelAlign: 'right',
 	   		   width: 145,
 	           enableKeyEvents: true,
@@ -110,8 +113,8 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
                        }
                    }
 	           } 
-	   	   }, {
-	   		   id: 'searchBtn',
+	   	   }, '<span style="margin:0 15;"></span>',{
+ 	   		   id: 'searchBtn',
 	   		   xtype: 'button',
 	   		   iconCls: 'search',
 	   		   text: '查询',

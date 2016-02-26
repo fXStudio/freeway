@@ -33,7 +33,7 @@ final class CarTrafficRecordService implements ICarTrafficRecordService {
 	public List<CarTrafficRecord> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("追踪信息管理");
+		oplog.setItem("追踪信息管理");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

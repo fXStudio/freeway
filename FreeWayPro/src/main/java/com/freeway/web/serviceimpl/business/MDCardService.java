@@ -1,18 +1,17 @@
 package com.freeway.web.serviceimpl.business;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.freeway.web.helper.JSONConvertor;
 import com.freeway.web.helper.UUIDGenerator;
-import com.freeway.web.mappers.business.MDBadCardMapper;
+import com.freeway.web.mappers.business.MDCardMapper;
 import com.freeway.web.messages.FeedBackMessage;
-import com.freeway.web.models.BadCard;
+import com.freeway.web.models.TaCaroutBl;
 import com.freeway.web.models.UseroprationLog;
-import com.freeway.web.services.business.IMDBadCardService;
+import com.freeway.web.services.business.IMDCardService;
 import com.freeway.web.services.log.IUseroprationLogService;
 
 /**
@@ -21,8 +20,8 @@ import com.freeway.web.services.log.IUseroprationLogService;
  * @author FXStudio.Ajaxfan
  */
 @Service
-public class MDBadCardService implements IMDBadCardService {
-	private @Autowired MDBadCardMapper mDBadCardMapper;
+public class MDCardService implements IMDCardService {
+	private @Autowired MDCardMapper mDCardMapper;
 	private @Autowired IUseroprationLogService useroprationLogService;
 
 	/**
@@ -30,19 +29,19 @@ public class MDBadCardService implements IMDBadCardService {
 	 * @return
 	 */
 	@Override
-	public FeedBackMessage add(BadCard badCard) {
+	public FeedBackMessage add(TaCaroutBl card) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("坏卡补录");
+		oplog.setItem("坏卡、补录卡录入");
 		oplog.setOpration("添加");
-		oplog.setParams(JSONConvertor.object2Json(badCard));
+		oplog.setParams(JSONConvertor.object2Json(card));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);
 		
-		badCard.setRecordNo(UUID.randomUUID().toString().replaceAll("-", ""));
-		mDBadCardMapper.insertSelective(badCard);
+		card.setRecordNo(UUIDGenerator.random());
+		mDCardMapper.insertSelective(card);
 
 		return new FeedBackMessage(true);
 	}

@@ -33,7 +33,7 @@ final class CardTypeDoesNotMatchService implements ICardTypeDoesNotMatchService 
 	public List<CardTypeDoesNotMatch> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("牌/型不符");
+		oplog.setItem("牌/型不符");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

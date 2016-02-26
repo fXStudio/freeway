@@ -33,7 +33,7 @@ final class SometimesWhenFreeAndNotFreeService implements ISometimesWhenFreeAndN
 	public List<SometimesWhenFreeAndNotFree> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("时免时不免查询");
+		oplog.setItem("时免时不免查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

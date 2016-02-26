@@ -33,7 +33,7 @@ final class LighterCarLongDistanceRunningService implements ILighterCarLongDista
 	public List<LighterCarLongDistanceRunning> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("货车轻车长途");
+		oplog.setItem("货车轻车长途");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

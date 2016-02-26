@@ -55,7 +55,7 @@ Ext.define('ProcedureLogModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'querycriteriatoolbar',
             	store: store, 
-            	label: '作业名称', 
+            	label: '作业名', 
             	paramName: 'jobObjName',
             	hideBlank: true,
             	hideAxisum: true

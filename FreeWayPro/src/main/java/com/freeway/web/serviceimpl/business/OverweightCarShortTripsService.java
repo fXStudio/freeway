@@ -33,7 +33,7 @@ final class OverweightCarShortTripsService implements IOverweightCarShortTripsSe
 	public List<OverweightCarShortTrips> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("货车重车短途查询");
+		oplog.setItem("货车重车短途查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

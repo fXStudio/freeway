@@ -33,7 +33,7 @@ final class VehiclePastTheCheckpointService implements IVehiclePastTheCheckpoint
 	public List<VehiclePastTheCheckpoint> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("闯关车查询");
+		oplog.setItem("闯关车查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

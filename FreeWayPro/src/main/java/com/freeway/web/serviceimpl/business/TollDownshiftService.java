@@ -33,7 +33,7 @@ final class TollDownshiftService implements ITollDownshiftService {
 	public List<TollDownshift> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("收费员降档查询");
+		oplog.setItem("收费员降档查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

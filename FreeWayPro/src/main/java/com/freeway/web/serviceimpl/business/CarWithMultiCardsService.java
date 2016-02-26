@@ -33,7 +33,7 @@ final class CarWithMultiCardsService implements ICarWithMultiCardsService {
 	public List<CarWithMultiCards> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("一车多卡");
+		oplog.setItem("一车多卡");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

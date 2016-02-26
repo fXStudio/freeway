@@ -33,7 +33,7 @@ final class SuspectedCardReplacementService implements ISuspectedCardReplacement
 	public List<SuspectedCardReplacement> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("疑似换卡车辆查询");
+		oplog.setItem("疑似换卡车辆查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

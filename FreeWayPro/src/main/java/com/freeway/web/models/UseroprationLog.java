@@ -18,7 +18,7 @@ public class UseroprationLog {
 	@GeneratedValue(generator = "UUID")
 	private String sysid;
 	private String userid;
-	private String itemid;
+	private String item;
 	private String opration;
 	@Column(name = "createTime")
 	private Timestamp createTime;
@@ -38,14 +38,6 @@ public class UseroprationLog {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
-	}
-
-	public String getItemid() {
-		return itemid;
-	}
-
-	public void setItemid(String itemid) {
-		this.itemid = itemid;
 	}
 
 	public String getOpration() {
@@ -71,5 +63,13 @@ public class UseroprationLog {
 
 	public void setParams(String params) {
 		this.params = params;
+	}
+
+	public String getItem() {
+		return item;
+	}
+
+	public void setItem(String item) {
+		this.item = item;
 	}
 }

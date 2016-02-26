@@ -27,7 +27,7 @@ final class UseroprationLogService implements IUseroprationLogService {
 	 */
 	@Override
 	public FeedBackMessage add(UseroprationLog operationLog) {
-		return new FeedBackMessage(useroprationLogMapper.insertSelective(operationLog) > 0);
+		return new FeedBackMessage(useroprationLogMapper.insert(operationLog) > 0);
 	}
 
 	/**

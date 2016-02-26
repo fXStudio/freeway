@@ -1,6 +1,6 @@
 package com.freeway.web.mappers.business;
 
-import com.freeway.web.models.BadCard;
+import com.freeway.web.models.TaCaroutBl;
 
 import tk.mybatis.mapper.common.Mapper;
 
@@ -9,5 +9,5 @@ import tk.mybatis.mapper.common.Mapper;
  * 
  * @author FXStudio.Ajaxfan
  */
-public interface MDBadCardMapper extends Mapper<BadCard> {
+public interface MDCardMapper extends Mapper<TaCaroutBl> {
 }

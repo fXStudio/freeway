@@ -33,7 +33,7 @@ final class LoseCardService implements ILoseCardService {
 	public List<LoseCard> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("丢卡查询");
+		oplog.setItem("丢卡查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

@@ -33,7 +33,7 @@ final class WeightEquipmentMalfunctionService implements IWeightEquipmentMalfunc
 	public List<WeightEquipmentMalfunction> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("计重设备异常查询");
+		oplog.setItem("计重设备异常查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

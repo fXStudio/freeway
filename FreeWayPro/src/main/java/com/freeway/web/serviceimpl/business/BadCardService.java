@@ -33,7 +33,7 @@ final class BadCardService implements IBadCardSearchService {
 	public List<BadCard> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItemid("坏卡查询");
+		oplog.setItem("坏卡查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

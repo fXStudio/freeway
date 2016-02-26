@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freeway.web.models.BadCard;
-import com.freeway.web.services.business.IMDBadCardService;
+import com.freeway.web.models.TaCaroutBl;
+import com.freeway.web.services.business.IMDCardService;
 
 /**
- * 坏卡补录
+ * 坏卡、补录卡维护
  *
  * @author Ajaxfan
  */
 @RestController
 @RequestMapping(value = "services", method = RequestMethod.POST)
-public class MDBadCardController {
-	private @Autowired IMDBadCardService mdBadCardService;
+public class MDCardController {
+	private @Autowired IMDCardService mdCardService;
 
 	/**
-	 * 坏卡补录
+	 * 坏卡、补录卡录入
 	 *
 	 * @param limit
 	 *            开始索引
@@ -33,20 +34,20 @@ public class MDBadCardController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "badCardInput")
-	public Object badCardInput(HttpServletRequest request) {
-		BadCard badCard = new BadCard();
-		
+	@RequestMapping(value = "cardInput")
+	public Object cardInput(HttpServletRequest request) {
+		TaCaroutBl card = new TaCaroutBl();
+
 		// 动态绑定参数
 		for (Field f : BadCard.class.getDeclaredFields()) {
 			try {
-				BeanUtils.setProperty(badCard, f.getName(), request.getParameter(f.getName()));
+				BeanUtils.setProperty(card, f.getName(), request.getParameter(f.getName()));
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
 				e.printStackTrace();
 			}
 		}
-		return mdBadCardService.add(badCard);
+		return mdCardService.add(card);
 	}
 }
