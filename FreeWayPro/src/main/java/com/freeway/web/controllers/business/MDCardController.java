@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.freeway.web.models.BadCard;
 import com.freeway.web.models.TaCaroutBl;
 import com.freeway.web.services.business.IMDCardService;
 
@@ -39,7 +38,7 @@ public class MDCardController {
 		TaCaroutBl card = new TaCaroutBl();
 
 		// 动态绑定参数
-		for (Field f : BadCard.class.getDeclaredFields()) {
+		for (Field f : TaCaroutBl.class.getDeclaredFields()) {
 			try {
 				BeanUtils.setProperty(card, f.getName(), request.getParameter(f.getName()));
 			} catch (IllegalAccessException e) {

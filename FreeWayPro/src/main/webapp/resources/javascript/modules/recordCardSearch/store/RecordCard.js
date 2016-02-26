@@ -7,7 +7,7 @@ Ext.define('RecordCardModule.store.RecordCard', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/badCardList',//请求
+        url : 'services/cardList',//请求
         reader: {
             type: 'json',
             root: 'items',

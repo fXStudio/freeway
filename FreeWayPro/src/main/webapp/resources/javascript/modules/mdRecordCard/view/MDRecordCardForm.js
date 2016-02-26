@@ -24,28 +24,15 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                     allowBlank: true
             	},
             	items:  [{
-                    fieldLabel: '主键',
-                    xtype: 'textfield',
-                    id: 'enteCode',
-                    name: 'enteCode',
-                    hidden: true,
-                    hideLabel: true
-                },{
-                    fieldLabel: '主键',
-                    xtype: 'textfield',
-                    id: 'exitCode',
-                    name: 'exitCode',
-                    hidden: true,
-                    hideLabel: true
-                }, {
+            		id: 'carInCode',
                     fieldLabel: '入口车牌',
                     xtype: 'textfield',
-                    name: 'carIncode'
+                    name: 'carIncodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {
                 	labelWidth: 95,
                     labelAlign: 'right',
                     fieldLabel: '入口站',
-    			   	id: 'enteName',
+    			   	name: 'enteCode',
     	            renderName: 'enterDev',
     	            editable: false,
     	            tpl: "<tpl for='.'><div style='height:200px'><div id='enterDev'></div></div></tpl>",
@@ -56,6 +43,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
     	                	rootVisible: false
                     	},
     	                autoLoad: true,
+    	            	fields: ["sn", "text"],
     	                proxy: {
     	                    type : 'ajax',
     	                    actionMethods: { read: 'POST' },
@@ -66,28 +54,36 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                    xtype: 'datetimefield',
                	   labelWidth: 95,
                	   labelAlign: 'right',
+               	   editable: false,
+               	   name: 'enteDate',
                    fieldLabel:'入口时间',  
    	   			   value: Ext.Date.add(new Date(), Ext.Date.DAY, -1),
-                   format:'Y-m-d H:i:s'  
+                   format:'Y/m/d H:i:s'  
                }, {
                     fieldLabel: '车道',
                     xtype: 'textfield',
                     name: 'lane',
-                    maxLength: 2
+                    regex: /^[\d]{2}$/,
+                    regexText: '只能包含数字和字母，长度2位'
                 }, {
                     fieldLabel: '入口车型',
                     xtype: 'textfield',
-                    name: 'vType',
-                    regex: '[0-9]{1}'
+                    name: 'vEnte',
+                    regex: /^[\d]{1}$/,
+                    regexText: '只能包含数字，长度1位'
                 }, {
                     fieldLabel: '收费员编号*',
                     xtype: 'textfield',
                     name: 'tollId',
-                    allowBlank: false
+                    allowBlank: false,
+                    regex: /^[\w\d]{6}$/,
+                    regexText: '只能包含数字和字母，长度6位'
                 }, {
                     fieldLabel: '箱号',
                     xtype: 'textfield',
-                    name: 'boxId'
+                    name: 'boxId',
+                    regex: /^[\d]{6}$/,
+                    regexText: '只能输入数字，长度6位'
                 }]
             }
         }, {
@@ -104,12 +100,12 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                 items: [{
                     fieldLabel: '出口车牌',
                     xtype: 'textfield',
-                    name: 'carExitcode'
+                    name: 'carExitcodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {
                 	labelWidth: 75,
                     labelAlign: 'right',
                     fieldLabel: '出口站*',
-    			   	id: 'exitName',
+    			   	name: 'exitCode',
     	            renderName: 'exitDiv',
                     editable: false,
                     allowBlank: false,
@@ -121,6 +117,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
     	                	rootVisible: false
                     	},
     	                autoLoad: true,
+    	            	fields: ["sn", "text"],
     	                proxy: {
     	                    type : 'ajax',
     	                    actionMethods: { read: 'POST' },
@@ -131,40 +128,40 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                    xtype: 'datetimefield',
                	   labelWidth: 75,
                	   labelAlign: 'right',
+               	   editable: false,
+               	   name: 'exitDate',
                    fieldLabel:'出口时间*',  
     	   		   value: Ext.Date.add(new Date(), Ext.Date.DAY),
                    allowBlank: false,
-                   format:'Y-m-d H:i:s'  
+                   format:'Y/m/d H:i:s'  
                }, {
                    fieldLabel: '出口车型',
                    xtype: 'textfield',
                    name: 'vExit',
-                   regex: '[0-9]{1}'
-               },{
+                   regex: /^[\d]{1}$/,
+                   regexText: '只能包含数字，长度1位'
+               }, {
                     fieldLabel: '费率',
                     xtype: 'textfield',
                     name: 'tollFare',
-                    regex: /^\d+$/
-                }, {
-                    fieldLabel: '收费类型',
-                    xtype: 'textfield',
-                    name: 'tollType'
+                    regex: /^[\d]{1,6}$/,
+                    regexText: '只能包含数字和字母，最大长度6位'
                 }, {
                     fieldLabel: 'IC卡号*',
                     xtype: 'textfield',
                     name : 'icCode',
                     allowBlank: false,
-                    regex: '[0-9]{6,10}'
+                    regex: /^[\d]{7}$/,
+                    regexText: '只能包含数字和字母，长度7位'
                 }, {
-                	xtype: "textfiled",
-                	value: "补录卡",
-                	name: 'cardtype',
-                	hidden: "true"
+                	xtype: "textfield",
+                	value: "坏卡",
+                	name: 'cardType',
+                	hidden: true
                }]
             }
         }]
     }],
-	
     buttons: [{
     	id: 'submit_btn',
         text: '提交',
@@ -180,14 +177,14 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                     formObj.submit({
                         waitMsg: '数据正在处理请稍后', // 提示信息  
                         waitTitle: '提示', // 标题  
-                        url: 'services/badCardInput', // 请求的url地址  
+                        url: 'services/cardInput', // 请求的url地址  
                         method: 'POST', // 请求方式  
                         success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
-                            window.location.reload();
+                        	Ext.getCmp('systemDataForm').getForm().reset();
                         },
                         failure: function(form, action) { // 添加失败后，提示用户添加异常
                             Ext.Msg.alert('提示', '系统错误，原因：' + action.result.failureReason, function() {
-                                Ext.getCmp('uname').focus(true, 100);
+                                Ext.getCmp('carInCode').focus(true, 100);
                             });
                         }
                     });

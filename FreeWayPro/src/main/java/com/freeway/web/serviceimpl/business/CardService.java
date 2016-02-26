@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.freeway.web.helper.JSONConvertor;
 import com.freeway.web.helper.UUIDGenerator;
-import com.freeway.web.mappers.business.BadCardSearchMapper;
-import com.freeway.web.models.BadCard;
+import com.freeway.web.mappers.business.CardSearchMapper;
+import com.freeway.web.models.TaCaroutBl;
 import com.freeway.web.models.UseroprationLog;
 import com.freeway.web.protocal.ConditionFiled;
-import com.freeway.web.services.business.IBadCardSearchService;
+import com.freeway.web.services.business.ICardSearchService;
 import com.freeway.web.services.log.IUseroprationLogService;
 
 /**
@@ -21,8 +21,8 @@ import com.freeway.web.services.log.IUseroprationLogService;
  * @author FXStudio.Ajaxfan
  */
 @Service
-final class BadCardService implements IBadCardSearchService {
-	private @Autowired BadCardSearchMapper badCardSearchMapper;
+final class CardService implements ICardSearchService {
+	private @Autowired CardSearchMapper badCardSearchMapper;
 	private @Autowired IUseroprationLogService useroprationLogService;
 
 	/**
@@ -30,7 +30,7 @@ final class BadCardService implements IBadCardSearchService {
 	 * @return
 	 */
 	@Override
-	public List<BadCard> findRecords(ConditionFiled fields) {
+	public List<TaCaroutBl> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("坏卡查询");

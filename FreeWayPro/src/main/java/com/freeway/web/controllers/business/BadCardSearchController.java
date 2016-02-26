@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freeway.web.protocal.ConditionFiled;
-import com.freeway.web.services.business.IBadCardSearchService;
+import com.freeway.web.services.business.ICardSearchService;
 
 /**
  * 坏卡
@@ -19,7 +19,7 @@ import com.freeway.web.services.business.IBadCardSearchService;
 @RestController
 @RequestMapping(value = "services", method = RequestMethod.POST)
 public class BadCardSearchController {
-	private @Autowired IBadCardSearchService badCardSearchService;
+	private @Autowired ICardSearchService cardSearchService;
 
 	/**
 	 * 坏卡
@@ -30,11 +30,11 @@ public class BadCardSearchController {
 	 *            结束索引
 	 * @return
 	 */
-	@RequestMapping(value = "badCardList")
+	@RequestMapping(value = "cardList")
 	public Object badCardList(ConditionFiled cf) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("totalCount", badCardSearchService.getSize(cf));// 记录总数
-		map.put("items", badCardSearchService.findRecords(cf));// 记录行对象
+		map.put("totalCount", cardSearchService.getSize(cf));// 记录总数
+		map.put("items", cardSearchService.findRecords(cf));// 记录行对象
 
 		return map;
 	}

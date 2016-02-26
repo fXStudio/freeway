@@ -2,27 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper的配置信息 -->
-<mapper namespace="com.freeway.web.mappers.business.BadCardSearchMapper">
+<mapper namespace="com.freeway.web.mappers.business.CardSearchMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
-               AND enteDate >= #{beginDate} 
-               AND #{endDate} >= enteDate
+         WHERE enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="icCode != null and icCode != ''">
+                   AND REGEXP_LIKE(icCode, #{icCode})
+               </if>
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
-                   WHERE enteName = dept_name
+                   WHERE exitCode = dept_name
                    START WITH sysid = #{stationId}
                    CONNECT BY PRIOR sysid = dept_parant_rowid
                )
     </sql>
 
 	<!-- 丢卡信息分页数据查询 -->
-	<select id="findByCondition" resultType="CarTrafficRecord"
+	<select id="findByCondition" resultType="TaCaroutBl"
 		parameterType="ConditionFiled">
 			SELECT * FROM (
 			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
-			    FROM   badcard_view a
+			    FROM   card_view a
                 <include refid="where_clause"></include>
 			)
             WHERE rn > #{start} and #{limit} >= rn
@@ -30,8 +31,8 @@
 	
 	<!-- 丢卡信息总数据量查询 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-	    SELECT COUNT(recordNo)
-	    FROM   car_cards_view
+	    SELECT count(recordNo)
+	    FROM   card_view
         <include refid="where_clause"></include>
 	</select>
 </mapper>

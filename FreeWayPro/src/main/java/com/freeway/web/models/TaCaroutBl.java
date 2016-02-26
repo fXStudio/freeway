@@ -20,7 +20,6 @@ public class TaCaroutBl {
 	private String enteDate;
 	private String icCode;
 	private int tollFare;
-	private String tollType;
 	private char vEnte;
 	private String carIncodeRecognize;
 	private String carExitcodeRecognize;
@@ -112,14 +111,6 @@ public class TaCaroutBl {
 
 	public void setTollFare(int tollFare) {
 		this.tollFare = tollFare;
-	}
-
-	public String getTollType() {
-		return tollType;
-	}
-
-	public void setTollType(String tollType) {
-		this.tollType = tollType;
 	}
 
 	public char getvEnte() {
