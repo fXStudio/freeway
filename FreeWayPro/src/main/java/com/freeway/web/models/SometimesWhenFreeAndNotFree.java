@@ -1,5 +1,6 @@
 package com.freeway.web.models;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -9,31 +10,15 @@ import javax.persistence.Table;
  */
 @Table(name = "FREE_TIME_VIEW")
 public class SometimesWhenFreeAndNotFree {
-	/** 行标识 */
+	@Id
 	private String recordNo;
-	/** 入口站名称 */
 	private String enteName;
-	/** 出口站名称 */
 	private String exitName;
-	/** 车道编号 */
-	private String lane;
-	/** 入口类型 */
-	private Character vType;
-	/** 出口类型 */
-	private Character vExit;
-	/** 入口时间 */
+	private String vType;
+	private String vExit;
 	private String exitDate;
-	/** 出口时间 */
 	private String enteDate;
-	/** 轴数 */
-	private Long axisnum;
-	/** 轴总重 */
-	private Long totalweight;
-	/** 额定重量 */
-	private Long ratingweight;
-	/** 入口识别车牌 */
-	private String carIncodeRecognize;
-	/** 出口识别车牌 */
+	private String totalFare;
 	private String carExitcodeRecognize;
 
 	public String getRecordNo() {
@@ -60,27 +45,19 @@ public class SometimesWhenFreeAndNotFree {
 		this.exitName = exitName;
 	}
 
-	public String getLane() {
-		return lane;
-	}
-
-	public void setLane(String lane) {
-		this.lane = lane;
-	}
-
-	public Character getvType() {
+	public String getvType() {
 		return vType;
 	}
 
-	public void setvType(Character vType) {
+	public void setvType(String vType) {
 		this.vType = vType;
 	}
 
-	public Character getvExit() {
+	public String getvExit() {
 		return vExit;
 	}
 
-	public void setvExit(Character vExit) {
+	public void setvExit(String vExit) {
 		this.vExit = vExit;
 	}
 
@@ -100,28 +77,12 @@ public class SometimesWhenFreeAndNotFree {
 		this.enteDate = enteDate;
 	}
 
-	public Long getAxisnum() {
-		return axisnum;
+	public String getTotalFare() {
+		return totalFare;
 	}
 
-	public void setAxisnum(Long axisnum) {
-		this.axisnum = axisnum;
-	}
-
-	public Long getTotalweight() {
-		return totalweight;
-	}
-
-	public void setTotalweight(Long totalweight) {
-		this.totalweight = totalweight;
-	}
-
-	public Long getRatingweight() {
-		return ratingweight;
-	}
-
-	public void setRatingweight(Long ratingweight) {
-		this.ratingweight = ratingweight;
+	public void setTotalFare(String totalFare) {
+		this.totalFare = totalFare;
 	}
 
 	public String getCarExitcodeRecognize() {
@@ -130,13 +91,5 @@ public class SometimesWhenFreeAndNotFree {
 
 	public void setCarExitcodeRecognize(String carExitcodeRecognize) {
 		this.carExitcodeRecognize = carExitcodeRecognize;
-	}
-
-	public String getCarIncodeRecognize() {
-		return carIncodeRecognize;
-	}
-
-	public void setCarIncodeRecognize(String carIncodeRecognize) {
-		this.carIncodeRecognize = carIncodeRecognize;
 	}
 }

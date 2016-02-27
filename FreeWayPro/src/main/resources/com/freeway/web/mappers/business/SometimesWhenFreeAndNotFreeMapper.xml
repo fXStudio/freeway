@@ -6,15 +6,12 @@
 	namespace="com.freeway.web.mappers.business.SometimesWhenFreeAndNotFreeMapper">
     <!-- query condition -->
     <sql id="where_clause">
-         WHERE  D exitDate >= #{beginDate} AND #{endDate} >= exitDate
+         WHERE exitDate >= #{beginDate} AND #{endDate} >= exitDate
                <if test="carCode != null and carCode != ''">
                    AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
-               </if>
-               <if test="axisum != null and axisum != ''">
-                   AND axisnum = #{axisum}
                </if>
                 AND EXISTS (
                     SELECT sysid

@@ -8,6 +8,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	stationHidden: true,
 	hideBlank: false,
 	hideAxisum: false,
+	convertflag: true,
 	cardType: '',
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
@@ -68,15 +69,18 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 			   fieldLabel: '轴数',
 	           labelWidth: 45,
 	           labelAlign: 'right',
-			   width: 130,
+			   width: 140,
 			   editable: false,
 			   store: Ext.create('Ext.data.Store', {
 				   fields: ['axisum', 'desc'],
 				   data : [
 					   {"axisum":"", "desc":"全部"},
 				       {"axisum":"2", "desc":"2轴"},
+				       {"axisum":"3", "desc":"3轴"},
+				       {"axisum":"4", "desc":"4轴"},
+				       {"axisum":"5", "desc":"5轴"},
 				       {"axisum":"6", "desc":"6轴"},
-				       {"axisum":"6", "desc":"6轴以上"}
+				       {"axisum":"7", "desc":"6轴以上"}
 				   ]
 			   }),
 			   queryMode: 'local',
@@ -84,6 +88,33 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 			   valueField: 'axisum',
 			   allowBlank: true,
 			   hidden: this.hideAxisum,
+			   listeners: {
+				   afterRender: function() {
+					   this.setValue("");
+					   this.setRawValue("全部");
+				   }
+			   }
+		   }, {
+	   		   id: 'invalidtype',
+			   xtype: 'combobox',
+			   fieldLabel: '类型',
+	           labelWidth: 45,
+	           labelAlign: 'right',
+			   width: 130,
+			   editable: false,
+			   store: Ext.create('Ext.data.Store', {
+				   fields: ['convertflag', 'desc'],
+				   data : [
+					   {"convertflag":"", "desc":"全部"},
+				       {"convertflag":"0", "desc":"超速"},
+				       {"convertflag":"1", "desc":"超时"}
+				   ]
+			   }),
+			   queryMode: 'local',
+			   displayField: 'desc',
+			   valueField: 'convertflag',
+			   allowBlank: true,
+			   hidden: this.convertflag,
 			   listeners: {
 				   afterRender: function() {
 					   this.setValue("");
@@ -126,6 +157,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   				    var dept = Ext.getCmp('dept');
 	   				    var hiddenBlank = Ext.getCmp("hiddenBlank");
 	   				    var axisum = Ext.getCmp("axisum");
+	   				    var invalidtype = Ext.getCmp("invalidtype");
 		   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
 		   		        var endDate = Ext.util.Format.date(Ext.getCmp("endDate").getValue(), 'Y/m/d');
 		   		        
@@ -136,6 +168,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
 		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤空号牌
 		   		        proxy.extraParams["axisum"] = axisum.getValue();// 轴数
+		   		        proxy.extraParams["convertflag"] = invalidtype.getValue();// 轴数
 		   		        proxy.extraParams["cardType"] = el.cardType;// 轴数
 		   		        
 		   		        store.reload({

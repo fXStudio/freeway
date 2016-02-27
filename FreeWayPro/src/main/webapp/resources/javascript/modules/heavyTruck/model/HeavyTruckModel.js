@@ -2,10 +2,8 @@ Ext.define('HeavyTruckModule.model.HeavyTruckModel', {
 	extend: 'Ext.data.Model',
 	
 	fields: [
-         'recordNo', 'enteName', 'exitName', 'lane', 
-         'vEnte', 'vExit', 'exitDate',
+         'recordNo', 'enteName', 'exitName', 'exitDate',
          'enteDate', 'axisnum', 'totalweight', 
-         'ratingweight', 'actdistance',
-         'carIncodeRecognize', 'carExitcodeRecognize'
+         'ratingweight', 'actdistance', 'carExitcodeRecognize'
     ]
 });

@@ -34,6 +34,8 @@ public class ConditionFiled {
 	private String jobObjName = "";
 	/** 车轴数 */
 	private String axisum;
+	/** 超速、超时 */
+	private String convertflag;
 	/** 隐藏空车牌 */
 	private boolean hiddenBlank;
 	/** 卡类型 */
@@ -157,5 +159,13 @@ public class ConditionFiled {
 
 	public void setCardType(String cardType) {
 		this.cardType = cardType;
+	}
+
+	public String getConvertflag() {
+		return convertflag;
+	}
+
+	public void setConvertflag(String convertflag) {
+		this.convertflag = convertflag;
 	}
 }

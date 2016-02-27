@@ -13,49 +13,41 @@ Ext.define('LongDistanceModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-        header: '出口识别车牌',
-        width: 120,
-        dataIndex: 'carExitcodeRecognize'
-    }, {
-        header: '入口站名称',
+        header: '入口站',
         width: 120,
         dataIndex: 'enteName'
-    }, {
-        header: '入口车型',
-        width: 90,
-        dataIndex: 'vEnte'
     }, {
         header: '入口时间',
         width: 140,
         dataIndex: 'enteDate'
     }, {
-        header: '出口站名称',
+        header: '出口站',
         width: 120,
         dataIndex: 'exitName'
-    }, {
-        header: '出口车型',
-        width: 90,
-        dataIndex: 'vExit'
     }, {
         header: '出口时间',
         width: 140,
         dataIndex: 'exitDate'
     }, {
-        header: '轴数',
-        width: 90,
+        header: '轴型',
+        width: 60,
         dataIndex: 'axisnum'
     }, {
         header: '轴总重',
-        width: 90,
+        width: 80,
         dataIndex: 'totalweight'
     }, {
-        header: '额重',
-        width: 90,
+        header: '限重',
+        width: 80,
         dataIndex: 'ratingweight'
     }, {
-        header: '实际里程',
-        width: 100,
+        header: '行驶里程',
+        width: 80,
         dataIndex: 'actdistance'
+    }, {
+        header: '车牌',
+        width: 100,
+        dataIndex: 'carExitcodeRecognize'
     }],
     
     /**

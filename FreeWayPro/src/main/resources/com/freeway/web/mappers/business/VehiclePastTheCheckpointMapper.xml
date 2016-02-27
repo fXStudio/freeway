@@ -12,9 +12,6 @@
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>
-               <if test="axisum != null and axisum != ''">
-                   AND axisnum = #{axisum}
-               </if>
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
