@@ -5,34 +5,16 @@
 <mapper namespace="com.freeway.web.mappers.business.CarTrafficRecordMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  exitDate >= #{beginDate} AND #{endDate} >= exitDate
-               <if test="icCode != null and icCode != ''">
-                   AND REGEXP_LIKE(RTRIM(icCode), #{icCode})
-               </if>
-               <if test="hiddenBlank == true">
-                   AND carExitcodeRecognize IS NOT NULL
-               </if>
-               <if test="axisum != null and axisum != ''">
-                   AND axisnum = #{axisum}
-               </if>
-               AND EXISTS (
-                   SELECT sysid
-                   FROM fs_org_dept
-                   WHERE exitName = dept_name
-                   START WITH sysid = #{stationId}
-                   CONNECT BY PRIOR sysid = dept_parant_rowid
-               )
+        WHERE icCode = #{icCode}
     </sql>
     
 	<!-- 车流量分页数据查询 -->
 	<select id="findByCondition" resultType="CarTrafficRecord"
 		parameterType="ConditionFiled">
-		SELECT * FROM (
-		    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
-		    FROM   tracking_view a
+			select * 
+			from tracking_view
             <include refid="where_clause"></include>
-		)
-        WHERE rn > #{start} and #{limit} >= rn
+			order by tolldate
 	</select>
 	
 	<!-- 车流量总数据量查询 -->

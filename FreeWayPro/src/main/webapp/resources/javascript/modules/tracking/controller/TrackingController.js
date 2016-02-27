@@ -17,9 +17,12 @@ Ext.define('TrackingModule.controller.TrackingController', {
         store.on("load", function(){
         	gridPanel.getSelectionModel().select(0);
         	var comp = Ext.getCmp('queryField');
+        	
         	if(comp) {
-        		Ext.getCmp('queryField').focus(true, 100);
+        		comp.focus(true, 100);
     		}
         });
+        
+        Ext.getCmp('queryField').focus(true, 100);
 	}
 });

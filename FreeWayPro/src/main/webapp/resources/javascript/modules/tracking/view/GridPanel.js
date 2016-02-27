@@ -3,8 +3,7 @@ Ext.define('TrackingModule.view.GridPanel', {
 	alias: 'widget.gridpanel',
 	
 	requires: [
-       "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.Paging"
+       "Ext.plugins.SimpleToolbar"
 	],
     defaults:{ sortable: true },
     columns: [{ 
@@ -13,53 +12,41 @@ Ext.define('TrackingModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+		header : '出入',
+		width : 50,
+		dataIndex : 'tollType'
+	}, {
+		header : '站名',
+		width : 120,
+		dataIndex : 'tollname'
+	}, {
+		header : '日期',
+		width : 140,
+		dataIndex : 'tollDate'
+	}, {
 		header : '卡号',
-		width : 100,
+		width : 80,
 		dataIndex : 'icCode'
 	}, {
-		header : '出口识别车牌',
-		width : 120,
-		dataIndex : 'carExitcodeRecognize'
+		header : '车道',
+		width : 50,
+		dataIndex : 'lane'
 	}, {
-		header : '入口站名称',
-		width : 120,
-		dataIndex : 'enteName'
-	}, {
-		header : '入口车型',
-		width : 90,
-		dataIndex : 'vEnte'
-	}, {
-		header : '入口时间',
-		width : 140,
-		dataIndex : 'enteDate'
-	}, {
-		header : '出口站名称',
-		width : 120,
-		dataIndex : 'exitName'
-	}, {
-		header : '出口车型',
-		width : 90,
-		dataIndex : 'vExit'
-	}, {
-		header : '出口时间',
-		width : 140,
-		dataIndex : 'exitDate'
-	}, {
-		header : '轴数',
-		width : 90,
-		dataIndex : 'axisnum'
-	}, {
-		header : '轴总重',
-		width : 90,
-		dataIndex : 'totalweight'
-	}, {
-		header : '额重',
-		width : 90,
-		dataIndex : 'ratingweight'
-	}, {
-		header : '实际里程',
+		header : '全车牌',
 		width : 100,
-		dataIndex : 'actdistance'
+		dataIndex : 'carRecognize'
+	}, {
+		header : '三位车牌',
+		width : 80,
+		dataIndex : 'carCode'
+	}, {
+		header : '车型',
+		width : 50,
+		dataIndex : 'vType'
+	}, {
+		header : '收费员编号',
+		width : 100,
+		dataIndex : 'tollid'
 	}],
     
     /**
@@ -73,15 +60,11 @@ Ext.define('TrackingModule.view.GridPanel', {
     	Ext.apply(this, {
     		store: store,
     		tbar: {// Top bar
-    			xtype: 'querycriteriatoolbar',
+    			xtype: 'simpletoolbar',
             	store: store, 
             	label: '卡号', 
             	paramName: 'icCode'
-    		},
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
+    		}
     	});
     	// Call Parent Constructor
         this.callParent(arguments);
