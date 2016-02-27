@@ -8,6 +8,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	stationHidden: true,
 	hideBlank: false,
 	hideAxisum: false,
+	cardType: '',
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
     	var store = this.store,
@@ -135,6 +136,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
 		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤空号牌
 		   		        proxy.extraParams["axisum"] = axisum.getValue();// 轴数
+		   		        proxy.extraParams["cardType"] = el.cardType;// 轴数
 		   		        
 		   		        store.reload({
 		   		        	start : 0,

@@ -155,7 +155,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                     regexText: '只能包含数字和字母，长度7位'
                 }, {
                 	xtype: "textfield",
-                	value: "坏卡",
+                	value: "补录卡",
                 	name: 'cardType',
                 	hidden: true
                }]

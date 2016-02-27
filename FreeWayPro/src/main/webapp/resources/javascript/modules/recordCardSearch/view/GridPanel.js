@@ -7,40 +7,64 @@ Ext.define('RecordCardModule.view.GridPanel', {
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
-    columns: [{ 
-    	xtype: 'rownumberer',
-    	align: 'center',
+    columns: [{
+        xtype: 'rownumberer',
+        align: 'center',
         header: '序号',
-    	width: 50
-	}, {
-		header : '车牌',
-		width : 120,
-		dataIndex : 'carExitcode'
-	},{
-		header : '卡号',
-		width : 120,
-		dataIndex : 'icCode'
-	},{
-		header : '入口站',
-		width : 120,
-		dataIndex : 'enteName'
-	},{
-		header : '出口站',
-		width : 120,
-		dataIndex : 'exitName'
-	}, {
-		header : '车道',
-		width : 120,
-		dataIndex : 'lane'
-	}, {
-		header : '车型',
-		width : 120,
-		dataIndex : 'vEnte'
-	}, {
-		header : '入站时间',
-		width : 140,
-		dataIndex : 'enteDate'
-	}],
+        width: 50
+    }, {
+        header: '入口站',
+        width: 200,
+        dataIndex: 'enteCode'
+    }, {
+        header: '入口时间',
+        width: 140,
+        dataIndex: 'enteDate'
+    }, {
+        header: '入口车型',
+        width: 80,
+        dataIndex: 'vEnte'
+    }, {
+        header: '入口车牌',
+        width: 100,
+        dataIndex: 'carIncodeRecognize'
+    }, {
+        header: '车道',
+        width: 80,
+        dataIndex: 'lane'
+    }, {
+        header: 'IC卡号',
+        width: 80,
+        dataIndex: 'icCode'
+    }, {
+        header: '出口站',
+        width: 200,
+        dataIndex: 'exitCode'
+    }, {
+        header: '出口时间',
+        width: 140,
+        dataIndex: 'exitDate'
+    }, {
+        header: '出口车型',
+        width: 80,
+        dataIndex: 'vExit'
+    }, {
+        header: '出口车牌',
+        width: 100,
+        dataIndex: 'carExitcodeRecognize'
+    }, {
+        header: '收费员编号',
+        width: 100,
+        dataIndex: 'tollId'
+    }, {
+        header: '费率',
+        width: 80,
+        dataIndex: 'tollFare'
+    }, {
+        header: '箱号',
+        width: 100,
+        dataIndex: 'boxId'
+    }],
     
     /**
      * Component Init
@@ -56,6 +80,7 @@ Ext.define('RecordCardModule.view.GridPanel', {
     			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '卡号', 
+            	cardType: '补录卡', 
             	paramName: 'icCode',
             	stationHidden: false,
             	hideBlank: true,

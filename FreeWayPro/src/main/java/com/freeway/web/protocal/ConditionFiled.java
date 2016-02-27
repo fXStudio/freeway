@@ -36,6 +36,8 @@ public class ConditionFiled {
 	private String axisum;
 	/** 隐藏空车牌 */
 	private boolean hiddenBlank;
+	/** 卡类型 */
+	private String cardType;
 
 	public String getCarCode() {
 		return carCode;
@@ -147,5 +149,13 @@ public class ConditionFiled {
 
 	public void setHiddenBlank(boolean hiddenBlank) {
 		this.hiddenBlank = hiddenBlank;
+	}
+
+	public String getCardType() {
+		return cardType;
+	}
+
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
 	}
 }

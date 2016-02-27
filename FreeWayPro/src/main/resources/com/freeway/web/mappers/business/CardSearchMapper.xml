@@ -9,6 +9,7 @@
                <if test="icCode != null and icCode != ''">
                    AND REGEXP_LIKE(icCode, #{icCode})
                </if>
+               AND cardType = #{cardType}
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept

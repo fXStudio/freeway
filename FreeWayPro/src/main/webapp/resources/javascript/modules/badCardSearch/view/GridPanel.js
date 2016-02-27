@@ -7,11 +7,6 @@ Ext.define('BadCardSearchModule.view.GridPanel', {
         sortable: true
     },
     columns: [{
-        xtype: 'rownumberer',
-        align: 'center',
-        header: '序号',
-        width: 50
-    }, {
         header: '入口站',
         width: 200,
         dataIndex: 'enteCode'
@@ -79,6 +74,7 @@ Ext.define('BadCardSearchModule.view.GridPanel', {
                 xtype: 'querycriteriatoolbar',
                 store: store,
                 label: '卡号',
+            	cardType: '坏卡', 
                 paramName: 'icCode',
                 stationHidden: false,
             	hideBlank: true,
