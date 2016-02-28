@@ -14,19 +14,9 @@ Ext.define('AbnormalRecordModule.view.GridPanel', {
         width: 50
     },
     {
-        header: '入口识别车牌',
-        width: 120,
-        dataIndex: 'carIncodeRecognize'
-    },
-    {
-        header: '入口站名称',
+        header: '入口站',
         width: 120,
         dataIndex: 'enteName'
-    },
-    {
-        header: '车道编号',
-        width: 90,
-        dataIndex: 'lane'
     },
     {
         header: '入口时间',
@@ -34,7 +24,7 @@ Ext.define('AbnormalRecordModule.view.GridPanel', {
         dataIndex: 'enteDate'
     },
     {
-        header: '出口站名称',
+        header: '出口站',
         width: 120,
         dataIndex: 'exitName'
     },
@@ -44,19 +34,24 @@ Ext.define('AbnormalRecordModule.view.GridPanel', {
         dataIndex: 'exitDate'
     },
     {
-        header: '轴数',
-        width: 90,
+        header: '轴型',
+        width: 60,
         dataIndex: 'axisnum'
     },
     {
-        header: '轴总数',
-        width: 90,
+        header: '轴总重',
+        width: 70,
         dataIndex: 'totalweight'
     },
     {
-        header: '轴总重',
+        header: '限重',
         width: 90,
         dataIndex: 'ratingweight'
+    },
+    {
+        header: '车牌',
+        width: 100,
+        dataIndex: 'carExitcodeRecognize'
     }],
 
     /**

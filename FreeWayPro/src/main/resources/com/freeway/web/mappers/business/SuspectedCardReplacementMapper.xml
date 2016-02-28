@@ -15,13 +15,6 @@
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>
-               AND EXISTS (
-                   SELECT sysid
-                   FROM fs_org_dept
-                   WHERE exitName = dept_name
-                   START WITH sysid = #{stationId}
-                   CONNECT BY PRIOR sysid = dept_parant_rowid
-               ) 
     </sql>
     
 	<!-- 疑似换卡车辆分页数据查询 -->

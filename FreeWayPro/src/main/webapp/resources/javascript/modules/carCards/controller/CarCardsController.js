@@ -19,5 +19,6 @@ Ext.define('CarCardsModule.controller.CarCardsController', {
         		Ext.getCmp('queryField').focus(true, 100);
     		}
         });
+        Ext.getCmp('queryField').focus(true, 100);
 	}
 });

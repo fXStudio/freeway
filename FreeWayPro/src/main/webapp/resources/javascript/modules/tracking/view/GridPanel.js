@@ -6,6 +6,7 @@ Ext.define('TrackingModule.view.GridPanel', {
        "Ext.plugins.SimpleToolbar"
 	],
     defaults:{ sortable: true },
+    mask: true,
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',

@@ -13,35 +13,7 @@ Ext.define('TollCollectorModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-        header: '收费员编号',
-        width: 120,
-        dataIndex: 'tollId'
-    }, {
-        header: '出口识别车牌',
-        width: 120,
-        dataIndex: 'carIncodeRecognize'
-    }, {
-        header: '出口车型',
-        width: 90,
-        dataIndex: 'vExit'
-    }, {
-        header: '出口站名称',
-        width: 120,
-        dataIndex: 'exitName'
-    }, {
-        header: '出口车道',
-        width: 90,
-        dataIndex: 'lane'
-    }, {
-        header: '出口时间',
-        width: 140,
-        dataIndex: 'exitDate'
-    }, {
-        header: '入口车型',
-        width: 90,
-        dataIndex: 'vEnte'
-    }, {
-        header: '入口站名称',
+        header: '入口站',
         width: 120,
         dataIndex: 'enteName'
     }, {
@@ -49,21 +21,37 @@ Ext.define('TollCollectorModule.view.GridPanel', {
         width: 140,
         dataIndex: 'enteDate'
     }, {
-        header: '轴数',
-        width: 90,
-        dataIndex: 'axisnum'
+        header: '入口车型',
+        width: 80,
+        dataIndex: 'vEnte'
     }, {
-        header: '轴总重',
-        width: 90,
-        dataIndex: 'totalweight'
-    }, {
-        header: '额重',
-        width: 90,
-        dataIndex: 'ratingweight'
-    }, {
-        header: '入口识别车牌',
+        header: '出口站',
         width: 120,
-        dataIndex: 'carIncodeRecognize'
+        dataIndex: 'exitName'
+    }, {
+        header: '出口时间',
+        width: 140,
+        dataIndex: 'exitDate'
+    }, {
+        header: '出口车型',
+        width: 80,
+        dataIndex: 'vExit'
+    }, {
+        header: '收费金额',
+        width: 80,
+        dataIndex: 'totalfare'
+    }, {
+        header: '损失金额',
+        width: 80,
+        dataIndex: 'rateInterval'
+    }, {
+        header: '收费员编号',
+        width: 100,
+        dataIndex: 'tollId'
+    }, {
+        header: '车牌',
+        width: 100,
+        dataIndex: 'carExitcodeRecognize'
     }],
     
     /**
@@ -79,7 +67,7 @@ Ext.define('TollCollectorModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'querycriteriatoolbar',
             	store: store, 
-            	label: '车牌号', 
+            	label: '收费员编号', 
             	paramName: 'carCode',
             	stationHidden: false
     		},

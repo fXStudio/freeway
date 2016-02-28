@@ -2,10 +2,8 @@ Ext.define('TollCollectorModule.model.TollCollectorModel', {
 	extend: 'Ext.data.Model',
 	
 	fields: [
-	    'recordNo', 'enteName', 'exitName', 'lane',
+	    'recordNo', 'enteName', 'exitName', 'tollId',
 	    'vEnte', 'vExit', 'exitDate', 'enteDate',
-	    'axisnum', 'totalweight', 'ratingweight', 
-	    'carIncodeRecognize', 'carExitcodeRecognize',
-	    'tollId'
+	    'totalfare', 'rateInterval', 'carExitcodeRecognize'
     ]
 });

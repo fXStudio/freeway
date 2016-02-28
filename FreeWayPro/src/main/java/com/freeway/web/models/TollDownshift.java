@@ -1,5 +1,6 @@
 package com.freeway.web.models;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -9,42 +10,18 @@ import javax.persistence.Table;
  */
 @Table(name = "TOLL_COLLECTOR_VIEW")
 public class TollDownshift {
-	/** 行标识 */
+	@Id
 	private String recordNo;
-	/** 入口站名称 */
 	private String enteName;
-	/** 出口站名称 */
 	private String exitName;
-	/** 车道编号 */
-	private String lane;
-	/** 入口类型 */
-	private Character vEnte;
-	/** 出口类型 */
-	private Character vExit;
-	/** 入口时间 */
+	private String vEnte;
+	private String vExit;
 	private String exitDate;
-	/** 出口时间 */
 	private String enteDate;
-	/** 轴数 */
-	private Long axisnum;
-	/** 轴总重 */
-	private Long totalweight;
-	/** 额定重量 */
-	private Long ratingweight;
-	/** 入口识别车牌 */
-	private String carIncodeRecognize;
-	/** 出口识别车牌 */
+	private String totalfare;
+	private String rateInterval;
 	private String carExitcodeRecognize;
-	/** 出口收费员编号 */
 	private String tollId;
-
-	public String getTollId() {
-		return tollId;
-	}
-
-	public void setTollId(String tollId) {
-		this.tollId = tollId;
-	}
 
 	public String getRecordNo() {
 		return recordNo;
@@ -70,27 +47,19 @@ public class TollDownshift {
 		this.exitName = exitName;
 	}
 
-	public String getLane() {
-		return lane;
-	}
-
-	public void setLane(String lane) {
-		this.lane = lane;
-	}
-
-	public Character getvEnte() {
+	public String getvEnte() {
 		return vEnte;
 	}
 
-	public void setvEnte(Character vEnte) {
+	public void setvEnte(String vEnte) {
 		this.vEnte = vEnte;
 	}
 
-	public Character getvExit() {
+	public String getvExit() {
 		return vExit;
 	}
 
-	public void setvExit(Character vExit) {
+	public void setvExit(String vExit) {
 		this.vExit = vExit;
 	}
 
@@ -110,28 +79,20 @@ public class TollDownshift {
 		this.enteDate = enteDate;
 	}
 
-	public Long getAxisnum() {
-		return axisnum;
+	public String getTotalfare() {
+		return totalfare;
 	}
 
-	public void setAxisnum(Long axisnum) {
-		this.axisnum = axisnum;
+	public void setTotalfare(String totalfare) {
+		this.totalfare = totalfare;
 	}
 
-	public Long getTotalweight() {
-		return totalweight;
+	public String getRateInterval() {
+		return rateInterval;
 	}
 
-	public void setTotalweight(Long totalweight) {
-		this.totalweight = totalweight;
-	}
-
-	public Long getRatingweight() {
-		return ratingweight;
-	}
-
-	public void setRatingweight(Long ratingweight) {
-		this.ratingweight = ratingweight;
+	public void setRateInterval(String rateInterval) {
+		this.rateInterval = rateInterval;
 	}
 
 	public String getCarExitcodeRecognize() {
@@ -142,11 +103,11 @@ public class TollDownshift {
 		this.carExitcodeRecognize = carExitcodeRecognize;
 	}
 
-	public String getCarIncodeRecognize() {
-		return carIncodeRecognize;
+	public String getTollId() {
+		return tollId;
 	}
 
-	public void setCarIncodeRecognize(String carIncodeRecognize) {
-		this.carIncodeRecognize = carIncodeRecognize;
+	public void setTollId(String tollId) {
+		this.tollId = tollId;
 	}
 }

@@ -134,9 +134,9 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
 		       fieldLabel: this.label,
-	           labelWidth: 55,
+	           labelWidth: 85,
 	           labelAlign: 'right',
-	   		   width: 145,
+	   		   width: 185,
 	           enableKeyEvents: true,
 	           listeners: {
                    specialkey: function(field, e){

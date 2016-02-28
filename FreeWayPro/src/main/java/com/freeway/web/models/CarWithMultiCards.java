@@ -1,5 +1,6 @@
 package com.freeway.web.models;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -9,22 +10,16 @@ import javax.persistence.Table;
  */
 @Table(name = "CAR_CARDS_VIEW")
 public class CarWithMultiCards {
-	/** 行标识 */
+	@Id
 	private String recordNo;
-	/** 入口站名称 */
 	private String enteName;
-	/** 入口车牌 */
 	private String carIncode;
-	/** 车道编号 */
 	private String lane;
-	/** 入口车型 */
 	private Character vType;
-	/** 入口时间 */
 	private String enteDate;
-	/** 入口识别全车牌 */
 	private String carIncodeRecognize;
-	/** IC卡号 */
 	private String icCode;
+	private String tollId;
 
 	public String getIcCode() {
 		return icCode;
@@ -88,5 +83,13 @@ public class CarWithMultiCards {
 
 	public void setCarIncodeRecognize(String carIncodeRecognize) {
 		this.carIncodeRecognize = carIncodeRecognize;
+	}
+
+	public String getTollId() {
+		return tollId;
+	}
+
+	public void setTollId(String tollId) {
+		this.tollId = tollId;
 	}
 }

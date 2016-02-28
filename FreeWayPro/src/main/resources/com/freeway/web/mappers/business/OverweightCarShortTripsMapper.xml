@@ -20,13 +20,6 @@
                       AND axisnum = #{axisum}
                    </when>
                </choose>
-               AND EXISTS (
-                   SELECT sysid
-                   FROM fs_org_dept
-                   WHERE exitName = dept_name
-                   START WITH sysid = #{stationId}
-                   CONNECT BY PRIOR sysid = dept_parant_rowid
-               ) 
     </sql>
     
 	<!-- 重车短途分页数据查询 -->

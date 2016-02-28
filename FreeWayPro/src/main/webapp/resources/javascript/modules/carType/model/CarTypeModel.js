@@ -3,9 +3,8 @@ Ext.define('CarTypeModule.model.CarTypeModel', {
 	
 	fields: [
          'recordNo', 'enteName', 'exitName', 'lane', 
-         'vEnte', 'vExit', 'exitDate',
-         'enteDate', 'axisnum', 'totalweight', 
-         'ratingweight', 'carIncodeRecognize',
+         'vEnte', 'vExit', 'exitDate', 'enteDate', 
+         'tollId', 'icCode', 'carIncodeRecognize',
          'carExitcodeRecognize'
     ]
 });

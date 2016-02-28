@@ -5,9 +5,10 @@
 <mapper namespace="com.freeway.web.mappers.business.LoseCardMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(RTRIM(icCode), #{icCode})
-               AND enteDate >= #{beginDate} 
-               AND #{endDate} >= enteDate
+        WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="icCode != null and icCode != ''">
+                   AND icCode = #{icCode}
+               </if>
                AND EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
@@ -22,7 +23,7 @@
 		parameterType="ConditionFiled">
 			SELECT * FROM (
 			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
-			    FROM   car_cards_view a
+			    FROM   lose_card_view a
                 <include refid="where_clause"></include>
 			)
             WHERE rn > #{start} and #{limit} >= rn
@@ -31,7 +32,7 @@
 	<!-- 丢卡信息总数据量查询 -->
 	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
 	    SELECT COUNT(recordNo)
-	    FROM   car_cards_view
+	    FROM   lose_card_view
         <include refid="where_clause"></include>
 	</select>
 </mapper>

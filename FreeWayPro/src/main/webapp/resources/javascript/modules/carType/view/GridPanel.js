@@ -13,19 +13,9 @@ Ext.define('CarTypeModule.view.GridPanel', {
         width: 50
     },
     {
-        header: '出口识别车牌',
-        width: 120,
-        dataIndex: 'carIncodeRecognize'
-    },
-    {
-        header: '入口站名称',
+        header: '入口站',
         width: 120,
         dataIndex: 'enteName'
-    },
-    {
-        header: '入口车型',
-        width: 90,
-        dataIndex: 'vEnte'
     },
     {
         header: '入口时间',
@@ -33,14 +23,14 @@ Ext.define('CarTypeModule.view.GridPanel', {
         dataIndex: 'enteDate'
     },
     {
-        header: '出口站名称',
-        width: 120,
-        dataIndex: 'exitName'
+        header: '入口车型',
+        width: 80,
+        dataIndex: 'vEnte'
     },
     {
-        header: '出口车型',
-        width: 90,
-        dataIndex: 'vExit'
+        header: '出口站',
+        width: 120,
+        dataIndex: 'exitName'
     },
     {
         header: '出口时间',
@@ -48,19 +38,34 @@ Ext.define('CarTypeModule.view.GridPanel', {
         dataIndex: 'exitDate'
     },
     {
-        header: '轴数',
-        width: 90,
-        dataIndex: 'axisnum'
+        header: '出口车型',
+        width: 80,
+        dataIndex: 'vExit'
     },
     {
-        header: '轴总重',
-        width: 90,
-        dataIndex: 'totalweight'
+        header: '车道',
+        width: 60,
+        dataIndex: 'lane'
     },
     {
-        header: '额重',
-        width: 90,
-        dataIndex: 'ratingweight'
+        header: '收费员编号',
+        width: 100,
+        dataIndex: 'tollId'
+    },
+    {
+        header: 'IC卡号',
+        width: 80,
+        dataIndex: 'icCode'
+    },
+    {
+        header: '入口车牌',
+        width: 100,
+        dataIndex: 'carIncodeRecognize'
+    },
+    {
+        header: '出口车牌',
+        width: 100,
+        dataIndex: 'carExitcodeRecognize'
     }],
 
     /**
@@ -77,7 +82,8 @@ Ext.define('CarTypeModule.view.GridPanel', {
                 xtype: 'querycriteriatoolbar',
                 store: store,
                 label: '车牌号',
-                paramName: 'carCode'
+                paramName: 'carCode',
+                hideAxism: true
             },
             bbar: { // Bottom bar
                 xtype: 'paging',

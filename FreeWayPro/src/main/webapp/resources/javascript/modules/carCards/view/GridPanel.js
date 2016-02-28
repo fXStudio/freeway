@@ -2,7 +2,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.gridpanel',
 
-    requires: ["Ext.plugins.QueryCriteriaToolbar", "Ext.plugins.Paging"],
+    requires: ["Ext.plugins.SimpleToolbar", "Ext.plugins.Paging"],
     defaults: {
         sortable: true
     },
@@ -13,34 +13,44 @@ Ext.define('CarCardsModule.view.GridPanel', {
         width: 50
     },
     {
-        header: '车牌',
-        width: 120,
-        dataIndex: 'carIncodeRecognize'
-    },
-    {
-        header: '卡号',
-        width: 120,
-        dataIndex: 'icCode'
-    },
-    {
-        header: '入口站名称',
+        header: '收费站',
         width: 120,
         dataIndex: 'enteName'
     },
     {
+        header: '日期',
+        width: 140,
+        dataIndex: 'enteDate'
+    },
+    {
+        header: '卡号',
+        width: 80,
+        dataIndex: 'icCode'
+    },
+    {
         header: '车道',
-        width: 120,
+        width: 60,
         dataIndex: 'lane'
     },
     {
+        header: '全车牌',
+        width: 100,
+        dataIndex: 'carIncodeRecognize'
+    },
+    {
+        header: '三位车牌',
+        width: 80,
+        dataIndex: 'carIncode'
+    },
+    {
         header: '车型',
-        width: 120,
+        width: 60,
         dataIndex: 'vType'
     },
     {
-        header: '入站时间',
-        width: 140,
-        dataIndex: 'enteDate'
+        header: '收费员编号',
+        width: 100,
+        dataIndex: 'tollId'
     }],
 
     /**
@@ -54,7 +64,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
         Ext.apply(this, {
             store: store,
             tbar: { // Top bar
-                xtype: 'querycriteriatoolbar',
+                xtype: 'simpletoolbar',
                 store: store,
                 label: '车牌号',
                 paramName: 'carCode',
