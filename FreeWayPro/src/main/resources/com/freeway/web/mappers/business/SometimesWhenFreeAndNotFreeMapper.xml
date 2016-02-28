@@ -19,7 +19,7 @@
 	<select id="findByCondition" resultType="SometimesWhenFreeAndNotFree"
 		parameterType="ConditionFiled">
 		SELECT * FROM (
-		    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
+		    SELECT a.*, row_number() OVER (ORDER BY a.carExitcodeRecognize) rn 
 		    FROM   free_time_view a
             <include refid="where_clause"></include>
 		)

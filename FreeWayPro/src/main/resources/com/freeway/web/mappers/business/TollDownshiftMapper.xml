@@ -25,7 +25,7 @@
 	<select id="findByCondition" resultType="TollDownshift"
 		parameterType="ConditionFiled">
 			SELECT * FROM (
-			    SELECT a.*, row_number() OVER (ORDER BY a.exitDate DESC) rn 
+			    SELECT a.*, row_number() OVER (ORDER BY a.tollId) rn 
 			    FROM   toll_collector_view a
                 <include refid="where_clause"></include>
 			)

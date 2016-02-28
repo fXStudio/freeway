@@ -12,7 +12,7 @@
 	<select id="findByCondition" resultType="CarWithMultiCards"
 		parameterType="ConditionFiled">
 			SELECT * FROM (
-			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
+			    SELECT a.*, row_number() OVER (ORDER BY a.carIncodeRecognize) rn 
 			    FROM   car_cards_view a
                 <include refid="where_clause"></include>
 			)
