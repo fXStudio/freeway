@@ -30,15 +30,15 @@ Ext.define('LongDistanceModule.view.GridPanel', {
         dataIndex: 'exitDate'
     }, {
         header: '轴型',
-        width: 60,
+        width: 50,
         dataIndex: 'axisnum'
     }, {
         header: '轴总重',
-        width: 80,
+        width: 70,
         dataIndex: 'totalweight'
     }, {
         header: '限重',
-        width: 80,
+        width: 50,
         dataIndex: 'ratingweight'
     }, {
         header: '行驶里程',

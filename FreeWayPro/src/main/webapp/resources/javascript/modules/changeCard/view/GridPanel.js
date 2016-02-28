@@ -23,6 +23,11 @@ Ext.define('ChangeCardModule.view.GridPanel', {
         dataIndex: 'enteDate'
     },
     {
+        header: '入口车型',
+        width: 80,
+        dataIndex: 'vEnte'
+    },
+    {
         header: '出口站',
         width: 120,
         dataIndex: 'exitName'
@@ -33,8 +38,13 @@ Ext.define('ChangeCardModule.view.GridPanel', {
         dataIndex: 'exitDate'
     },
     {
-        header: '类型',
-        width: 60,
+        header: '出口车型',
+        width: 80,
+        dataIndex: 'vExit'
+    },
+    {
+        header: '超时超速',
+        width: 80,
         dataIndex: 'convertflag',
         renderer: function(value) {return value === '1' ? '超时' : '超速';}
     },
@@ -47,16 +57,6 @@ Ext.define('ChangeCardModule.view.GridPanel', {
         header: '车牌',
         width: 100,
         dataIndex: 'carExitcodeRecognize'
-    },
-    {
-        header: '入口车型',
-        width: 80,
-        dataIndex: 'vEnte'
-    },
-    {
-        header: '出口车型',
-        width: 80,
-        dataIndex: 'vExit'
     }],
 
     /**

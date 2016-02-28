@@ -46,7 +46,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	            renderName: 'buildingTree',
 	            editable: false,
 	            labelWidth: 55,
-				width: 242,
+				width: 255,
 				hidden: this.stationHidden,
 	            tpl: "<tpl for='.'><div style='height:200px'><div id='buildingTree'></div></div></tpl>",
 	            store: Ext.create('Ext.data.TreeStore', {
@@ -66,7 +66,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   }), {
 	   		   id: 'axisum',
 			   xtype: 'combobox',
-			   fieldLabel: '轴数',
+			   fieldLabel: '轴型',
 	           labelWidth: 45,
 	           labelAlign: 'right',
 			   width: 140,
@@ -97,7 +97,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   }, {
 	   		   id: 'invalidtype',
 			   xtype: 'combobox',
-			   fieldLabel: '类型',
+			   fieldLabel: '分类',
 	           labelWidth: 45,
 	           labelAlign: 'right',
 			   width: 130,
