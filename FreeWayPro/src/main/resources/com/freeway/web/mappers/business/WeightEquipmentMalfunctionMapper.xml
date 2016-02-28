@@ -5,23 +5,28 @@
 <mapper namespace="com.freeway.web.mappers.business.WeightEquipmentMalfunctionMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  exitDate >= #{beginDate} AND #{endDate} >= exitDate
-               <if test="carCode != null and carCode != ''">
-                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
-               </if>
-               <if test="hiddenBlank == true">
-                   AND carExitcodeRecognize IS NOT NULL
-               </if>
-               <if test="axisum != null and axisum != ''">
-                   AND axisnum = #{axisum}
-               </if>
-               AND EXISTS (
+        WHERE EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
                    WHERE enteName = dept_name
                    START WITH sysid = #{stationId}
                    CONNECT BY PRIOR sysid = dept_parant_rowid
                )
+               AND exitDate >= #{beginDate} AND #{endDate} >= exitDate
+               <if test="hiddenBlank == true">
+                   AND carExitcodeRecognize IS NOT NULL
+               </if>
+               <choose>
+                   <when test="axisum == '7'">
+                      AND axisnum >= 7
+                   </when>
+                   <when test="axisum != null and axisum != ''">
+                      AND axisnum = #{axisum}
+                   </when>
+               </choose>
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
+               </if>
     </sql>
     
 	<!-- 计重设备异常数分页数据查询 -->

@@ -5,17 +5,17 @@
 <mapper namespace="com.freeway.web.mappers.business.LoseCardMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
-               <if test="icCode != null and icCode != ''">
-                   AND icCode = #{icCode}
-               </if>
-               AND EXISTS (
+        WHERE EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
                    WHERE enteName = dept_name
                    START WITH sysid = #{stationId}
                    CONNECT BY PRIOR sysid = dept_parant_rowid
-               )
+               )  
+               AND enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="icCode != null and icCode != ''">
+                   AND icCode = #{icCode}
+               </if>
     </sql>
     
 	<!-- 丢卡信息分页数据查询 -->

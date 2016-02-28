@@ -12,31 +12,7 @@ Ext.define('Ext.plugins.SimpleToolbar', {
     	
         // 创建工具条
         Ext.apply(this, {
-    		items: ['->', , Ext.create('Ext.ux.TreeCombo', {
-			   	id: 'dept',
-			   	fieldLabel: '收费站',
-			   	labelAlign: 'right',
-	            renderName: 'buildingTree',
-	            editable: false,
-	            labelWidth: 55,
-				width: 242,
-				hidden: true,
-	            tpl: "<tpl for='.'><div style='height:200px'><div id='buildingTree'></div></div></tpl>",
-	            store: Ext.create('Ext.data.TreeStore', {
-	            	autoLoad: true,
-	            	autoDestroy: true,
-	            	fields: ["sn", "text"],
-	                root: { expanded: true },
-	                proxy: {
-	                    type : 'ajax',
-	                    actionMethods: { read: 'POST' },
-	                    url : 'services/fsOrgDeptList',//请求  
-	                },
-	                listeners: {
-	                	load: function() {Ext.getDom('searchBtn').click();}
-	                }
-	            })
-		   }), {
+    		items: ['->', {
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
 		       fieldLabel: this.label,
@@ -61,11 +37,9 @@ Ext.define('Ext.plugins.SimpleToolbar', {
 	   			   click: function() {
 	   				    var proxy = store.getProxy();
 	   				    var queryField = Ext.getCmp('queryField');
-	   				    var dept = Ext.getCmp('dept');
 		   		        
 		   		        proxy.extraParamss = store.baseParams || {};
 		   		        proxy.extraParams[el.paramName] = queryField.getValue();
-		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
 		   		        
 		   		        store.reload();
 	   			   }

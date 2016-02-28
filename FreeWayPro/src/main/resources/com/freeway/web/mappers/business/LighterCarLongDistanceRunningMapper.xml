@@ -6,9 +6,6 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE  exitDate >= #{beginDate} AND #{endDate} >= exitDate
-               <if test="carCode != null and carCode != ''">
-                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
-               </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>
@@ -20,6 +17,9 @@
                       AND axisnum = #{axisum}
                    </when>
                </choose>
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
+               </if>
     </sql>
 
 	<!-- 轻车长途分页数据查询 -->

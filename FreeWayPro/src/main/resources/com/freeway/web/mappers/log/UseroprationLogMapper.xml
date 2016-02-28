@@ -5,18 +5,19 @@
 <mapper namespace="com.freeway.web.mappers.log.UseroprationLogMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(b.username, #{loginUser})
-               AND to_char(a.createtime, 'yyyy/mm/dd') >= #{beginDate} 
-               AND #{endDate} >= to_char(a.createtime, 'yyyy/mm/dd')
+        WHERE  a.createtime >= to_date(#{beginDate}, 'yyyy/mm/dd') 
+               AND to_date(#{endDate}, 'yyyy/mm/dd') >= a.createtime
+               <if test="loginUser != null and loginUser != ''">
+                   AND REGEXP_LIKE(item, #{loginUser})
+               </if>
     </sql>
     
 	<!-- 用户登陆日志 -->
 	<select id="findByCondition" resultType="UseroprationLog"
 		parameterType="ConditionFiled">
 			SELECT * FROM (
-			    SELECT a.*, b.username, 
-			           row_number() OVER (ORDER BY a.createtime DESC) rn
-                FROM   useropration_log a inner join system_user b on a.userid = b.sysid
+			    SELECT a.*, row_number() OVER (ORDER BY a.createtime DESC) rn
+                FROM   useropration_log a
                 <include refid="where_clause"></include>
 			)
 			WHERE rn > #{start} and #{limit} >= rn

@@ -16,9 +16,9 @@
     
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(lower(job_name), #{jobObjName})
-               AND to_char(log_date, 'yyyy/mm/dd') >= #{beginDate} 
-               AND #{endDate} >= to_char(log_date, 'yyyy/mm/dd')
+        WHERE  log_date >= to_date(#{beginDate}, 'yyyy/mm/dd') 
+               AND to_date(#{endDate}, 'yyyy/mm/dd') >= log_date
+               AND REGEXP_LIKE(lower(job_name), #{jobObjName})
     </sql>
 
     <!-- 作业计划执行日志 -->

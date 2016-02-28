@@ -33,7 +33,7 @@ final class CardService implements ICardSearchService {
 	public List<TaCaroutBl> findRecords(ConditionFiled fields) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
-		oplog.setItem("坏卡查询");
+		oplog.setItem("坏卡/补录卡查询");
 		oplog.setOpration("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));

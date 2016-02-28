@@ -7,6 +7,7 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
+    layout: 'fit',
     columns: [{ 
     	xtype: 'rownumberer',
     	align: 'center',
@@ -14,20 +15,21 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
     	width: 50
 	}, {
         header: '动作描述',
-        width: 120,
-        dataIndex: 'itemid'
+        width: 140,
+        dataIndex: 'item'
     }, {
-        header: '操作类型',
-        width: 120,
+        header: '类型',
+        width: 50,
         dataIndex: 'opration'
     }, {
         header: '操作时间',
-        width: 90,
+        width: 140,
         dataIndex: 'createTime'
     }, {
         header: '执行操作参数',
-        width: 120,
-        dataIndex: 'params'
+        width: 200,
+        dataIndex: 'params',
+        flex: 1
     }],
     
     /**
@@ -43,7 +45,7 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'querycriteriatoolbar',
             	store: store, 
-            	label: '用户名', 
+            	label: '动作描述', 
             	paramName: 'loginUser',
             	hideBlank: true,
             	hideAxisum: true

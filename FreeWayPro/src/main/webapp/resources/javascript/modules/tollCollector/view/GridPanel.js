@@ -69,7 +69,8 @@ Ext.define('TollCollectorModule.view.GridPanel', {
             	store: store, 
             	label: '收费员编号', 
             	paramName: 'carCode',
-            	stationHidden: false
+            	stationHidden: false,
+            	hideAxisum: true
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

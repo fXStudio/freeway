@@ -9,5 +9,5 @@ Ext.define('MainModule.view.TreePanel' ,{
     collapsible: true,
     autoScroll: true,
     padding: 5,
-    width: 200
+    width: 240
 });

@@ -142,7 +142,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 			   displayField: 'desc',
 			   valueField: 'cartype',
 			   allowBlank: true,
-			   hidden: this.cardtype,
+			   hidden: this.cartype,
 			   listeners: {
 				   afterRender: function() {
 					   this.setValue("");

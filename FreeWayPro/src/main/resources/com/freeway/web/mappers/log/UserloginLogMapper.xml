@@ -5,9 +5,9 @@
 <mapper namespace="com.freeway.web.mappers.log.UserloginLogMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  REGEXP_LIKE(b.username, #{loginUser})
-               AND to_char(logintime, 'yyyy/mm/dd') >= #{beginDate} 
-               AND #{endDate} >= to_char(logintime, 'yyyy/mm/dd') 
+        WHERE  logintime >= to_date(#{beginDate}, 'yyyy/mm/dd')  
+               AND to_date(#{endDate}, 'yyyy/mm/dd') >= logintime 
+               AND  REGEXP_LIKE(b.username, #{loginUser})
 	</sql>
 
 	<!-- 用户登陆日志 -->

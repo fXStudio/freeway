@@ -7,11 +7,11 @@
     <!-- query condition -->
     <sql id="where_clause">
          WHERE exitDate >= #{beginDate} AND #{endDate} >= exitDate
-               <if test="carCode != null and carCode != ''">
-                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
-               </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
+               </if>
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>
     </sql>
     

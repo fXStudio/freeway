@@ -14,7 +14,7 @@ public final class JSONConvertor {
 	private static ObjectMapper om = new ObjectMapper();
 
 	static {
-		om.setSerializationInclusion(Include.NON_NULL);
+		om.setSerializationInclusion(Include.NON_EMPTY);
 	}
 
 	/**

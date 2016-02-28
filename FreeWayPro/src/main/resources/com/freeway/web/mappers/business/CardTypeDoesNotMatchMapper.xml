@@ -6,14 +6,14 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
-               <if test="carCode != null and carCode != ''">
-                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
-               </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>
                <if test="cartype != null and cartype != ''">
                    AND convertflag = #{cartype}
+               </if>
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>
     </sql>
     
