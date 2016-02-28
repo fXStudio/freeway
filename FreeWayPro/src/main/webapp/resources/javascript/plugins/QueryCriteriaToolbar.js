@@ -9,6 +9,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	hideBlank: false,
 	hideAxisum: false,
 	convertflag: true,
+	cartype: true,
 	cardType: '',
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
@@ -122,6 +123,33 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 				   }
 			   }
 		   }, {
+	   		   id: 'cartype',
+			   xtype: 'combobox',
+			   fieldLabel: '类型',
+	           labelWidth: 45,
+	           labelAlign: 'right',
+			   width: 140,
+			   editable: false,
+			   store: Ext.create('Ext.data.Store', {
+				   fields: ['cartype', 'desc'],
+				   data : [
+					   {"cartype":"", "desc":"全部"},
+				       {"cartype":"0", "desc":"车型不符"},
+					   {"cartype":"1", "desc":"车牌不符"}
+				   ]
+			   }),
+			   queryMode: 'local',
+			   displayField: 'desc',
+			   valueField: 'cartype',
+			   allowBlank: true,
+			   hidden: this.cardtype,
+			   listeners: {
+				   afterRender: function() {
+					   this.setValue("");
+					   this.setRawValue("全部");
+				   }
+			   }
+		   }, {
 	   		    id: 'hiddenBlank',
 		        xtype: 'checkbox',
 		        fieldLabel: '过滤空牌',
@@ -157,6 +185,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   				    var dept = Ext.getCmp('dept');
 	   				    var hiddenBlank = Ext.getCmp("hiddenBlank");
 	   				    var axisum = Ext.getCmp("axisum");
+	   				    var cartype = Ext.getCmp("cartype");
 	   				    var invalidtype = Ext.getCmp("invalidtype");
 		   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
 		   		        var endDate = Ext.util.Format.date(Ext.getCmp("endDate").getValue(), 'Y/m/d');
@@ -166,6 +195,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        proxy.extraParams["beginDate"] = beginDate;// 开始日期
 		   		        proxy.extraParams["endDate"] = endDate;// 结束日期
 		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
+		   		        proxy.extraParams["cartype"] = cartype.getValue();// 收费站
 		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤空号牌
 		   		        proxy.extraParams["axisum"] = axisum.getValue();// 轴数
 		   		        proxy.extraParams["convertflag"] = invalidtype.getValue();// 轴数

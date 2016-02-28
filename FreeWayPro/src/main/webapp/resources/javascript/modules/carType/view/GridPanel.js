@@ -66,6 +66,10 @@ Ext.define('CarTypeModule.view.GridPanel', {
         header: '出口车牌',
         width: 100,
         dataIndex: 'carExitcodeRecognize'
+    }, {
+        header: '类型',
+        width: 80,
+    	dataIndex: 'resdes'
     }],
 
     /**
@@ -83,7 +87,8 @@ Ext.define('CarTypeModule.view.GridPanel', {
                 store: store,
                 label: '车牌号',
                 paramName: 'carCode',
-                hideAxism: true
+                hideAxisum: true,
+                cartype: true
             },
             bbar: { // Bottom bar
                 xtype: 'paging',

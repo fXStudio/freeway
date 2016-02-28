@@ -40,6 +40,8 @@ public class ConditionFiled {
 	private boolean hiddenBlank;
 	/** 卡类型 */
 	private String cardType;
+	/** 车型不符/车牌不符 */
+	private String cartype;
 
 	public String getCarCode() {
 		return carCode;
@@ -167,5 +169,13 @@ public class ConditionFiled {
 
 	public void setConvertflag(String convertflag) {
 		this.convertflag = convertflag;
+	}
+
+	public String getCartype() {
+		return cartype;
+	}
+
+	public void setCartype(String cartype) {
+		this.cartype = cartype;
 	}
 }
