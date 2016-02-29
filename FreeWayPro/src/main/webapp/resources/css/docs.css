@@ -47,7 +47,7 @@ a.logout:hover {
 }
 
 .banner {
-    /* background-image: url(../images/banner.png); */
+    background-image: url(../images/banner.png);
     background-repeat: no-repeat;
     background-position: left center;
     padding: 0px 0px 0px 50px;

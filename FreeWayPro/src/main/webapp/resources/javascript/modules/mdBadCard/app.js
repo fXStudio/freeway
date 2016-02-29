@@ -12,7 +12,10 @@ Ext.application({
     	// 初始化页面视图
         Ext.create('Ext.container.Viewport', {
         	layout: 'fit',
-            items: Ext.create('MDBadCardModule.view.MDBadCardForm')
+            items: Ext.create('MDBadCardModule.view.MDBadCardForm'),
+            listeners: {
+            	afterrender: function(){Ext.getCmp('carInCode').focus(true, 100);}
+            }
         });
         
         // 禁止整个页面的右键

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.md.TaSuspiciousMapper">
+    <resultMap id="TaSuspicious" type="TaSuspicious">
+        <id property="logId" column="log_id" />
+        <result property="recordNo" column="record_no"/>
+        <result property="vType" column="v_Type" />
+        <result property="carExitcodeRecognize" column="car_Exitcode_Recognize" />
+        <result property="remark" column="remark" />
+        <result property="violationType" column="violation_Type" />
+    </resultMap>
+
+    <!-- query condition -->
+    <sql id="where_clause">
+         WHERE 1 = 1
+                <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(car_Exitcode_Recognize), #{carCode})
+               </if>
+               <if test="cartype != null and cartype != ''">
+                   AND violation_type = #{cartype}
+               </if>
+    </sql>
+
+	<!-- 信息分页数据查询 -->
+	<select id="findByCondition" resultMap="TaSuspicious" parameterType="ConditionFiled">
+			SELECT * FROM (
+			    SELECT a.*, rownum rn 
+			    FROM   ta_suspicious a
+                <include refid="where_clause"></include>
+			)
+            WHERE rn > #{start} and #{limit} >= rn
+	</select>
+	
+	<!-- 信息总数据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+	    SELECT count(record_No)
+	    FROM   ta_suspicious
+        <include refid="where_clause"></include>
+	</select>
+</mapper>
