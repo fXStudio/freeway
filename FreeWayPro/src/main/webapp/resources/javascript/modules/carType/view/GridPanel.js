@@ -88,7 +88,7 @@ Ext.define('CarTypeModule.view.GridPanel', {
                 label: '车牌号',
                 paramName: 'carCode',
                 hideAxisum: true,
-                cartype: true
+                cartype: false
             },
             bbar: { // Bottom bar
                 xtype: 'paging',

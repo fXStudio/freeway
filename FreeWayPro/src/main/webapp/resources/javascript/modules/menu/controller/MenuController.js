@@ -150,6 +150,9 @@ Ext.define('MenuModule.controller.MenuController', {
      * Module Launch
      */
 	onLaunch: function() {
+		// 应用启动，先创建窗口对象，避免后面数据的重复拉取
+		Ext.create('MenuModule.view.MenuWindow');
+		
 		// 获得数据源对象
 	    var gridPanel = this.getGridPanel(), store = gridPanel.getStore();
 	    

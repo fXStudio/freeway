@@ -11,8 +11,8 @@ Ext.define('LoginModule.view.Window', {
     closable: false,
     draggable: false,
     resizable: false,
-    width: 360,
-    height: 190,
+    width: 400,
+    height: 205,
     layout: 'fit',   
     items: {xtype: 'loginform'}
 })

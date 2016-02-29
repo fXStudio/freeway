@@ -20,9 +20,12 @@
 	    <link rel="stylesheet" href="styles/login.css" />
 	</head>
 	<body>
-	    <div class='login-banner'>
-	       <b>吉林省高速公路</b>收费稽查管理系统
+	    <div class='login-back'>
+    	    <div class='login-banner'></div>
+            <img src="images/login-background.png" width="100%" height="100%"/>
 	    </div>
+	    
+	    <div id="clock">wer</div>
 	
 	    <!-- Load Javascript lib -->
 	    <script src="javascript/extjs/ext-all.js"></script>

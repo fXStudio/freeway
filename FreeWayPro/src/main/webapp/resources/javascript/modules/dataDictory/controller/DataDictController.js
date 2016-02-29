@@ -27,22 +27,26 @@ Ext.define('DataDictModule.controller.DataDictController', {
 	        },
 	        'datadictgrid button[action=modify]': {
 	        	click: function(){
-	                // 获得grid的SelectionModel
-	                var sm = this.getGridPanel().getSelectionModel();
-	                // 当前选中记录
-	                var record = sm.getLastSelected();
-
-	                // 只有存在选中行的时候才显示修改窗口
-	                if (record) {
-	                	var menuItemWindow = this.getWindow();
-	                	if(!menuItemWindow){
-	                		menuItemWindow = Ext.create('DataDictModule.view.DataDictWindow');
+	        		var me = this;
+	        		
+	        		// 确认是否修改
+	                Ext.MessageBox.confirm('确认修改', '修改数据字典项会影响到后台作业，你确认要进行此操作吗?', function(res) {
+	                	if (res === 'yes') { 
+			                var sm = me.getGridPanel().getSelectionModel();// 获得grid的SelectionModel
+			                var record = sm.getLastSelected();// 当前选中记录
+			                
+			                if (record) {// 只有存在选中行的时候才显示修改窗口
+			                    var menuItemWindow = me.getWindow();
+			                	if(!menuItemWindow){
+			                		menuItemWindow = Ext.create('DataDictModule.view.DataDictWindow');
+			                	}
+			                	// 窗体对象
+			                    me.getFormPanel().getForm().loadRecord(record); // 加载要编辑的对象
+			                    menuItemWindow.show(); // 显示窗体
+			                    menuItemWindow.center();
+			                }
 	                	}
-	                	// 窗体对象
-	                    this.getFormPanel().getForm().loadRecord(record); // 加载要编辑的对象
-	                    menuItemWindow.show(); // 显示窗体
-	                    menuItemWindow.center();
-	                }
+        		    });
 	            }
 	        },
 	        'datadictgrid button[action=del]': {
@@ -84,7 +88,7 @@ Ext.define('DataDictModule.controller.DataDictController', {
 	                });
 	            }
 	        },
-            'datadictform textfield[name=datadesc]': {// 密码项目的事件处理
+            'datadictform textfield[name=datavalue]': {// 密码项目的事件处理
                 specialkey: function(field, e){
                     if (e.getKey() == e.ENTER) {
                         this.getSubmitBtn().getEl().dom.click();

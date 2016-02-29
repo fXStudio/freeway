@@ -17,7 +17,7 @@ Ext.define('DataDictModule.view.DataDictGrid', {
         dataIndex: 'dataname'
     }, {
         header: '字典项值',
-        width: 120,
+        width: 80,
         dataIndex: 'datavalue'
     }, {
         header: '字典项描述',
@@ -36,18 +36,13 @@ Ext.define('DataDictModule.view.DataDictGrid', {
         Ext.apply(this, {
             store: store,
             tbar: Ext.create('Ext.toolbar.Toolbar', {
-                items: [{
-                    text: '添加',
-                    iconCls: 'add',
-                    action: 'add'
-                }, {
-                    text: '修改',
-                    iconCls: 'update',
-                    action: 'modify'
-                }, '-', {
-                    text: '删除',
-                    iconCls: 'del',
-                    action: 'del'
+                items: [
+                   '<span style="color:red;padding-right:5px;">* 数据字典项用于后台作业, 修改前需仔细核对说明.</span>', '->', 
+                   {
+	                    text: '修改',
+	                    width: 90,
+	                    iconCls: 'update',
+	                    action: 'modify'
                 }]
             }),
             bbar: { // Bottom bar

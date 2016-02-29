@@ -3,5 +3,5 @@ Ext.define('MainModule.view.Banner', {
 	alias: 'widget.mainbanner',
 	
 	el: 'header',
-    height: 64
+    height: 70
 });

@@ -16,18 +16,22 @@ Ext.define('DataDictModule.view.DataDictForm', {
         hidden: true,
         hideLabel: true
     }, {
-        id: 'dataname',
         fieldLabel: '字典项名称',
         name: 'dataname',
-        allowBlank: false
+        allowBlank: false,
+        readOnly: true
     }, {
+        id: 'dataname',
         fieldLabel: '字典项值',
         name: 'datavalue',
-        allowBlank: false
+        allowBlank: false,
+        enableKeyEvents: true,
+        regex: /(^\d+$)|(^\d+\.{1}\d{1,2}$)/,
+        regexText: '只能输入整数或浮点数(两位小数)'
     }, {
         fieldLabel: '字典项描述',
         name: 'datadesc',
-        allowBlank: false,
-        enableKeyEvents: true
+        hidden: true,
+        hideLabel: true
     }]
 });

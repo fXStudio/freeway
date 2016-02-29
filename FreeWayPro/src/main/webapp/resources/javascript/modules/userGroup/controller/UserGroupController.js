@@ -38,10 +38,10 @@ Ext.define('UserGroupModule.controller.UserGroupController', {
 		            	var userGroupWindow = this.getWindow();
 		            	// 判断窗体对象是否存在, 如果不存在，就创建一个新的窗体对象
 		            	if(!userGroupWindow){userGroupWindow = Ext.create('UserGroupModule.view.UserGroupWindow');}
-	                	
+		            	
 	                	// 窗体对象
 	                    this.getFormPanel().getForm().loadRecord(record); // 加载要编辑的对象
-		                this.getTreePanel().getStore().reload({
+		                this.getTreePanel().getStore().load({
 		                	params: {groupId: record.get('sysid')}
 		                });
 		                userGroupWindow.show(); // 显示窗体
@@ -160,7 +160,10 @@ Ext.define('UserGroupModule.controller.UserGroupController', {
     /**
      * Module Launch
      */
-	onLaunch: function() {
+	onLaunch: function() { 
+		// 创建window对象，这样做是为了避免重复提交
+		Ext.create('UserGroupModule.view.UserGroupWindow');
+		
 		// 获得数据源对象
 	    var me = this, gridPanel = me.getGroupGridPanel(), store = gridPanel.getStore();
 	    

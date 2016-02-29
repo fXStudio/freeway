@@ -3,7 +3,8 @@ Ext.define('MenuModule.store.Tree', {
     model: 'MenuModule.model.TreeModel',
     
     root: { expanded: true },
-    autoLoad: true,
+    autoLoad: false,
+    autoDestroy: true,
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },

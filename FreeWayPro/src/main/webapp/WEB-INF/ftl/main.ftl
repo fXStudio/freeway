@@ -32,10 +32,8 @@
         <!-- 页面头样式-->
         <div id="header">
             <span class="banner"></span>
-            <div class="t_bar">
-                <span class="banner_text">当前登陆用户: <#if model["username"]??>${model["username"]}</#if></span>
-                <a href="systemLogout" class="logout">系统登出</a>
-            </div>
+            <a href="systemLogout" tooltip="退出系统"><div class="logout"></div></a>
+            <a href="#"><div class="t_bar"></div></a>
         </div>
 
         <!-- Load Javascript lib -->

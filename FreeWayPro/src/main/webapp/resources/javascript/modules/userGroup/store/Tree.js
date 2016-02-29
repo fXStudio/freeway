@@ -4,7 +4,6 @@ Ext.define('UserGroupModule.store.Tree', {
     
     root: { expanded: true },
     autoLoad: false,
-    clearOnLoad: true,
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
