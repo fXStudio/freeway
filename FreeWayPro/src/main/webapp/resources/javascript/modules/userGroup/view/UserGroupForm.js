@@ -34,6 +34,7 @@ Ext.define('UserGroupModule.view.UserGroupForm', {
         xtype: 'checkbox',
         fieldLabel: '是否锁定',
         name: 'isLock',
-        style: 'margin-top: 6px;'
+        style: 'margin-top: 6px;',
+        hidden: true
     }]
 });

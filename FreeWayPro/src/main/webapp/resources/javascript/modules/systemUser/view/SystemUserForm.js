@@ -38,6 +38,7 @@ Ext.define('SystemUserModule.view.SystemUserForm', {
     }, {
         xtype: 'checkbox',
         fieldLabel: '是否锁定',
-        name: 'isLock'
+        name: 'isLock',
+        hidden: true
     }]
 });

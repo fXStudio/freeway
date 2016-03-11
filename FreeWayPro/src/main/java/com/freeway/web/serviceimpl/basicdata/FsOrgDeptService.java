@@ -58,7 +58,7 @@ final class FsOrgDeptService implements IFsOrgDeptService {
 	public List<INode> deptTree(String userId) {
 		List<INode> list = new ArrayList<INode>();
 		Example condition = new Example(FsOrgDept.class);
-		condition.createCriteria().andEqualTo("depttype", 0);
+		condition.createCriteria().andEqualTo("depttype", 1);
 
 		// 部门编号
 		String depid = getDepIdFromUser(userId);

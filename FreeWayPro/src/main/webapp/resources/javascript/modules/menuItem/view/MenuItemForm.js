@@ -30,6 +30,7 @@ Ext.define('MenuItemModule.view.MenuItemForm', {
         xtype: 'checkbox',
         fieldLabel: '是否锁定',
         name: 'islock',
-        style: 'margin-top: 6px;'
+        style: 'margin-top: 6px;',
+        hidden: true
     }]
 });
