@@ -3,13 +3,17 @@ package com.freeway.web.controllers.system;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.IPHelper;
 import com.freeway.web.models.SystemData;
+import com.freeway.web.models.SystemUser;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.system.ISystemDataService;
 import com.github.pagehelper.PageInfo;
@@ -34,7 +38,11 @@ public class SystemDataController {
 	 * @return
 	 */
 	@RequestMapping(value = "systemDataList")
-	public Object systemDataList(ConditionFiled cf) {
+	public Object systemDataList(ConditionFiled cf, HttpServletRequest request) {
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
 		// 数据集合和分页信息
 		PageInfo<SystemData> pageInfo = new PageInfo<SystemData>(systemDataService.findRecords(cf));
 
@@ -52,8 +60,13 @@ public class SystemDataController {
 	 * @return
 	 */
 	@RequestMapping(value = "delSystemData")
-	public Object delMenuItem(@RequestParam(value = "sysid", required = true) String sysid) {
-		return systemDataService.del(sysid);
+	public Object delMenuItem(@RequestParam(value = "sysid", required = true) String sysid, HttpServletRequest request) {
+		ConditionFiled cf = new ConditionFiled();
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
+		return systemDataService.del(sysid, cf);
 	}
 
 	/**
@@ -63,7 +76,12 @@ public class SystemDataController {
 	 * @return
 	 */
 	@RequestMapping(value = "systemDataModify")
-	public Object menuItemModify(SystemData sdata) {
-		return systemDataService.addOrUpdate(sdata);
+	public Object menuItemModify(SystemData sdata, HttpServletRequest request) {
+		ConditionFiled cf = new ConditionFiled();
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
+		return systemDataService.addOrUpdate(sdata, cf);
 	}
 }

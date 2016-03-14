@@ -11,6 +11,7 @@ import com.freeway.web.mappers.business.MDCardMapper;
 import com.freeway.web.messages.FeedBackMessage;
 import com.freeway.web.models.TaCaroutBl;
 import com.freeway.web.models.UseroprationLog;
+import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.IMDCardService;
 import com.freeway.web.services.log.IUseroprationLogService;
 
@@ -29,13 +30,15 @@ public class MDCardService implements IMDCardService {
 	 * @return
 	 */
 	@Override
-	public FeedBackMessage add(TaCaroutBl card) {
+	public FeedBackMessage add(TaCaroutBl card, ConditionFiled cf) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("坏卡、补录卡录入");
 		oplog.setOperation("添加");
 		oplog.setParams(JSONConvertor.object2Json(card));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);

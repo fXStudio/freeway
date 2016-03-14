@@ -40,6 +40,11 @@ public class MDSuspiciousController {
 	 */
 	@RequestMapping(value = "suspiciousInput")
 	public Object cardInput(HttpServletRequest request) {
+		ConditionFiled cf = new ConditionFiled();
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
 		TaSuspicious card = new TaSuspicious();
 
 		// 动态绑定参数
@@ -52,7 +57,7 @@ public class MDSuspiciousController {
 				e.printStackTrace();
 			}
 		}
-		return mdSuspiciousService.add(card);
+		return mdSuspiciousService.add(card, cf);
 	}
 	
 	/**

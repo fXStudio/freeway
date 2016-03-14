@@ -153,7 +153,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                     xtype: 'textfield',
                     name : 'icCode',
                     allowBlank: false,
-                    regex: /^[\d]{7}$/,
+                    regex: /^[\w\d]{7}$/,
                     regexText: '只能包含数字和字母，长度7位'
                 }, {
                 	xtype: "textfield",

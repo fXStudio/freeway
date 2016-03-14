@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.IPHelper;
+import com.freeway.web.models.SystemUser;
 import com.freeway.web.models.TaCaroutBl;
+import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.IMDCardService;
 
 /**
@@ -35,6 +38,11 @@ public class MDCardController {
 	 */
 	@RequestMapping(value = "cardInput")
 	public Object cardInput(HttpServletRequest request) {
+		ConditionFiled cf = new ConditionFiled();
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
 		TaCaroutBl card = new TaCaroutBl();
 
 		// 动态绑定参数
@@ -47,6 +55,6 @@ public class MDCardController {
 				e.printStackTrace();
 			}
 		}
-		return mdCardService.add(card);
+		return mdCardService.add(card, cf);
 	}
 }

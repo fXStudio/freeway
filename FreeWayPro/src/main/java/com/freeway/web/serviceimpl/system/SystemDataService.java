@@ -67,13 +67,15 @@ final class SystemDataService implements ISystemDataService {
 	 */
 	@Override
 	@Transactional
-	public FeedBackMessage del(String t) {
+	public FeedBackMessage del(String t, ConditionFiled cf) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("删除数据字典项");
 		oplog.setOperation("删除");
 		oplog.setParams("{sysid:" + t + "}");
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);
@@ -87,7 +89,7 @@ final class SystemDataService implements ISystemDataService {
 	 */
 	@Override
 	@Transactional
-	public Object addOrUpdate(SystemData sdata) {
+	public Object addOrUpdate(SystemData sdata, ConditionFiled cf) {
 		if (StringHelper.isNullOrEmpty(sdata.getSysid())) {
 			UseroprationLog oplog = new UseroprationLog();
 			oplog.setSysid(UUIDGenerator.random());
@@ -95,6 +97,8 @@ final class SystemDataService implements ISystemDataService {
 			oplog.setOperation("添加");
 			oplog.setParams(JSONConvertor.object2Json(sdata));
 			oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+			oplog.setIp(cf.getIp());
+			oplog.setUserid(cf.getLoginUser());
 			
 			// 记录系统的操作日志
 			useroprationLogService.add(oplog);
@@ -108,6 +112,8 @@ final class SystemDataService implements ISystemDataService {
 		oplog.setOperation("修改");
 		oplog.setParams(JSONConvertor.object2Json(sdata));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);

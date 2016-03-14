@@ -25,13 +25,15 @@ public class MDSuspiciousService implements IMDSuspiciousService {
 	private @Autowired IUseroprationLogService useroprationLogService;
 
 	@Override
-	public FeedBackMessage add(TaSuspicious scar) {
+	public FeedBackMessage add(TaSuspicious scar, ConditionFiled cf) {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("可疑车辆手工录入");
 		oplog.setOperation("添加");
 		oplog.setParams(JSONConvertor.object2Json(scar));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);
