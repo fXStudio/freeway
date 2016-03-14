@@ -12,7 +12,7 @@
                    START WITH sysid = #{stationId}
                    CONNECT BY PRIOR sysid = dept_parant_rowid
                )  
-               AND enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               AND enteDate >= #{beginDate} AND #{endDate} + 1 > enteDate
                <if test="icCode != null and icCode != ''">
                    AND icCode = #{icCode}
                </if>

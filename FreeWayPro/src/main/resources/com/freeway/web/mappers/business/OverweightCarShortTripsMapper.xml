@@ -5,7 +5,7 @@
 <mapper namespace="com.freeway.web.mappers.business.OverweightCarShortTripsMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  exitDate >= #{beginDate} AND #{endDate} >= exitDate
+        WHERE  exitDate >= #{beginDate} AND #{endDate} + 1 > exitDate
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>

@@ -24,7 +24,7 @@ Ext.define('SuspiciousModule.view.Toolbar', {
 				   fields: ['id', 'desc'],
 				   data : [
 					   {"id":"", "desc":"全部"},
-					   {"id":"计重设备异常", "desc":"疑似换卡车辆"},
+					   {"id":"疑似换卡车辆", "desc":"疑似换卡车辆"},
 				       {"id":"计重设备异常", "desc":"计重设备异常"},
 				       {"id":"货车重车短途", "desc":"货车重车短途"},
 				       {"id":"货车轻车长途", "desc":"货车轻车长途"},

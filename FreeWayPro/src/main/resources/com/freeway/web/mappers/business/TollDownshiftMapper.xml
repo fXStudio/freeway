@@ -12,7 +12,7 @@
                    START WITH sysid = #{stationId}
                    CONNECT BY PRIOR sysid = dept_parant_rowid
                )
-               AND exitDate >= #{beginDate} AND #{endDate} >= exitDate
+               AND exitDate >= #{beginDate} AND #{endDate} + 1 > exitDate
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>

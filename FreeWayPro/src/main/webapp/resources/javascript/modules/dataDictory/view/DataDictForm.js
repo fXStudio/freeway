@@ -26,6 +26,7 @@ Ext.define('DataDictModule.view.DataDictForm', {
         name: 'datavalue',
         allowBlank: false,
         enableKeyEvents: true,
+        maxLength: 4,
         regex: /(^\d+$)|(^\d+\.{1}\d{1,2}$)/,
         regexText: '只能输入整数或浮点数(两位小数)'
     }, {

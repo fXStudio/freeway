@@ -20,10 +20,12 @@ Ext.define('MenuItemModule.view.MenuItemForm', {
         id: 'itemname',
         fieldLabel: '菜单名称',
         name: 'itemname',
+        maxLength: 30,
         allowBlank: false
     }, {
         fieldLabel: '访问路径',
         name: 'itemlink',
+        maxLength: 255,
         allowBlank: false,
         enableKeyEvents: true
     }, {

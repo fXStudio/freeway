@@ -5,7 +5,7 @@
 <mapper namespace="com.freeway.web.mappers.business.CardTypeDoesNotMatchMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
+        WHERE  enteDate >= #{beginDate} AND #{endDate} + 1 > enteDate
                <if test="carCode != null and carCode != ''">
                    AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>

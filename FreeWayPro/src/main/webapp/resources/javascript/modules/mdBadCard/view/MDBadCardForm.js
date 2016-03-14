@@ -72,7 +72,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                     regex: /^[\d]{1}$/,
                     regexText: '只能包含数字，长度1位'
                 }, {
-                    fieldLabel: '收费员编号*',
+                    fieldLabel: '<span class="must">*</span>收费员编号',
                     xtype: 'textfield',
                     name: 'tollId',
                     allowBlank: false,
@@ -104,7 +104,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                 }, Ext.create('Ext.ux.TreeCombo', {
                 	labelWidth: 75,
                     labelAlign: 'right',
-                    fieldLabel: '出口站*',
+                    fieldLabel: '<span class="must">*</span>出口站',
     			   	name: 'exitCode',
     	            renderName: 'exitDiv',
                     editable: false,
@@ -130,7 +130,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                	   labelAlign: 'right',
                	   editable: false,
                	   name: 'exitDate',
-                   fieldLabel:'出口时间*',  
+                   fieldLabel:'<span class="must">*</span>出口时间',  
     	   		   value: Ext.Date.add(new Date(), Ext.Date.DAY),
                    allowBlank: false,
                    format:'Y/m/d H:i:s'  
@@ -147,7 +147,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
                     regex: /^[\d]{1,6}$/,
                     regexText: '只能包含数字和字母，最大长度6位'
                 }, {
-                    fieldLabel: 'IC卡号*',
+                    fieldLabel: '<span class="must">*</span>IC卡号',
                     xtype: 'textfield',
                     name : 'icCode',
                     allowBlank: false,

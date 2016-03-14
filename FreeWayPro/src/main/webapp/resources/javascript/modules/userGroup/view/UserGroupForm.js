@@ -5,7 +5,7 @@ Ext.define('UserGroupModule.view.UserGroupForm', {
     border: false, // 不显示边线
     defaults: { // 组件的默认样式配置
     	xtype: 'textfield',
-        labelWidth: 75, // label的默认宽度
+        labelWidth: 85, // label的默认宽度
         labelAlign: 'right',
         cls: 'fxstudio-window-inner-margin3',
         labelStyle: 'margin-top:3px;',
@@ -22,7 +22,7 @@ Ext.define('UserGroupModule.view.UserGroupForm', {
         hideLabel: true
     }, {
         id: 'groupname',
-        fieldLabel: '用户组名称',
+        fieldLabel: '<span class="must">*</span>用户组名称',
         name: 'groupname',
         allowBlank: false,
         blankText: '用户组名称不能为空'

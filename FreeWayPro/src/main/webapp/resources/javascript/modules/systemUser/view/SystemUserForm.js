@@ -27,11 +27,11 @@ Ext.define('SystemUserModule.view.SystemUserForm', {
         hideLabel: true
     },{
         id: 'username',
-        fieldLabel: '用户名称',
+        fieldLabel: '<span class="must">*</span>用户名称',
         name: 'username',
         allowBlank: false
     }, {
-        fieldLabel: '用户密码',
+        fieldLabel: '<span class="must">*</span>用户密码',
         inputType: 'password',
         name: 'password',
         allowBlank: false

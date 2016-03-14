@@ -6,7 +6,7 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE  logintime >= to_date(#{beginDate}, 'yyyy/mm/dd')  
-               AND to_date(#{endDate}, 'yyyy/mm/dd') >= logintime 
+               AND to_date(#{endDate}, 'yyyy/mm/dd') + 1 > logintime 
                AND  REGEXP_LIKE(b.username, #{loginUser})
 	</sql>
 
