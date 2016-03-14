@@ -27,6 +27,7 @@ Ext.define('MDSuspiciousModule.view.MDSuspiciousForm', {
             	items:  [{
             		id: 'carCode',
                     fieldLabel: '<span class="must">*</span>车牌',
+                    maxLength: 8,
                     xtype: 'textfield',
                     name: 'carExitcodeRecognize',
                     allowBlank: false

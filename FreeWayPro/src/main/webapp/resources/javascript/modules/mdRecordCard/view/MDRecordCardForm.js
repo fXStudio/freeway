@@ -26,6 +26,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
             	items:  [{
             		id: 'carInCode',
                     fieldLabel: '入口车牌',
+                    maxLength: 8,
                     xtype: 'textfield',
                     name: 'carIncodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {
@@ -100,6 +101,7 @@ Ext.define('MDRecordCardModule.view.MDRecordCardForm', {
                 items: [{
                     fieldLabel: '出口车牌',
                     xtype: 'textfield',
+                    maxLength: 8,
                     name: 'carExitcodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {
                 	labelWidth: 75,

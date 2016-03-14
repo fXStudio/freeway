@@ -26,6 +26,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
             	items:  [{
             		id: 'carInCode',
                     fieldLabel: '入口车牌',
+                    maxLength: 8,
                     xtype: 'textfield',
                     name: 'carIncodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {
@@ -99,6 +100,7 @@ Ext.define('MDBadCardModule.view.MDBadCardForm', {
             	},
                 items: [{
                     fieldLabel: '出口车牌',
+                    maxLength: 8,
                     xtype: 'textfield',
                     name: 'carExitcodeRecognize'
                 }, Ext.create('Ext.ux.TreeCombo', {

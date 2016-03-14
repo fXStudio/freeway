@@ -23,11 +23,13 @@ Ext.define('MenuModule.view.MenuForm', {
     }, {
         id: 'menuname',
         fieldLabel: '<span class="must">*</span>菜单名称',
+        maxLength: 30,
         name: 'menuname',
         allowBlank: false
     }, {
         xtype: 'textarea',
         fieldLabel: '菜单描述',
+        maxLength: 255,
         name: 'remark'
     }, {
         xtype: 'checkbox',
