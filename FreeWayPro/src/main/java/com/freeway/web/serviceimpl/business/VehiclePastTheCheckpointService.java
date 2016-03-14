@@ -34,9 +34,11 @@ final class VehiclePastTheCheckpointService implements IVehiclePastTheCheckpoint
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("闯关车查询");
-		oplog.setOpration("查询");
+		oplog.setOperation("查询");
 		oplog.setParams(JSONConvertor.object2Json(fields));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(fields.getIp());
+		oplog.setUserid(fields.getLoginUser());
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);

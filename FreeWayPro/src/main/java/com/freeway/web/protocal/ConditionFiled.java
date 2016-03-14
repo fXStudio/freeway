@@ -42,6 +42,7 @@ public class ConditionFiled {
 	private String cardType;
 	/** 车型不符/车牌不符 */
 	private String cartype;
+	private String ip;
 
 	public String getCarCode() {
 		return carCode;
@@ -177,5 +178,13 @@ public class ConditionFiled {
 
 	public void setCartype(String cartype) {
 		this.cartype = cartype;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 }

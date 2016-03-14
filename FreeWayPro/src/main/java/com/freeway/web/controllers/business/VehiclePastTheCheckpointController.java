@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.IPHelper;
 import com.freeway.web.models.SystemUser;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.IVehiclePastTheCheckpointService;
@@ -35,8 +36,9 @@ public class VehiclePastTheCheckpointController {
 	 */
 	@RequestMapping(value = "enterCarList")
 	public Object enterCarList(ConditionFiled cf, HttpServletRequest request) {
-		// 当前登录的用户信息
-		cf.setSysid(((SystemUser)request.getSession().getAttribute("freeWayUser")).getSysid());
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", vehiclePastTheCheckpointService.getSize(cf));// 记录总数

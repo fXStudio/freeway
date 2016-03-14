@@ -29,7 +29,7 @@ public class MDSuspiciousService implements IMDSuspiciousService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("可疑车辆手工录入");
-		oplog.setOpration("添加");
+		oplog.setOperation("添加");
 		oplog.setParams(JSONConvertor.object2Json(scar));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 
@@ -47,9 +47,11 @@ public class MDSuspiciousService implements IMDSuspiciousService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("手工录入可疑车辆查询");
-		oplog.setOpration("查询");
+		oplog.setOperation("查询");
 		oplog.setParams(JSONConvertor.object2Json(cf));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);

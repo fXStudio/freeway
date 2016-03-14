@@ -60,7 +60,7 @@ public class SystemLoginController {
 		request.getSession().setAttribute("freeWayUser", users.get(0));
 		// 记录系统登录日志
 		writeLog(users.get(0).getSysid(), getIPAddress(request));
-
+		
 		return new FeedBackMessage(true);
 	}
 

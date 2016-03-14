@@ -14,6 +14,10 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+        header: '用户名',
+        width: 120,
+        dataIndex: 'userid'
+    }, {
         header: '动作描述',
         width: 140,
         dataIndex: 'item'
@@ -21,6 +25,10 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
         header: '类型',
         width: 50,
         dataIndex: 'opration'
+    }, {
+        header: 'IP地址',
+        width: 120,
+        dataIndex: 'ip'
     }, {
         header: '操作时间',
         width: 140,
@@ -45,7 +53,7 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'querycriteriatoolbar',
             	store: store, 
-            	label: '动作描述', 
+            	label: '用户名', 
             	paramName: 'loginUser',
             	hideBlank: true,
             	hideAxisum: true

@@ -8,7 +8,7 @@
         WHERE  a.createtime >= to_date(#{beginDate}, 'yyyy/mm/dd') 
                AND to_date(#{endDate}, 'yyyy/mm/dd') + 1 > a.createtime
                <if test="loginUser != null and loginUser != ''">
-                   AND REGEXP_LIKE(item, #{loginUser})
+                   AND REGEXP_LIKE(b.username, #{loginUser})
                </if>
     </sql>
     
@@ -16,8 +16,9 @@
 	<select id="findByCondition" resultType="UseroprationLog"
 		parameterType="ConditionFiled">
 			SELECT * FROM (
-			    SELECT a.*, row_number() OVER (ORDER BY a.createtime DESC) rn
-                FROM   useropration_log a
+			    SELECT b.username userid, a.item, a.operation, a.createtime, a.params, a.ip, 
+			           row_number() OVER (ORDER BY a.createtime DESC) rn
+                FROM   useropration_log a inner join system_user b on a.userid = b.sysid
                 <include refid="where_clause"></include>
 			)
 			WHERE rn > #{start} and #{limit} >= rn

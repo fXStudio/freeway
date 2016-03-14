@@ -19,10 +19,11 @@ public class UseroprationLog {
 	private String sysid;
 	private String userid;
 	private String item;
-	private String opration;
-	@Column(name = "createTime")
+	private String operation;
+	@Column(name="createTime")
 	private Timestamp createTime;
 	private String params;
+	private String ip;
 
 	public String getSysid() {
 		return sysid;
@@ -38,14 +39,6 @@ public class UseroprationLog {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
-	}
-
-	public String getOpration() {
-		return opration;
-	}
-
-	public void setOpration(String opration) {
-		this.opration = opration;
 	}
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
@@ -71,5 +64,21 @@ public class UseroprationLog {
 
 	public void setItem(String item) {
 		this.item = item;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 }

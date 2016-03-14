@@ -33,7 +33,7 @@ public class MDCardService implements IMDCardService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("坏卡、补录卡录入");
-		oplog.setOpration("添加");
+		oplog.setOperation("添加");
 		oplog.setParams(JSONConvertor.object2Json(card));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 		

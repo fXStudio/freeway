@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freeway.web.helper.IPHelper;
+import com.freeway.web.models.SystemUser;
 import com.freeway.web.models.TaSuspicious;
 import com.freeway.web.protocal.ConditionFiled;
 import com.freeway.web.services.business.IMDSuspiciousService;
@@ -63,7 +65,11 @@ public class MDSuspiciousController {
 	 * @return
 	 */
 	@RequestMapping(value = "suspiciousList")
-	public Object badCardList(ConditionFiled cf) {
+	public Object badCardList(ConditionFiled cf, HttpServletRequest request) {
+		SystemUser user = (SystemUser) request.getSession().getAttribute("freeWayUser");
+		cf.setIp(IPHelper.getIPAddress(request));
+		cf.setLoginUser(user.getSysid());
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", mdSuspiciousService.getSize(cf));// 记录总数
 		map.put("items", mdSuspiciousService.findRecords(cf));// 记录行对象

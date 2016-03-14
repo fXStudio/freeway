@@ -39,9 +39,11 @@ final class SystemDataService implements ISystemDataService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("数据字典查询");
-		oplog.setOpration("查询");
+		oplog.setOperation("查询");
 		oplog.setParams(JSONConvertor.object2Json(cf));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		oplog.setIp(cf.getIp());
+		oplog.setUserid(cf.getLoginUser());
 		
 		// 记录系统的操作日志
 		useroprationLogService.add(oplog);
@@ -69,7 +71,7 @@ final class SystemDataService implements ISystemDataService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("删除数据字典项");
-		oplog.setOpration("删除");
+		oplog.setOperation("删除");
 		oplog.setParams("{sysid:" + t + "}");
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 		
@@ -90,7 +92,7 @@ final class SystemDataService implements ISystemDataService {
 			UseroprationLog oplog = new UseroprationLog();
 			oplog.setSysid(UUIDGenerator.random());
 			oplog.setItem("添加数据字典项");
-			oplog.setOpration("添加");
+			oplog.setOperation("添加");
 			oplog.setParams(JSONConvertor.object2Json(sdata));
 			oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 			
@@ -103,7 +105,7 @@ final class SystemDataService implements ISystemDataService {
 		UseroprationLog oplog = new UseroprationLog();
 		oplog.setSysid(UUIDGenerator.random());
 		oplog.setItem("修改数据字典项");
-		oplog.setOpration("修改");
+		oplog.setOperation("修改");
 		oplog.setParams(JSONConvertor.object2Json(sdata));
 		oplog.setCreateTime(new Timestamp(System.currentTimeMillis()));
 		
