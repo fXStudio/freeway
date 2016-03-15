@@ -17,7 +17,7 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE  log_date >= to_date(#{beginDate}, 'yyyy/mm/dd') 
-               AND to_date(#{endDate}, 'yyyy/mm/dd') + 1 > log_date
+               AND to_date(#{endDate}, 'yyyy/mm/dd hh24:mi:ss') >= log_date
                AND REGEXP_LIKE(lower(job_name), #{jobObjName})
     </sql>
 

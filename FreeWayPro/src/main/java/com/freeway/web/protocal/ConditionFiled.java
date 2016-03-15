@@ -61,7 +61,7 @@ public class ConditionFiled {
 	}
 
 	public String getEndDate() {
-		return endDate;
+		return endDate + " 23:59:59";
 	}
 
 	public void setEndDate(String endDate) {

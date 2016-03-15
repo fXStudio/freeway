@@ -6,7 +6,7 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE  a.createtime >= to_date(#{beginDate}, 'yyyy/mm/dd') 
-               AND to_date(#{endDate}, 'yyyy/mm/dd') + 1 > a.createtime
+               AND to_date(#{endDate}, 'yyyy/mm/dd hh24:mi:ss') >= a.createtime
                <if test="loginUser != null and loginUser != ''">
                    AND REGEXP_LIKE(b.username, #{loginUser})
                </if>

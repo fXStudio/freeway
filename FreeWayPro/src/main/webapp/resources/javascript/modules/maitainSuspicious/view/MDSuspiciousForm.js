@@ -82,7 +82,7 @@ Ext.define('MDSuspiciousModule.view.MDSuspiciousForm', {
                     anchor: '90%'
             	},
                 items: [{
-                    fieldLabel: '车型',
+                    fieldLabel: '情况说明',
                     xtype: 'textarea',
                     name: 'remark',
                     height: 80,
