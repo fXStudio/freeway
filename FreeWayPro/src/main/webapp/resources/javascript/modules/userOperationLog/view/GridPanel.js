@@ -24,7 +24,7 @@ Ext.define('UserOperationLogModule.view.GridPanel', {
     }, {
         header: '类型',
         width: 50,
-        dataIndex: 'opration'
+        dataIndex: 'operation'
     }, {
         header: 'IP地址',
         width: 120,
