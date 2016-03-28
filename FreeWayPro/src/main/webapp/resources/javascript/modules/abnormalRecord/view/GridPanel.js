@@ -14,6 +14,11 @@ Ext.define('AbnormalRecordModule.view.GridPanel', {
         width: 50
     },
     {
+        header: '车道',
+        width: 50,
+        dataIndex: 'lane'
+    },
+    {
         header: '入口站',
         width: 120,
         dataIndex: 'enteName'

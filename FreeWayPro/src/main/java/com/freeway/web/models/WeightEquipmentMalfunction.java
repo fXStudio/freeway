@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class WeightEquipmentMalfunction {
 	@Id
 	private String recordNo;
+	private String lane;
 	private String enteName;
 	private String exitName;
 	private String enteDate;
@@ -91,5 +92,13 @@ public class WeightEquipmentMalfunction {
 
 	public void setCarExitcodeRecognize(String carExitcodeRecognize) {
 		this.carExitcodeRecognize = carExitcodeRecognize;
+	}
+
+	public String getLane() {
+		return lane;
+	}
+
+	public void setLane(String lane) {
+		this.lane = lane;
 	}
 }
