@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class OverweightCarShortTrips {
 	@Id
 	private String recordNo;
+	private Double snCode;
 	private String enteName;
 	private String exitName;
 	private String exitDate;
@@ -100,5 +101,13 @@ public class OverweightCarShortTrips {
 
 	public void setAxisnum(String axisnum) {
 		this.axisnum = axisnum;
+	}
+
+	public Double getSnCode() {
+		return snCode;
+	}
+
+	public void setSnCode(Double snCode) {
+		this.snCode = snCode;
 	}
 }

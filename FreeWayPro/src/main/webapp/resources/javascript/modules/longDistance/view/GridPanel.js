@@ -41,6 +41,10 @@ Ext.define('LongDistanceModule.view.GridPanel', {
         width: 50,
         dataIndex: 'ratingweight'
     }, {
+        header: '限重比例',
+        width: 80,
+        dataIndex: 'snCode'
+    }, {
         header: '行驶里程',
         width: 80,
         dataIndex: 'actdistance'
