@@ -33,7 +33,6 @@ Ext.define('SystemUserModule.view.SystemUserForm', {
         allowBlank: false
     }, {
         fieldLabel: '<span class="must">*</span>用户密码',
-        maxLength: 16,
         inputType: 'password',
         name: 'password',
         allowBlank: false
