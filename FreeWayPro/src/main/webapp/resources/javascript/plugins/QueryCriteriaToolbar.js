@@ -190,7 +190,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        var beginDate = Ext.util.Format.date(Ext.getCmp("beginDate").getValue(), 'Y/m/d');
 		   		        var endDate = Ext.util.Format.date(Ext.getCmp("endDate").getValue(), 'Y/m/d');
 		   		        
-		   		        proxy.extraParamss = store.baseParams || {};
+		   		        proxy.extraParams = store.baseParams || {};
 		   		        proxy.extraParams[el.paramName] = queryField.getValue();
 		   		        proxy.extraParams["beginDate"] = beginDate;// 开始日期
 		   		        proxy.extraParams["endDate"] = endDate;// 结束日期

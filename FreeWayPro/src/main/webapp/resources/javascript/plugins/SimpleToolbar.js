@@ -38,7 +38,7 @@ Ext.define('Ext.plugins.SimpleToolbar', {
 	   				    var proxy = store.getProxy();
 	   				    var queryField = Ext.getCmp('queryField');
 		   		        
-		   		        proxy.extraParamss = store.baseParams || {};
+		   		        proxy.extraParams = store.baseParams || {};
 		   		        proxy.extraParams[el.paramName] = queryField.getValue();
 		   		        
 		   		        store.reload();

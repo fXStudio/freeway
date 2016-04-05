@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- Mapper的配置信息 -->
-<mapper namespace="com.freeway.web.mappers.business.WeightEquipmentMalfunctionMapper">
+<mapper namespace="com.freeway.web.mappers.statis.LaneStatisMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE EXISTS (
+         WHERE EXISTS (
                    SELECT sysid
                    FROM fs_org_dept
                    WHERE enteName = dept_name
@@ -28,22 +28,12 @@
                    AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>
     </sql>
-    
-	<!-- 计重设备异常数分页数据查询 -->
-	<select id="findByCondition" resultType="WeightEquipmentMalfunction"
-		parameterType="ConditionFiled">
-			SELECT * FROM (
-			    SELECT a.*, row_number() OVER (ORDER BY a.enteName, a.lane) rn 
-			    FROM   abnormal_record_view a
-                <include refid="where_clause"></include>
-			)
-            WHERE rn > #{start} and #{limit} >= rn
-	</select>
-	
-	<!-- 计重设备异常数总数据量查询 -->
-	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
-	    SELECT COUNT(recordNo)
-	    FROM   abnormal_record_view
-        <include refid="where_clause"></include>
+
+	<!-- 计重设备按出口统计数量 -->
+	<select id="computeStatis" resultType="EnteStatis" parameterType="ConditionFiled">
+         SELECT count(rowid) staticCount, enteName || '-' || lane enteName
+		 FROM abnormal_record_view
+         <include refid="where_clause"></include>
+         GROUP BY entename, lane
 	</select>
 </mapper>

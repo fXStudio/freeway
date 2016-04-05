@@ -3,7 +3,8 @@ Ext.define('AbnormalRecordModule.view.Viewport', {
 
     requires: [ 
        'AbnormalRecordModule.view.GridPanel',
-       'AbnormalRecordModule.view.PieChart'
+       'AbnormalRecordModule.view.PieChart',
+       'AbnormalRecordModule.view.ColumnChart'
     ],
 
     layout: 'border',
@@ -11,12 +12,21 @@ Ext.define('AbnormalRecordModule.view.Viewport', {
         xtype: 'gridpanel',
         region: 'center'
     }, {
+    	title: '计重设备异常统计报表',
     	xtype: 'panel',
-    	layout: 'fit',
-    	region: 'east',
-    	width: 200,
+    	layout: 'border',
+    	region: 'south',
+        collapsible: true,
+        split: true,  
+        collapsed: true,
+    	height: 300,
     	items:[{
- 	       xtype: 'piechart'
+ 	       xtype: 'piechart',
+ 	       region: 'west',
+ 	       width: 200
+ 	    },{
+ 	 	    xtype: 'columnchart',
+ 	 	    region: 'center'
     	}]
     }]
 });
