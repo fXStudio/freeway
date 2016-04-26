@@ -17,6 +17,18 @@ Ext.define('EnterCarModule.view.GridPanel', {
         width: 100,
         dataIndex: 'exitName'
     }, {
+        header: '车道',
+        width: 50,
+        dataIndex: 'lane'
+    }, {
+        header: '入口收费员编号',
+        width: 120,
+        dataIndex: 'intollId'
+    }, {
+        header: '出口收费员编号',
+        width: 120,
+        dataIndex: 'tollId'
+    }, {
         header: '出口时间',
         width: 140,
         dataIndex: 'exitDate'

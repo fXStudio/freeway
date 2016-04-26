@@ -13,6 +13,9 @@ public class VehiclePastTheCheckpoint {
 	@Id
 	private String recordNo;
 	private String exitName;
+	private String lane;
+	private String tollId;
+	private String intollId;
 	private String exitDate;
 	private String carExitcodeRecognize;
 
@@ -46,5 +49,29 @@ public class VehiclePastTheCheckpoint {
 
 	public void setCarExitcodeRecognize(String carExitcodeRecognize) {
 		this.carExitcodeRecognize = carExitcodeRecognize;
+	}
+
+	public String getLane() {
+		return lane;
+	}
+
+	public void setLane(String lane) {
+		this.lane = lane;
+	}
+
+	public String getTollId() {
+		return tollId;
+	}
+
+	public void setTollId(String tollId) {
+		this.tollId = tollId;
+	}
+
+	public String getIntollId() {
+		return intollId;
+	}
+
+	public void setIntollId(String intollId) {
+		this.intollId = intollId;
 	}
 }

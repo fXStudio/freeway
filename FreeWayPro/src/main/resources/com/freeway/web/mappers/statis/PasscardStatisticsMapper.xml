@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.statis.PasscardStatisticsMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+         WHERE EXISTS (
+             SELECT sysid
+             FROM fs_org_dept
+             WHERE stationName = dept_name
+             START WITH sysid = #{stationId}
+             CONNECT BY PRIOR sysid = dept_parant_rowid
+         )
+         AND cardsdate >= #{beginDate} AND #{endDate} >= cardsdate
+    </sql>
+
+	<!-- 发卡数量统计 -->
+	<select id="computeStatis" resultType="PasscardStatistics" parameterType="ConditionFiled">
+         SELECT *
+		 FROM passcard_statistics_view
+         <include refid="where_clause"></include>
+         order by stationName, cardsdate
+	</select>
+</mapper>
