@@ -5,16 +5,19 @@
 <mapper namespace="com.freeway.web.mappers.business.CarTrafficRecordMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE icCode = #{icCode}
+        <!--  WHERE icCode = #{icCode} or REGEXP_LIKE(RTRIM(carRecognize), #{icCode}) -->
+        WHERE carRecognize = #{icCode}
     </sql>
     
 	<!-- 车流量分页数据查询 -->
 	<select id="findByCondition" resultType="CarTrafficRecord"
 		parameterType="ConditionFiled">
-			select * 
-			from tracking_view
-            <include refid="where_clause"></include>
-			order by tolldate
+            SELECT * FROM (
+                SELECT a.*, row_number() OVER (ORDER BY a.tolldate) rn 
+                FROM   tracking_view a
+                <include refid="where_clause"></include>
+            )
+            WHERE rn > #{start} and #{limit} >= rn
 	</select>
 	
 	<!-- 车流量总数据量查询 -->

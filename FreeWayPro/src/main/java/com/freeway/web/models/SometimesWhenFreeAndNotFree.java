@@ -19,6 +19,11 @@ public class SometimesWhenFreeAndNotFree {
 	private String exitDate;
 	private String enteDate;
 	private String totalFare;
+	private String tollType;
+	private String receivable;
+	private String exemption;
+	private String solidFree;
+	private String mark;
 	private String carExitcodeRecognize;
 
 	public String getRecordNo() {
@@ -91,5 +96,45 @@ public class SometimesWhenFreeAndNotFree {
 
 	public void setCarExitcodeRecognize(String carExitcodeRecognize) {
 		this.carExitcodeRecognize = carExitcodeRecognize;
+	}
+
+	public String getTollType() {
+		return tollType;
+	}
+
+	public void setTollType(String tollType) {
+		this.tollType = tollType;
+	}
+
+	public String getReceivable() {
+		return receivable;
+	}
+
+	public void setReceivable(String receivable) {
+		this.receivable = receivable;
+	}
+
+	public String getExemption() {
+		return exemption;
+	}
+
+	public void setExemption(String exemption) {
+		this.exemption = exemption;
+	}
+
+	public String getSolidFree() {
+		return solidFree;
+	}
+
+	public void setSolidFree(String solidFree) {
+		this.solidFree = solidFree;
+	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
 	}
 }

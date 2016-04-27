@@ -1,9 +1,8 @@
-Ext.define('TrackingModule.view.GridPanel', {
+Ext.define('CarCardsModule.view.TrackingGrid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.gridpanel',
+	alias: 'widget.trackinggrid',
 	
 	requires: [
-       "Ext.plugins.SimpleToolbar", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -56,17 +55,11 @@ Ext.define('TrackingModule.view.GridPanel', {
      */
     initComponent: function() {
     	// Create Store Object
-    	var store = Ext.create('TrackingModule.store.Tracking');
+    	var store = Ext.create('CarCardsModule.store.Tracking');
     	
     	// Copy properties to Origin Object
     	Ext.apply(this, {
     		store: store,
-    		tbar: {// Top bar
-    			xtype: 'simpletoolbar',
-            	store: store, 
-            	label: '卡号/车牌号', 
-            	paramName: 'icCode'
-    		},
         	bbar: {// Bottom bar
         		xtype: 'paging',
         		store: store

@@ -16,9 +16,9 @@ Ext.define('Ext.plugins.SimpleToolbar', {
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
 		       fieldLabel: this.label,
-	           labelWidth: 55,
+	           labelWidth: 155,
 	           labelAlign: 'right',
-	   		   width: 160,
+	   		   width: 260,
 	           enableKeyEvents: true,
 	           listeners: {
                    specialkey: function(field, e){

@@ -35,7 +35,13 @@ Ext.define('CarCardsModule.view.GridPanel', {
     {
         header: '全车牌',
         width: 100,
-        dataIndex: 'carIncodeRecognize'
+        dataIndex: 'carIncodeRecognize',
+        renderer: function (data, metadata, record, rowIndex, columnIndex, store) {  
+            var carCode = store.getAt(rowIndex).get('carIncodeRecognize');  
+        
+            return '<a href="#"> '+ carCode + '</a>';  
+        
+        } 
     },
     {
         header: '三位车牌',

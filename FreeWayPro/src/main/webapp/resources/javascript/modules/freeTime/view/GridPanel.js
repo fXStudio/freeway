@@ -14,7 +14,7 @@ Ext.define('FreeTimeModule.view.GridPanel', {
     	width: 50
 	}, {
         header: '入口站',
-        width: 120,
+        width: 160,
         dataIndex: 'enteName'
     }, {
         header: '入口时间',
@@ -22,7 +22,7 @@ Ext.define('FreeTimeModule.view.GridPanel', {
         dataIndex: 'enteDate'
     }, {
         header: '出口站',
-        width: 120,
+        width: 160,
         dataIndex: 'exitName'
     }, {
         header: '出口时间',
@@ -37,9 +37,33 @@ Ext.define('FreeTimeModule.view.GridPanel', {
         width: 80,
         dataIndex: 'vExit'
     }, {
-        header: '收费金额',
-        width: 80,
+        header: '收费类型',
+        width: 260,
+        dataIndex: 'tollType'
+    }, {
+        header: '应收金额',
+        width: 90,
+        align: 'right',
+        dataIndex: 'receivable'
+    }, {
+        header: '应免金额',
+        width: 90,
+        align: 'right',
+        dataIndex: 'exemption'
+    }, {
+        header: '实收金额',
+        width: 90,
+        align: 'right',
         dataIndex: 'totalFare'
+    }, {
+        header: '实免金额',
+        width: 90,
+        align: 'right',
+        dataIndex: 'solidFree'
+    }, {
+        header: '标识',
+        width: 80,
+        dataIndex: 'mark'
     }, {
         header: '车牌',
         width: 100,
