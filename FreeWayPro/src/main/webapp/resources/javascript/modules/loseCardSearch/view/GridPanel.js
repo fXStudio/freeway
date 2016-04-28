@@ -4,6 +4,7 @@ Ext.define('LoseCardModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
+       "Ext.plugins.PicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -13,6 +14,8 @@ Ext.define('LoseCardModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+    	xtype: 'piccolumn' 
+    }, {
 		header : '车牌',
 		width : 120,
 		dataIndex : 'carIncodeRecognize'

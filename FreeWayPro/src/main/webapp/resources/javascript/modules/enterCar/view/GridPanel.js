@@ -4,6 +4,7 @@ Ext.define('EnterCarModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
+       "Ext.plugins.PicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -13,6 +14,8 @@ Ext.define('EnterCarModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+    	xtype: 'piccolumn' 
+    }, {
         header: '出口站',
         width: 100,
         dataIndex: 'exitName'

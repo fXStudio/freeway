@@ -4,6 +4,7 @@ Ext.define('TrackingModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.SimpleToolbar", 
+       "Ext.plugins.PicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -14,6 +15,8 @@ Ext.define('TrackingModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+    	xtype: 'piccolumn' 
+    }, {
 		header : '出入',
 		width : 50,
 		dataIndex : 'tollType'

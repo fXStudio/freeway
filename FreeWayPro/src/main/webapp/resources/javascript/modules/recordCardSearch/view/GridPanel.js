@@ -4,6 +4,7 @@ Ext.define('RecordCardModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
+       "Ext.plugins.PicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -12,6 +13,8 @@ Ext.define('RecordCardModule.view.GridPanel', {
         align: 'center',
         header: '序号',
         width: 50
+    }, {
+    	xtype: 'piccolumn' 
     }, {
         header: '入口站',
         width: 200,

@@ -2,7 +2,12 @@ Ext.define('CarTypeModule.view.GridPanel', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.gridpanel',
 
-    requires: ["Ext.plugins.QueryCriteriaToolbar", "Ext.plugins.Paging"],
+    requires: [
+       "Ext.plugins.QueryCriteriaToolbar", 
+       "Ext.plugins.PicColumn", 
+       "Ext.plugins.Paging"
+   ],
+    
     defaults: {
         sortable: true
     },
@@ -11,6 +16,8 @@ Ext.define('CarTypeModule.view.GridPanel', {
         align: 'center',
         header: '序号',
         width: 50
+    }, {
+    	xtype: 'piccolumn' 
     },
     {
         header: '入口站',

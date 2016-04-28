@@ -4,6 +4,7 @@ Ext.define('TollCollectorModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
+       "Ext.plugins.PicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -13,6 +14,8 @@ Ext.define('TollCollectorModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
+    	xtype: 'piccolumn' 
+    }, {
         header: '入口站',
         width: 120,
         dataIndex: 'enteName'
