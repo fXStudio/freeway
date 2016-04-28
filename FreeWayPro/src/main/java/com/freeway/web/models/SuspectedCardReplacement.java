@@ -19,6 +19,9 @@ public class SuspectedCardReplacement {
 	private String exitDate;
 	private String enteDate;
 	private String carExitcodeRecognize;
+	private String axisnum;
+	private String totalweight;
+	private String ratingweight;
 	private String convertflag;
 	private String carType;
 	private String resdes;
@@ -109,5 +112,29 @@ public class SuspectedCardReplacement {
 
 	public void setCarType(String carType) {
 		this.carType = carType;
+	}
+
+	public String getAxisnum() {
+		return axisnum;
+	}
+
+	public void setAxisnum(String axisnum) {
+		this.axisnum = axisnum;
+	}
+
+	public String getTotalweight() {
+		return totalweight;
+	}
+
+	public void setTotalweight(String totalweight) {
+		this.totalweight = totalweight;
+	}
+
+	public String getRatingweight() {
+		return ratingweight;
+	}
+
+	public void setRatingweight(String ratingweight) {
+		this.ratingweight = ratingweight;
 	}
 }

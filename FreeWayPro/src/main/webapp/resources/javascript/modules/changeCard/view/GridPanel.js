@@ -46,6 +46,18 @@ Ext.define('ChangeCardModule.view.GridPanel', {
         header: '车辆类别',
         width: 80,
         dataIndex: 'carType'
+    }, {
+        header: '轴型',
+        width: 50,
+        dataIndex: 'axisnum'
+    }, {
+        header: '轴总重',
+        width: 70,
+        dataIndex: 'totalweight'
+    }, {
+        header: '限重',
+        width: 50,
+        dataIndex: 'ratingweight'
     },
     {
         header: '超时超速',
