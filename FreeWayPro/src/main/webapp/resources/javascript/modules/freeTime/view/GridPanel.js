@@ -38,7 +38,7 @@ Ext.define('FreeTimeModule.view.GridPanel', {
         dataIndex: 'vExit'
     }, {
         header: '收费类型',
-        width: 260,
+        width: 90,
         dataIndex: 'tollType'
     }, {
         header: '应收金额',

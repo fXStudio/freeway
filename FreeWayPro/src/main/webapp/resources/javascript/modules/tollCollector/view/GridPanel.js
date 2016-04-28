@@ -41,7 +41,7 @@ Ext.define('TollCollectorModule.view.GridPanel', {
         width: 80,
         dataIndex: 'totalfare'
     }, {
-        header: '损失金额',
+        header: '差额',
         width: 80,
         dataIndex: 'rateInterval'
     }, {
