@@ -23,7 +23,6 @@ public class SometimesWhenFreeAndNotFree {
 	private String receivable;
 	private String exemption;
 	private String solidFree;
-	private String mark;
 	private String carExitcodeRecognize;
 
 	public String getRecordNo() {
@@ -128,13 +127,5 @@ public class SometimesWhenFreeAndNotFree {
 
 	public void setSolidFree(String solidFree) {
 		this.solidFree = solidFree;
-	}
-
-	public String getMark() {
-		return mark;
-	}
-
-	public void setMark(String mark) {
-		this.mark = mark;
 	}
 }

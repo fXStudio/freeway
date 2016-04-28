@@ -17,6 +17,7 @@ public class LighterCarLongDistanceRunning {
 	private String exitName;
 	private String exitDate;
 	private String enteDate;
+	private String ucar;
 	private String axisnum;
 	private String totalweight;
 	private String ratingweight;
@@ -109,5 +110,13 @@ public class LighterCarLongDistanceRunning {
 
 	public void setSnCode(Double snCode) {
 		this.snCode = snCode;
+	}
+
+	public String getUcar() {
+		return ucar;
+	}
+
+	public void setUcar(String ucar) {
+		this.ucar = ucar;
 	}
 }

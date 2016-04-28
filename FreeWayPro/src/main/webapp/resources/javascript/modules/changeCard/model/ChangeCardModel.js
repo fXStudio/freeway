@@ -5,6 +5,6 @@ Ext.define('ChangeCardModule.model.ChangeCardModel', {
          'recordNo', 'enteName', 'exitName',
          'vEnte', 'vExit', 'exitDate',
          'enteDate', 'carExitcodeRecognize', 
-         'convertflag', 'resdes'
+         'convertflag', 'carType','resdes'
     ]
 });

@@ -43,6 +43,11 @@ Ext.define('ChangeCardModule.view.GridPanel', {
         dataIndex: 'vExit'
     },
     {
+        header: '车辆类别',
+        width: 80,
+        dataIndex: 'carType'
+    },
+    {
         header: '超时超速',
         width: 80,
         dataIndex: 'convertflag',

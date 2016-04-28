@@ -61,10 +61,6 @@ Ext.define('FreeTimeModule.view.GridPanel', {
         align: 'right',
         dataIndex: 'solidFree'
     }, {
-        header: '标识',
-        width: 80,
-        dataIndex: 'mark'
-    }, {
         header: '车牌',
         width: 100,
         dataIndex: 'carExitcodeRecognize'

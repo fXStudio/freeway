@@ -20,6 +20,7 @@ public class SuspectedCardReplacement {
 	private String enteDate;
 	private String carExitcodeRecognize;
 	private String convertflag;
+	private String carType;
 	private String resdes;
 
 	public String getRecordNo() {
@@ -100,5 +101,13 @@ public class SuspectedCardReplacement {
 
 	public void setResdes(String resdes) {
 		this.resdes = resdes;
+	}
+
+	public String getCarType() {
+		return carType;
+	}
+
+	public void setCarType(String carType) {
+		this.carType = carType;
 	}
 }

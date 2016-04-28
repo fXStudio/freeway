@@ -29,6 +29,10 @@ Ext.define('HeavyTruckModule.view.GridPanel', {
         width: 140,
         dataIndex: 'exitDate'
     }, {
+        header: 'U型车',
+        width: 70,
+        dataIndex: 'ucar'
+    }, {
         header: '轴型',
         width: 50,
         dataIndex: 'axisnum'
