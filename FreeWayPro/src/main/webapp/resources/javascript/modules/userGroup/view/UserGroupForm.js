@@ -28,7 +28,7 @@ Ext.define('UserGroupModule.view.UserGroupForm', {
         blankText: '用户组名称不能为空'
     }, {
         xtype: 'textarea',
-        fieldLabel: '菜单描述',
+        fieldLabel: '用户组描述',
         name: 'remark'
     }, {
         xtype: 'checkbox',
