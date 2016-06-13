@@ -14,7 +14,8 @@ Ext.define('EnterCarModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
+    	xtype: 'piccolumn',
+    	width: 50
     }, {
         header: '出口站',
         width: 100,

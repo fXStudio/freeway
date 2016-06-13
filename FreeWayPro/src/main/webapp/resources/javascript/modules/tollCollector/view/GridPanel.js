@@ -14,7 +14,8 @@ Ext.define('TollCollectorModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' 
+    	xtype: 'piccolumn' ,
+    	width: 50
     }, {
         header: '入口站',
         width: 120,
