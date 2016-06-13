@@ -4,7 +4,7 @@ Ext.define('EnterCarModule.controller.EnterCarController', {
     refs: [
         {ref: 'gridPanel', selector: 'gridpanel'}
     ],
-    
+
     /**
      * Module Launch
      */
