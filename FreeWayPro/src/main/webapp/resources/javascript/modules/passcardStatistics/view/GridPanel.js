@@ -15,11 +15,11 @@ Ext.define('PasscardStatisticsModule.view.GridPanel', {
         width: 100,
         dataIndex: 'incards'
     }, {
-        header: '出口发卡数',
+        header: '出口收卡数',
         width: 100,
         dataIndex: 'outcards'
     }, {
-        header: '发卡日期',
+        header: '收/发卡日期',
         width: 140,
         dataIndex: 'cardsdate'
     }],
@@ -37,7 +37,7 @@ Ext.define('PasscardStatisticsModule.view.GridPanel', {
             tbar: { // Top bar
                 xtype: 'querycriteriatoolbar',
                 store: store,
-                label: '卡号',
+                hideInput: true,
             	cardType: '坏卡', 
                 paramName: 'icCode',
                 stationHidden: false,

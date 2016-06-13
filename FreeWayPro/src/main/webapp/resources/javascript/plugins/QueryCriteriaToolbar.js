@@ -8,6 +8,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	stationHidden: true,
 	hideBlank: false,
 	hideAxisum: false,
+	hideInput: false,
 	convertflag: true,
 	cartype: true,
 	cardType: '',
@@ -165,6 +166,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	           labelWidth: 85,
 	           labelAlign: 'right',
 	   		   width: 185,
+	   		   hidden: this.hideInput,
 	           enableKeyEvents: true,
 	           listeners: {
                    specialkey: function(field, e){
