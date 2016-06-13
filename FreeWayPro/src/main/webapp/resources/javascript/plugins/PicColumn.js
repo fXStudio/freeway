@@ -10,5 +10,5 @@ Ext.define('Ext.plugins.PicColumn', {
 	align: 'center',
 	renderer: function (data, metadata, record, rowIndex, columnIndex, store) {  
 	     return '<img src="images/pic.png"></img>'; 
-	} 
+	}
 })
