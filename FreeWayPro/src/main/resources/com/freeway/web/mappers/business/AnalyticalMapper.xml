@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.business.AnalyticalMapper">
+    <resultMap id="analyticalMap" type="Analytical">
+        <id property="carImage" column="car_image" />
+        <result property="carSn" column="car_sn"/>
+        <result property="outDate" column="out_date" />
+        <result property="carType" column="car_type" />
+        <result property="carBrand" column="car_brand" />
+        <result property="carFirm" column="car_firm" />
+        <result property="carModel" column="car_model" />
+        <result property="carVersion" column="car_version" />
+        <result property="carConfidence" column="car_confidence" />
+        <result property="carColortype" column="car_colortype" />
+    </resultMap>
+
+    <!-- query condition -->
+    <sql id="where_clause">
+         WHERE to_char(out_date, 'yyyy/mm/dd') >= #{beginDate} AND #{endDate} >= to_char(out_date, 'yyyy/mm/dd')
+               <if test="hiddenBlank == true">
+                   AND car_sn IS NOT NULL
+               </if>
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(car_sn), #{carCode})
+               </if>
+    </sql>
+    
+	<!-- ETC稽查 -->
+	<select id="findByCondition" resultMap="analyticalMap" parameterType="ConditionFiled">
+		SELECT * FROM (
+		    SELECT a.*, row_number() OVER (ORDER BY a.out_date) rn 
+		    FROM   st_analytical_tbl a
+            <include refid="where_clause"></include>
+		)
+        WHERE rn > #{start} and #{limit} >= rn
+	</select>
+	
+	<!-- ETC稽查据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+	    SELECT COUNT(car_image)
+	    FROM   st_analytical_tbl
+        <include refid="where_clause"></include>
+	</select>
+</mapper>
