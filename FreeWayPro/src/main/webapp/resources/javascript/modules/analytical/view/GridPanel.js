@@ -4,7 +4,7 @@ Ext.define('AnalyticalModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.ImageColumn", 
+       "AnalyticalModule.view.CompareColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -14,9 +14,6 @@ Ext.define('AnalyticalModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'imageccolumn' ,
-    	width: 50
-    }, {
         header: '车牌',
         width: 100,
         dataIndex: 'carSn'
@@ -45,15 +42,13 @@ Ext.define('AnalyticalModule.view.GridPanel', {
         width: 90,
         dataIndex: 'carVersion'
     }, {
-        header: '信誉',
-        width: 90,
-        align: 'right',
-        dataIndex: 'carConfidence'
-    }, {
         header: '颜色',
         width: 90,
         align: 'right',
         dataIndex: 'carColortype'
+    }, {
+    	xtype: 'comparecolumn' ,
+    	width: 50
     }],
     
     /**
