@@ -13,13 +13,16 @@ public class Analytical {
 	@Id
 	private String carImage;
 	private String carSn;
+	private String carLabel;
 	private String outDate;
+	private String exitDate;
 	private String carType;
+	private String carClass;
 	private String carBrand;
+	private String vehiclespecificinformation;
 	private String carFirm;
 	private String carModel;
 	private String carVersion;
-	private String carConfidence;
 	private String carColortype;
 
 	public String getCarImage() {
@@ -38,12 +41,28 @@ public class Analytical {
 		this.carSn = carSn;
 	}
 
+	public String getCarLabel() {
+		return carLabel;
+	}
+
+	public void setCarLabel(String carLabel) {
+		this.carLabel = carLabel;
+	}
+
 	public String getOutDate() {
 		return outDate;
 	}
 
 	public void setOutDate(String outDate) {
 		this.outDate = outDate;
+	}
+
+	public String getExitDate() {
+		return exitDate;
+	}
+
+	public void setExitDate(String exitDate) {
+		this.exitDate = exitDate;
 	}
 
 	public String getCarType() {
@@ -54,12 +73,28 @@ public class Analytical {
 		this.carType = carType;
 	}
 
+	public String getCarClass() {
+		return carClass;
+	}
+
+	public void setCarClass(String carClass) {
+		this.carClass = carClass;
+	}
+
 	public String getCarBrand() {
 		return carBrand;
 	}
 
 	public void setCarBrand(String carBrand) {
 		this.carBrand = carBrand;
+	}
+
+	public String getVehiclespecificinformation() {
+		return vehiclespecificinformation;
+	}
+
+	public void setVehiclespecificinformation(String vehiclespecificinformation) {
+		this.vehiclespecificinformation = vehiclespecificinformation;
 	}
 
 	public String getCarFirm() {
@@ -86,14 +121,6 @@ public class Analytical {
 		this.carVersion = carVersion;
 	}
 
-	public String getCarConfidence() {
-		return carConfidence;
-	}
-
-	public void setCarConfidence(String carConfidence) {
-		this.carConfidence = carConfidence;
-	}
-
 	public String getCarColortype() {
 		return carColortype;
 	}
@@ -101,5 +128,4 @@ public class Analytical {
 	public void setCarColortype(String carColortype) {
 		this.carColortype = carColortype;
 	}
-
 }

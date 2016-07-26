@@ -6,13 +6,16 @@
     <resultMap id="analyticalMap" type="Analytical">
         <id property="carImage" column="car_image" />
         <result property="carSn" column="car_sn"/>
+        <result property="carLabel" column="carLabel"/>
+        <result property="exitDate" column="exit_date"/>
         <result property="outDate" column="out_date" />
         <result property="carType" column="car_type" />
+        <result property="carClass" column="carClass" />
         <result property="carBrand" column="car_brand" />
+        <result property="vehiclespecificinformation" column="vehiclespecificinformation" />
         <result property="carFirm" column="car_firm" />
         <result property="carModel" column="car_model" />
         <result property="carVersion" column="car_version" />
-        <result property="carConfidence" column="car_confidence" />
         <result property="carColortype" column="car_colortype" />
     </resultMap>
 

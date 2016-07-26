@@ -4,6 +4,7 @@ Ext.define('AnalyticalModule.model.AnalyticalModel', {
 	fields: [
          'carImage', 'carSn', 'outDate', 'carType', 
          'carBrand', 'carFirm', 'carModel', 'carVersion', 
-         'carConfidence', 'carColortype'
+         'carColortype', 'carLabel',  'exitDate', 
+         'carClass', 'vehiclespecificinformation'
     ]
 });

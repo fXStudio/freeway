@@ -17,13 +17,13 @@ Ext.define('AnalyticalModule.view.MYSqlForm', {
     },
     items: [{
         fieldLabel: '车牌号',
-        name: 'carcode'
+        name: 'carLabel'
     }, {
         fieldLabel: '出口时间',
-        name: 'outDate'
+        name: 'exitDate'
     }, {
         fieldLabel: '车型',
-        name: 'carType'
+        name: 'carClass'
     }, {
         fieldLabel: '品牌',
         name: 'carBrand'

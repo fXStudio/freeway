@@ -26,7 +26,7 @@ Ext.define('AnalyticalModule.view.KWCarexlistForm', {
         name: 'carType'
     }, {
         fieldLabel: '品牌',
-        name: 'bran'
+        name: 'vehiclespecificinformation'
     }, {
         fieldLabel: '颜色',
         name: 'bran'
