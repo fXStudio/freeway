@@ -66,7 +66,8 @@ Ext.define('AnalyticalModule.view.GridPanel', {
             	store: store, 
             	label: '车牌号', 
             	paramName: 'carCode',
-            	hideAxisum: true
+            	hideAxisum: true,
+            	stationHidden: false,
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',
