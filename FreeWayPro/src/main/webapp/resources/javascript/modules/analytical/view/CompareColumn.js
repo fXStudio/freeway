@@ -24,9 +24,9 @@ Ext.define('AnalyticalModule.view.CompareColumn', {
 		    	items: [kwcarexlistform,{
 		        	bodyStyle:'background-color:lightGray;',
 		            items:[{
-			        	html: '<image width="240" height="245" src="http://localhost:8080/ImageEngine/img/' 
+			        	html: '<image width="340" height="300" src="http://localhost:8080/ImageEngine/img/' 
 			        		+ arguments[5].get('carImage') 
-			        		+ '" onerror="javascript:this.src=\'images/nopicture.gif\'">' + '</image>'
+			        		+ '" onerror="javascript:this.src=\'images/nopicture.gif\'" onclick="showLarge(this)">' + '</image>'
 		            }]
 		        }, mysqlform]
 		    });

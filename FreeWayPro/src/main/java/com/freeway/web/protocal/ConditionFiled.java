@@ -38,6 +38,8 @@ public class ConditionFiled {
 	private String convertflag;
 	/** 隐藏空车牌 */
 	private boolean hiddenBlank;
+	/** 隐藏降型 */
+	private boolean hiddenType;
 	/** 卡类型 */
 	private String cardType;
 	/** 车型不符/车牌不符 */
@@ -186,5 +188,13 @@ public class ConditionFiled {
 
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+
+	public boolean isHiddenType() {
+		return hiddenType;
+	}
+
+	public void setHiddenType(boolean hiddenType) {
+		this.hiddenType = hiddenType;
 	}
 }

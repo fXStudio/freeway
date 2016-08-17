@@ -7,6 +7,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 
 	stationHidden: true,
 	hideBlank: false,
+	hideType: true,
 	hideAxisum: false,
 	hideInput: false,
 	convertflag: true,
@@ -158,6 +159,14 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	            labelAlign: 'right',
 		        checked: true,
 		        hidden: this.hideBlank
+		   }, {
+	   		    id: 'hiddenType',
+		        xtype: 'checkbox',
+		        fieldLabel: '过滤车型',
+	            labelWidth: 70,
+	            labelAlign: 'right',
+		        checked: true,
+		        hidden: this.hideType
 		   }],
 		   buttons: [{
 	   		   id: 'queryField',
@@ -186,6 +195,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	   				    var queryField = Ext.getCmp('queryField');
 	   				    var dept = Ext.getCmp('dept');
 	   				    var hiddenBlank = Ext.getCmp("hiddenBlank");
+	   				    var hiddenType = Ext.getCmp("hiddenType");
 	   				    var axisum = Ext.getCmp("axisum");
 	   				    var cartype = Ext.getCmp("cartype");
 	   				    var invalidtype = Ext.getCmp("invalidtype");
@@ -197,8 +207,9 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   		        proxy.extraParams["beginDate"] = beginDate;// 开始日期
 		   		        proxy.extraParams["endDate"] = endDate;// 结束日期
 		   		        proxy.extraParams["stationId"] = dept.getValue();// 收费站
-		   		        proxy.extraParams["cartype"] = cartype.getValue();// 收费站
-		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤空号牌
+		   		        proxy.extraParams["cartype"] = cartype.getValue();// 车型
+		   		        proxy.extraParams["hiddenBlank"] = hiddenBlank.getValue();// 过滤降型
+		   		        proxy.extraParams["hiddenType"] = hiddenType.getValue();// 过滤空号牌
 		   		        proxy.extraParams["axisum"] = axisum.getValue();// 轴数
 		   		        proxy.extraParams["convertflag"] = invalidtype.getValue();// 轴数
 		   		        proxy.extraParams["cardType"] = el.cardType;// 轴数

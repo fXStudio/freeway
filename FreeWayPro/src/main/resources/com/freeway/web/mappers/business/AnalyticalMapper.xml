@@ -33,6 +33,9 @@
                <if test="hiddenBlank == true">
                    AND car_sn IS NOT NULL
                </if>
+               <if test="hiddenType == true">
+                   AND car_type >= carclass
+               </if>
                <if test="carCode != null and carCode != ''">
                    AND REGEXP_LIKE(RTRIM(car_sn), #{carCode})
                </if>
