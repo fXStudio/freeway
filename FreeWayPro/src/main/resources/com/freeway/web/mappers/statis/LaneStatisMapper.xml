@@ -6,11 +6,11 @@
     <!-- query condition -->
     <sql id="where_clause">
          WHERE EXISTS (
-                   SELECT sysid
+                   SELECT row_id
                    FROM fs_org_dept
                    WHERE enteName = dept_name
-                   START WITH sysid = #{stationId}
-                   CONNECT BY PRIOR sysid = dept_parant_rowid
+                   START WITH row_id = #{stationId}
+                   CONNECT BY PRIOR row_id = dept_parant_rowid
                )
                AND exitDate >= #{beginDate} AND #{endDate} >= exitDate
                <if test="hiddenBlank == true">
@@ -31,7 +31,7 @@
 
 	<!-- 计重设备按出口统计数量 -->
 	<select id="computeStatis" resultType="EnteStatis" parameterType="ConditionFiled">
-         SELECT count(rowid) staticCount, enteName || '-' || lane enteName
+         SELECT count(recordNo) staticCount, enteName || '-' || lane enteName
 		 FROM abnormal_record_view
          <include refid="where_clause"></include>
          GROUP BY entename, lane

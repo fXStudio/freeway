@@ -1,5 +1,6 @@
 package com.freeway.web.models;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 
 /**
@@ -9,6 +10,7 @@ import javax.persistence.Id;
  */
 public class FsOrgDept {
 	@Id
+	@Column(name = "row_id")
 	private String sysid;
 	private String deptName;
 	private String deptParantRowid;
@@ -16,7 +18,6 @@ public class FsOrgDept {
 	private String ssxq;
 	private char depttype;
 	private String bmjc;
-	private String stationDepMap;
 
 	public String getSysid() {
 		return sysid;
@@ -72,13 +73,5 @@ public class FsOrgDept {
 
 	public void setBmjc(String bmjc) {
 		this.bmjc = bmjc;
-	}
-
-	public String getStationDepMap() {
-		return stationDepMap;
-	}
-
-	public void setStationDepMap(String stationDepMap) {
-		this.stationDepMap = stationDepMap;
 	}
 }

@@ -22,11 +22,11 @@
     <!-- query condition -->
     <sql id="where_clause">
         WHERE EXISTS (
-                   SELECT sysid
+                   SELECT row_id
                    FROM fs_org_dept
-                   WHERE sysid = station_id
-                   START WITH sysid = #{stationId}
-                   CONNECT BY PRIOR sysid = dept_parant_rowid
+                   WHERE row_id = station_id
+                   START WITH row_id = #{stationId}
+                   CONNECT BY PRIOR row_id = dept_parant_rowid
                )
               AND to_char(out_date, 'yyyy/mm/dd') >= #{beginDate} 
               AND #{endDate} >= to_char(out_date, 'yyyy/mm/dd')

@@ -6,11 +6,11 @@
     <!-- query condition -->
     <sql id="where_clause">
          WHERE EXISTS (
-             SELECT sysid
+             SELECT row_id
              FROM fs_org_dept
              WHERE stationName = dept_name
-             START WITH sysid = #{stationId}
-             CONNECT BY PRIOR sysid = dept_parant_rowid
+             START WITH row_id = #{stationId}
+             CONNECT BY PRIOR row_id = dept_parant_rowid
          )
          AND cardsdate >= #{beginDate} AND #{endDate} >= cardsdate
     </sql>
