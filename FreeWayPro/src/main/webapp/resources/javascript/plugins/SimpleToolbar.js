@@ -12,7 +12,7 @@ Ext.define('Ext.plugins.SimpleToolbar', {
     	
         // 创建工具条
         Ext.apply(this, {
-    		items: ['->', {
+    		items: ['<span style="color:red;padding-right:5px;">* 输入查询条件进行数据过滤.</span>', '->', {
 	   		   id: 'queryField',
 	   		   xtype: 'textfield',
 		       fieldLabel: this.label,
