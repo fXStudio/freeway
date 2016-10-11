@@ -1,6 +1,7 @@
 Ext.define('AnalyticalModule.view.GridPanel', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.gridpanel',
+	id: 'gridPanel',
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 

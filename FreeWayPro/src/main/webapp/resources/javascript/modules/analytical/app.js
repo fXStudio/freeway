@@ -20,7 +20,7 @@ function showLarge(obj){
 	    		Ext.getCmp("img").setHeight(win.getHeight());
 	    	},
 	    	show: function(){
-	    		Ext.getCmp("img").getEl().dom.src = obj.src; 
+	    		Ext.getCmp("img").getEl().dom.src = obj.src;
 	    	}
 	    }
 	});
