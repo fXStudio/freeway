@@ -31,13 +31,13 @@
               AND to_char(out_date, 'yyyy/mm/dd') >= #{beginDate} 
               AND #{endDate} >= to_char(out_date, 'yyyy/mm/dd')
                <if test="hiddenBlank == true">
-                   AND car_sn IS NOT NULL
+                   AND image_loaded = 1
                </if>
                <if test="hiddenType == true">
                    AND car_type >= carclass
                </if>
                <if test="carCode != null and carCode != ''">
-                   AND REGEXP_LIKE(RTRIM(car_sn), #{carCode})
+                   AND id = #{carCode}
                </if>
     </sql>
     

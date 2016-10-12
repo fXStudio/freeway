@@ -12,6 +12,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	hideInput: false,
 	convertflag: true,
 	cartype: true,
+	blankLabel: '过滤空牌',
 	cardType: '',
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
@@ -154,7 +155,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   }, {
 	   		    id: 'hiddenBlank',
 		        xtype: 'checkbox',
-		        fieldLabel: '过滤空牌',
+		        fieldLabel: this.blankLabel,
 	            labelWidth: 70,
 	            labelAlign: 'right',
 		        checked: true,

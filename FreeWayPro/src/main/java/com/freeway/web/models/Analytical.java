@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "st_analytical_tbl")
 public class Analytical {
 	@Id
+	private int id;
 	private String carImage;
 	private String carSn;
 	private String carLabel;
@@ -127,5 +128,13 @@ public class Analytical {
 
 	public void setCarColortype(String carColortype) {
 		this.carColortype = carColortype;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

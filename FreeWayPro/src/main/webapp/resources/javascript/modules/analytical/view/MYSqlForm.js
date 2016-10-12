@@ -16,8 +16,8 @@ Ext.define('AnalyticalModule.view.MYSqlForm', {
         readOnly: true
     },
     items: [{
-        fieldLabel: '车牌号',
-        name: 'carLabel'
+        fieldLabel: '记录号',
+        name: 'id'
     }, {
         fieldLabel: '出口时间',
         name: 'exitDate'

@@ -81,7 +81,12 @@ Ext.define('AnalyticalModule.view.CompareColumn', {
 		            prebutton,
         	        '<span style="display:inline-block;width:675px;text-align:center;color:gray">1. 单击图片可查看大图 | 2. 通过两端按钮可以快速浏览本页内的数据</span>', 
         	        nextbutton
-        	    ]
+        	    ],
+        	    listeners: {
+        	    	keydown: function(){
+        	    		alert(111);
+        	    	}
+        	    }
 		    });
 		    // 初始化数据并显示窗体
 		    win.loadData();

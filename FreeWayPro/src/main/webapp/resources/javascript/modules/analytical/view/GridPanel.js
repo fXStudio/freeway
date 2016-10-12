@@ -65,7 +65,8 @@ Ext.define('AnalyticalModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'querycriteriatoolbar',
             	store: store, 
-            	label: '车牌号', 
+            	label: '记录号', 
+            	blankLabel: '过滤无图',
             	paramName: 'carCode',
             	hideAxisum: true,
             	stationHidden: false,

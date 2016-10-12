@@ -5,6 +5,6 @@ Ext.define('AnalyticalModule.model.AnalyticalModel', {
          'carImage', 'carSn', 'outDate', 'carType', 
          'carBrand', 'carFirm', 'carModel', 'carVersion', 
          'carColortype', 'carLabel',  'exitDate', 
-         'carClass', 'vehiclespecificinformation'
+         'carClass', 'vehiclespecificinformation','id'
     ]
 });
