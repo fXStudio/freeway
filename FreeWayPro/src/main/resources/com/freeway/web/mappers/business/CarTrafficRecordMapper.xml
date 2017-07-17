@@ -5,8 +5,18 @@
 <mapper namespace="com.freeway.web.mappers.business.CarTrafficRecordMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        <!--  WHERE icCode = #{icCode} or REGEXP_LIKE(RTRIM(carRecognize), #{icCode}) -->
-        WHERE carRecognize = #{icCode}
+        WHERE
+        <choose>
+            <when test="icCode != null and icCode != ''">
+                icCode = #{icCode}
+            </when>
+            <when test="carCode != null and carCode != ''">
+                carRecognize = #{carCode}
+            </when>
+            <when test="complexCode != null and complexCode != ''">
+                substr(carRecognize, -7) = #{complexCode} or icCode = #{complexCode}
+            </when>
+        </choose>
     </sql>
     
 	<!-- 车流量分页数据查询 -->

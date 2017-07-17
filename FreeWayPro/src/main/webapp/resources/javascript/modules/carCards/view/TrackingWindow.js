@@ -14,7 +14,26 @@ Ext.define('CarCardsModule.view.TrackingWindow', {
     autoScroll: true,
     closeAction: 'hide',
     layout: 'fit', 
-	items: [
-	    {xtype: 'trackinggrid'}
-	]
+	
+	/**
+     * Component Init
+     */
+    initComponent: function() {
+    	// Create Store Object
+    	var store = Ext.create('CarCardsModule.store.Tracking');
+    	
+    	// Copy properties to Origin Object
+    	Ext.apply(this, {
+    		items: Ext.create('CarCardsModule.view.TrackingGrid', {
+    			id: 'trackingGrid',
+        		store: store,
+            	bbar: {// Bottom bar
+            		xtype: 'paging',
+            		store: store
+            	}
+    		})
+    	});
+    	// Call Parent Constructor
+        this.callParent(arguments);
+    }
 });

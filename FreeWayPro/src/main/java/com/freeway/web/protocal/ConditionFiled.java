@@ -45,6 +45,7 @@ public class ConditionFiled {
 	/** 车型不符/车牌不符 */
 	private String cartype;
 	private String ip;
+	private String complexCode;
 
 	public String getCarCode() {
 		return carCode;
@@ -196,5 +197,13 @@ public class ConditionFiled {
 
 	public void setHiddenType(boolean hiddenType) {
 		this.hiddenType = hiddenType;
+	}
+
+	public String getComplexCode() {
+		return complexCode;
+	}
+
+	public void setComplexCode(String complexCode) {
+		this.complexCode = complexCode;
 	}
 }

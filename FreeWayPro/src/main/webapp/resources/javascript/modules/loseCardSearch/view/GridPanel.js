@@ -23,7 +23,13 @@ Ext.define('LoseCardModule.view.GridPanel', {
 	},{
 		header : '卡号',
 		width : 120,
-		dataIndex : 'icCode'
+		dataIndex : 'icCode',
+        renderer: function (data, metadata, record, rowIndex, columnIndex, store) {  
+            var icCode = store.getAt(rowIndex).get('icCode');  
+        
+            return '<a href="#"> '+ icCode + '</a>';  
+        
+        } 
 	},{
 		header : '入口站名称',
 		width : 120,

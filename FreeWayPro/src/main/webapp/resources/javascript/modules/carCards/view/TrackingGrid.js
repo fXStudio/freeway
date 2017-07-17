@@ -48,24 +48,5 @@ Ext.define('CarCardsModule.view.TrackingGrid', {
 		header : '收费员编号',
 		width : 100,
 		dataIndex : 'tollid'
-	}],
-    
-    /**
-     * Component Init
-     */
-    initComponent: function() {
-    	// Create Store Object
-    	var store = Ext.create('CarCardsModule.store.Tracking');
-    	
-    	// Copy properties to Origin Object
-    	Ext.apply(this, {
-    		store: store,
-        	bbar: {// Bottom bar
-        		xtype: 'paging',
-        		store: store
-        	}
-    	});
-    	// Call Parent Constructor
-        this.callParent(arguments);
-    }
+	}]
 });

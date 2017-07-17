@@ -3,8 +3,7 @@ Ext.define('CarCardsModule.controller.CarCardsController', {
     
     refs: [
         {ref: 'gridPanel', selector: 'gridpanel'},
-        {ref: 'trackingWindow', selector: 'trackingwindow'},
-        {ref: 'trackingGrid', selector: 'trackinggrid'}
+        {ref: 'trackingWindow', selector: 'trackingwindow'}
     ],
     
     /**
@@ -29,13 +28,15 @@ Ext.define('CarCardsModule.controller.CarCardsController', {
         gridPanel.on("cellclick", function(grid, td, cellIndex, record, tr, rowIndex, e, eOpts){
         	// 只在超链接列上触发事件
         	if(e.target.tagName === 'A') {
-            	// 判断窗体对象是否存在, 如果不存在，就创建一个新的窗体对象
-            	if(!trackingWindow){trackingWindow = Ext.create('CarCardsModule.view.TrackingWindow');}
+        		var trackingWindow = Ext.create('CarCardsModule.view.TrackingWindow')
+            	var store = Ext.getCmp('trackingGrid').getStore();
+			    var proxy = store.getProxy();
+   		        
+   		        proxy.extraParams = store.baseParams || {};
+   		        proxy.extraParams["carCode"] = record.get('carIncodeRecognize');
+   		        
+   		        store.reload();
             	
-            	// 设置查询参数
-            	el.getTrackingGrid().getStore().load({
-	                params: {icCode: record.get('carIncodeRecognize')}
-        		});
                 trackingWindow.show(); // 显示窗体
                 trackingWindow.center();// 窗体居中显示
         	}

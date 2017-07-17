@@ -68,8 +68,8 @@ Ext.define('TrackingModule.view.GridPanel', {
     		tbar: {// Top bar
     			xtype: 'simpletoolbar',
             	store: store, 
-            	label: '卡号/车牌号', 
-            	paramName: 'icCode'
+            	label: '卡号/全车牌', 
+            	paramName: 'complexCode'
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

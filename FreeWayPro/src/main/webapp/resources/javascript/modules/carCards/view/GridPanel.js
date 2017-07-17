@@ -3,7 +3,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
     alias: 'widget.gridpanel',
 
     requires: [
-       "Ext.plugins.SimpleToolbar",
+       "Ext.plugins.QueryCriteriaToolbar",
        "Ext.plugins.PicColumn",  
        "Ext.plugins.Paging"
     ],
@@ -48,7 +48,6 @@ Ext.define('CarCardsModule.view.GridPanel', {
             var carCode = store.getAt(rowIndex).get('carIncodeRecognize');  
         
             return '<a href="#"> '+ carCode + '</a>';  
-        
         } 
     },
     {
@@ -78,7 +77,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
         Ext.apply(this, {
             store: store,
             tbar: { // Top bar
-                xtype: 'simpletoolbar',
+                xtype: 'querycriteriatoolbar',
                 store: store,
                 label: '车牌号',
                 paramName: 'carCode',

@@ -5,7 +5,13 @@
 <mapper namespace="com.freeway.web.mappers.business.CarWithMultiCardsMapper">
     <!-- query condition -->
     <sql id="where_clause">
-        WHERE substr(carIncodeRecognize, 2) = #{carCode}
+        WHERE  enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="carCode != null and carCode != ''">
+                   AND REGEXP_LIKE(RTRIM(carincodeRecognize), #{carCode})
+               </if>
+               <if test="hiddenBlank == true">
+                   AND carincodeRecognize IS NOT NULL
+               </if>
     </sql>
     
 	<!-- 一车多卡分页数据查询 -->
