@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper的配置信息 -->
+<mapper namespace="com.freeway.web.mappers.business.MakeupCardMapper">
+    <!-- query condition -->
+    <sql id="where_clause">
+        WHERE EXISTS (
+                   SELECT row_id
+                   FROM fs_org_dept
+                   WHERE enteName = dept_name
+                   START WITH row_id = #{stationId}
+                   CONNECT BY PRIOR row_id = dept_parant_rowid
+               )  
+               AND enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="hiddenType == true">
+                   AND adm_id = '1'
+               </if>
+               <if test="icCode != null and icCode != ''">
+                   AND icCode = #{icCode}
+               </if>
+    </sql>
+    
+	<!-- 补录信息分页数据查询 -->
+	<select id="findByCondition" resultType="BackCard"
+		parameterType="ConditionFiled">
+			SELECT * FROM (
+			    SELECT a.*, row_number() OVER (ORDER BY a.enteDate DESC) rn 
+			    FROM   makeup_card_view a
+                <include refid="where_clause"></include>
+			)
+            WHERE rn > #{start} and #{limit} >= rn
+	</select>
+	
+	<!-- 补录信息总数据量查询 -->
+	<select id="selectCount" resultType="Integer" parameterType="ConditionFiled">
+	    SELECT COUNT(recordNo)
+	    FROM   makeup_card_view
+        <include refid="where_clause"></include>
+	</select>
+</mapper>
