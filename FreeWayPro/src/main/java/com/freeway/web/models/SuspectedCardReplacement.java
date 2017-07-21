@@ -25,6 +25,7 @@ public class SuspectedCardReplacement {
 	private String convertflag;
 	private String carType;
 	private String resdes;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -136,5 +137,13 @@ public class SuspectedCardReplacement {
 
 	public void setRatingweight(String ratingweight) {
 		this.ratingweight = ratingweight;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

@@ -21,6 +21,7 @@ public class WeightEquipmentMalfunction {
 	private String totalweight;
 	private String ratingweight;
 	private String carExitcodeRecognize;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -100,5 +101,13 @@ public class WeightEquipmentMalfunction {
 
 	public void setLane(String lane) {
 		this.lane = lane;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

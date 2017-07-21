@@ -22,6 +22,7 @@ public class TollDownshift {
 	private String rateInterval;
 	private String carExitcodeRecognize;
 	private String tollId;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -109,5 +110,13 @@ public class TollDownshift {
 
 	public void setTollId(String tollId) {
 		this.tollId = tollId;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

@@ -4,6 +4,6 @@ Ext.define('LoseCardModule.model.LoseCardModel', {
 	fields: [
 	    'recordNo', 'enteName', 'lane', 'vEnte', 
         'icCode', 'enteDate',
-        'carIncodeRecognize'
+        'carIncodeRecognize', 'enteCode'
     ]
 });

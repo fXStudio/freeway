@@ -23,6 +23,7 @@ public class LighterCarLongDistanceRunning {
 	private String ratingweight;
 	private String actdistance;
 	private String carExitcodeRecognize;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -118,5 +119,13 @@ public class LighterCarLongDistanceRunning {
 
 	public void setUcar(String ucar) {
 		this.ucar = ucar;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

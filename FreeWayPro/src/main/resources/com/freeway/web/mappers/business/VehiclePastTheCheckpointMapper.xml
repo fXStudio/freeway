@@ -13,6 +13,9 @@
                    CONNECT BY PRIOR row_id = dept_parant_rowid
                )
                AND exitDate >= #{beginDate} AND #{endDate} >= exitDate
+               <if test="hiddenType == true">
+                   AND adm_id = '1'
+               </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>

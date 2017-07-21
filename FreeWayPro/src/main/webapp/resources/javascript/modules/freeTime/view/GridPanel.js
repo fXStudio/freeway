@@ -85,7 +85,9 @@ Ext.define('FreeTimeModule.view.GridPanel', {
             	store: store, 
             	label: '车牌号', 
             	paramName: 'carCode',
-            	hideAxisum: true
+            	hideAxisum: true,
+                typeLabel: '过滤无图',
+            	hideType: false
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

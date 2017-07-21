@@ -9,6 +9,9 @@
                <if test="carCode != null and carCode != ''">
                    AND REGEXP_LIKE(RTRIM(carExitcodeRecognize), #{carCode})
                </if>
+               <if test="hiddenType == true">
+                   AND adm_id = '1'
+               </if>
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>

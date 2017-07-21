@@ -24,6 +24,7 @@ public class CardTypeDoesNotMatch {
 	private String carIncodeRecognize;
 	private String carExitcodeRecognize;
 	private String resdes;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -127,5 +128,13 @@ public class CardTypeDoesNotMatch {
 
 	public void setResdes(String resdes) {
 		this.resdes = resdes;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

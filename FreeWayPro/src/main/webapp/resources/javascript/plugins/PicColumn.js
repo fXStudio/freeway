@@ -13,9 +13,26 @@ Ext.define('Ext.plugins.PicColumn', {
 	listeners: {
 		'click': function(){
 		    Ext.create('Ext.plugins.ImageWindow', {
+		    	layout: 'border',
+		    	xtype: 'panel',
+		    	width: 900,
+		    	height: 400,
 		    	items: [{
-		        	html: '<image width="400" height="320" src="http://localhost:8080/ImageEngine/cdn/' 
-		        		+ arguments[5].get('recordNo') 
+		    		region: 'west',
+		    		width: 450,
+		    		title: '入口抓拍',
+		        	html: '<image width="450" height="320" src="http://localhost:8080/ImageEngine/mtc/' 
+		        		+ Ext.util.Format.date(arguments[5].get('exitDate'), 'Ymd') 
+		        		+ '/' +  arguments[5].get('exitCode') 
+		        		+ '/' +  arguments[5].get('recordNo') + "_outin"
+		        		+ '" onerror="javascript:this.src=\'images/nopicture.gif\'">' + '</image>'
+		        }, {
+		        	region: 'center',
+		    		title: '出口抓拍',
+		        	html: '<image width="450" height="320" src="http://localhost:8080/ImageEngine/mtc/' 
+		        		+ Ext.util.Format.date(arguments[5].get('exitDate'), 'Ymd') 
+		        		+ '/' +  arguments[5].get('exitCode') 
+		        		+ '/' +  arguments[5].get('recordNo')
 		        		+ '" onerror="javascript:this.src=\'images/nopicture.gif\'">' + '</image>'
 		        }]
 		    }).show();

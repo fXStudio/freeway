@@ -4,6 +4,7 @@ Ext.define('LongDistanceModule.model.LongDistanceModel', {
 	fields: [
 	     'recordNo', 'snCode', 'enteName', 'exitName', 'exitDate',
 	     'enteDate', 'axisnum', 'totalweight', 'ucar',
-	     'ratingweight', 'actdistance', 'carExitcodeRecognize'
+	     'ratingweight', 'actdistance', 'carExitcodeRecognize',
+         'exitCode'
     ]
 });

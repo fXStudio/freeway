@@ -24,6 +24,7 @@ public class SometimesWhenFreeAndNotFree {
 	private String exemption;
 	private String solidFree;
 	private String carExitcodeRecognize;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -127,5 +128,13 @@ public class SometimesWhenFreeAndNotFree {
 
 	public void setSolidFree(String solidFree) {
 		this.solidFree = solidFree;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

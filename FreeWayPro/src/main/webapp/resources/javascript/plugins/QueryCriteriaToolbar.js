@@ -13,6 +13,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 	convertflag: true,
 	cartype: true,
 	blankLabel: '过滤空牌',
+	typeLabel: '过滤车型',
 	cardType: '',
 	// 组件初始化函数，在组建初始化的时候，可以进行内部组件绑定
     initComponent: function() {
@@ -163,7 +164,7 @@ Ext.define('Ext.plugins.QueryCriteriaToolbar', {
 		   }, {
 	   		    id: 'hiddenType',
 		        xtype: 'checkbox',
-		        fieldLabel: '过滤车型',
+		        fieldLabel: this.typeLabel,
 	            labelWidth: 70,
 	            labelAlign: 'right',
 		        checked: true,

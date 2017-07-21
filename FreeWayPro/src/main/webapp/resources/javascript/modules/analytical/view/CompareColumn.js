@@ -97,7 +97,7 @@ Ext.define('AnalyticalModule.view.CompareColumn', {
 
 // 生成图片的URL信息
 function createImageUrl(record){
-	return '<image width="340" height="300" src="http://localhost:8080/ImageEngine/img/' 
+	return '<image width="340" height="300" src="http://localhost:8080/ImageEngine/etc/' 
 	+ record.get('carImage') 
 	+ '" onerror="javascript:this.src=\'images/nopicture.gif\'" onclick="showLarge(this)">' + '</image>'
 }

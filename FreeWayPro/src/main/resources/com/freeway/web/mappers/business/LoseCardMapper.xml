@@ -13,6 +13,9 @@
                    CONNECT BY PRIOR row_id = dept_parant_rowid
                )  
                AND enteDate >= #{beginDate} AND #{endDate} >= enteDate
+               <if test="hiddenType == true">
+                   AND adm_id = '1'
+               </if>
                <if test="icCode != null and icCode != ''">
                    AND icCode = #{icCode}
                </if>

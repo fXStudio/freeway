@@ -91,7 +91,9 @@ Ext.define('BadCardSearchModule.view.GridPanel', {
                 paramName: 'icCode',
                 stationHidden: false,
             	hideBlank: true,
-            	hideAxisum: true
+            	hideAxisum: true,
+                typeLabel: '过滤无图',
+            	hideType: false
             },
             bbar: { // Bottom bar
                 xtype: 'paging',

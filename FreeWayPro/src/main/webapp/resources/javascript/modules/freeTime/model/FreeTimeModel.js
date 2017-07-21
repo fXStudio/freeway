@@ -5,6 +5,7 @@ Ext.define('FreeTimeModule.model.FreeTimeModel', {
          'recordNo', 'enteName', 'exitName', 'vEnte', 
          'vExit', 'exitDate', 'enteDate', 'totalFare', 
          'carExitcodeRecognize', 'tollType', 'solidFree',
-         'receivable', 'exemption'
+         'receivable', 'exemption',
+         'exitCode'
     ]
 });

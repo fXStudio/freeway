@@ -10,10 +10,10 @@ import com.freeway.web.services.log.IUserSchedulerJobLogService;
 public class SystemMenuTest {
 	@Test
 	public void serviceTest() {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-*.xml");
-		IUserLoginLogService dao = (IUserLoginLogService) context.getBean("userLoginLogService");
-		
-		
-		context.close();
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-*.xml");
+//		IUserLoginLogService dao = (IUserLoginLogService) context.getBean("userLoginLogService");
+//		
+//		
+//		context.close();
 	}
 }

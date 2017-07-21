@@ -9,6 +9,9 @@
                <if test="hiddenBlank == true">
                    AND carExitcodeRecognize IS NOT NULL
                </if>
+               <if test="hiddenType == true">
+                   AND adm_id = '1'
+               </if>
                <choose>
                    <when test="axisum == '7'">
 					  AND axisnum >= 7

@@ -4,7 +4,7 @@ Ext.define('LoseCardModule.view.GridPanel', {
 	
 	requires: [
        "Ext.plugins.QueryCriteriaToolbar", 
-       "Ext.plugins.PicColumn", 
+       "Ext.plugins.EntePicColumn", 
        "Ext.plugins.Paging"
 	],
     defaults:{ sortable: true },
@@ -14,7 +14,7 @@ Ext.define('LoseCardModule.view.GridPanel', {
         header: '序号',
     	width: 50
 	}, {
-    	xtype: 'piccolumn' ,
+    	xtype: 'entepiccolumn' ,
     	width: 50
     }, {
 		header : '车牌',
@@ -65,7 +65,9 @@ Ext.define('LoseCardModule.view.GridPanel', {
             	paramName: 'icCode',
             	stationHidden: false,
             	hideBlank: true,
-            	hideAxisum: true
+            	hideAxisum: true,
+                typeLabel: '过滤无图',
+            	hideType: false
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

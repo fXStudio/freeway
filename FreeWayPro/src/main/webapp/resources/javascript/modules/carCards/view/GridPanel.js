@@ -4,7 +4,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
 
     requires: [
        "Ext.plugins.QueryCriteriaToolbar",
-       "Ext.plugins.PicColumn",  
+       "Ext.plugins.EntePicColumn",  
        "Ext.plugins.Paging"
     ],
     
@@ -17,7 +17,7 @@ Ext.define('CarCardsModule.view.GridPanel', {
         header: '序号',
         width: 50
     }, {
-    	xtype: 'piccolumn' ,
+    	xtype: 'entepiccolumn' ,
     	width: 50
     },
     {
@@ -81,6 +81,8 @@ Ext.define('CarCardsModule.view.GridPanel', {
                 store: store,
                 label: '车牌号',
                 paramName: 'carCode',
+                typeLabel: '过滤无图',
+            	hideType: false,
                 hideAxisum: true
             },
             bbar: { // Bottom bar

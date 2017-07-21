@@ -76,7 +76,9 @@ Ext.define('HeavyTruckModule.view.GridPanel', {
     			xtype: 'querycriteriatoolbar',
             	store: store, 
             	label: '车牌号', 
-            	paramName: 'carCode'
+            	paramName: 'carCode',
+                typeLabel: '过滤无图',
+            	hideType: false
     		},
         	bbar: {// Bottom bar
         		xtype: 'paging',

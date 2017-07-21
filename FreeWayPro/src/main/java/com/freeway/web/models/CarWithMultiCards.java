@@ -20,6 +20,7 @@ public class CarWithMultiCards {
 	private String carIncodeRecognize;
 	private String icCode;
 	private String tollId;
+	private String enteCode;
 
 	public String getIcCode() {
 		return icCode;
@@ -91,5 +92,13 @@ public class CarWithMultiCards {
 
 	public void setTollId(String tollId) {
 		this.tollId = tollId;
+	}
+
+	public String getEnteCode() {
+		return enteCode;
+	}
+
+	public void setEnteCode(String enteCode) {
+		this.enteCode = enteCode;
 	}
 }

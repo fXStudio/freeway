@@ -18,6 +18,7 @@ public class VehiclePastTheCheckpoint {
 	private String intollId;
 	private String exitDate;
 	private String carExitcodeRecognize;
+	private String exitCode;
 
 	public String getRecordNo() {
 		return recordNo;
@@ -73,5 +74,13 @@ public class VehiclePastTheCheckpoint {
 
 	public void setIntollId(String intollId) {
 		this.intollId = intollId;
+	}
+
+	public String getExitCode() {
+		return exitCode;
+	}
+
+	public void setExitCode(String exitCode) {
+		this.exitCode = exitCode;
 	}
 }

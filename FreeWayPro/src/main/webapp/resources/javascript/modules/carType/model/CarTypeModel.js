@@ -5,6 +5,7 @@ Ext.define('CarTypeModule.model.CarTypeModel', {
          'recordNo', 'enteName', 'exitName', 'lane', 
          'vEnte', 'vExit', 'exitDate', 'enteDate', 
          'tollId', 'icCode', 'carIncodeRecognize',
-         'carExitcodeRecognize', 'resdes'
+         'carExitcodeRecognize', 'resdes',
+         'exitCode'
     ]
 });

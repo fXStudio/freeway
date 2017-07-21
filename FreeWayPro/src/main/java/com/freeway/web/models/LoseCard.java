@@ -25,6 +25,7 @@ public class LoseCard {
 	private String carIncodeRecognize;
 	/** IC卡号 */
 	private String icCode;
+	private String enteCode;
 
 	public String getIcCode() {
 		return icCode;
@@ -88,5 +89,13 @@ public class LoseCard {
 
 	public void setCarIncodeRecognize(String carIncodeRecognize) {
 		this.carIncodeRecognize = carIncodeRecognize;
+	}
+
+	public String getEnteCode() {
+		return enteCode;
+	}
+
+	public void setEnteCode(String enteCode) {
+		this.enteCode = enteCode;
 	}
 }
